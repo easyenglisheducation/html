@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Lección Neural: Presente Perfecto de Duración Inconclusa (B2+) - By Coach Carlos O.</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0F172A',
+                            card: '#1E293B',
+                            accent: '#06B6D4',
+                            purple: '#8B5CF6',
+                            emerald: '#10B981',
+                            amber: '#F59E0B',
+                            rose: '#F43F5E'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0F172A;
+            color: #F8FAFC;
+        }
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+        .tab-active {
+            border-bottom: 3px solid #06B6D4;
+            color: #06B6D4;
+            font-weight: 700;
+        }
+        .pulse-mic {
+            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(244, 63, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+        }
+        /* Mobile tap highlight reset */
+        button, a {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER / BRANDING -->
+    <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50 shadow-lg backdrop-blur bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3 w-full sm:w-auto">
+                <div class="bg-gradient-to-tr from-cyan-500 to-purple-600 p-2.5 rounded-xl shadow-lg shrink-0">
+                    <i class="fa-solid fa-brain text-2xl text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-extrabold tracking-tight text-white flex flex-wrap items-center gap-2">
+                        Super Lección Neural <span class="bg-cyan-500/10 text-cyan-400 text-[10px] sm:text-xs px-2.5 py-0.5 rounded-full border border-cyan-500/20 font-bold whitespace-nowrap">B2+ Advanced</span>
+                    </h1>
+                    <p class="text-xs text-slate-400 font-medium">Presente Perfecto: Duración Inconclusa • <span class="text-cyan-400 font-bold">By Coach Carlos O.</span></p>
+                </div>
+            </div>
+
+            <!-- MODULE NAVIGATION TABS (Flex-wrap for mobile) -->
+            <nav class="flex flex-wrap space-x-1 sm:space-x-4 border-b border-slate-800 sm:border-0 w-full sm:w-auto justify-center sm:justify-end">
+                <button onclick="switchTab('module1')" id="tab-module1" class="tab-btn tab-active px-3 py-3 text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 active:scale-95 touch-manipulation">
+                    <i class="fa-solid fa-book-open"></i> <span class="hidden sm:inline">Fórmulas</span>
+                </button>
+                <button onclick="switchTab('module2')" id="tab-module2" class="tab-btn px-3 py-3 text-xs sm:text-sm font-semibold text-slate-400 hover:text-slate-200 transition-all flex items-center gap-2 active:scale-95 touch-manipulation">
+                    <i class="fa-solid fa-gamepad"></i> Desafíos
+                </button>
+                <button onclick="switchTab('module3')" id="tab-module3" class="tab-btn px-3 py-3 text-xs sm:text-sm font-semibold text-slate-400 hover:text-slate-200 transition-all flex items-center gap-2 active:scale-95 touch-manipulation">
+                    <i class="fa-solid fa-microphone-lines"></i> Práctica Oral
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- ================= MODULE 1 ================= -->
+        <section id="module1" class="tab-content space-y-10">
+            <!-- Grammatical Breakdown Banner -->
+            <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-6 shadow-xl backdrop-blur">
+                <div class="border-b border-slate-700 pb-4 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                            <i class="fa-solid fa-diagram-project text-cyan-400 text-2xl"></i> Arquitectura Gramatical B2+
+                        </h2>
+                        <p class="text-sm text-slate-400 mt-2">Conecta el inicio de una acción en el pasado con su continuidad ininterrumpida en el presente actual usando For y Since.</p>
+                    </div>
+                    <span class="inline-block bg-purple-500/10 text-purple-400 text-xs font-bold px-4 py-1.5 rounded-full border border-purple-500/20 whitespace-nowrap">Pasado Inconcluso -> Presente</span>
+                </div>
+
+                <!-- Formulas Grid -->
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- For (Duration) -->
+                    <div class="bg-slate-900/90 rounded-xl p-5 border border-slate-700/50 flex flex-col justify-between shadow-inner">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-3 py-1.5 rounded-md border border-emerald-500/30">FOR + Período</span>
+                                <i class="fa-solid fa-hourglass-half text-emerald-400 text-lg"></i>
+                            </div>
+                            <p class="text-xs font-mono text-cyan-300 mb-3 bg-slate-950 p-2 rounded">Subject + Have/Has + V3 + FOR + Duration</p>
+                            <p class="text-sm text-slate-300 italic leading-relaxed">"Our firm <strong>has operated</strong> in Colombia <strong>for over fifteen years</strong>."</p>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-5 border-t border-slate-800 pt-3">Uso: Mide la extensión total del tiempo transcurrido hasta hoy.</p>
+                    </div>
+
+                    <!-- Since (Starting Point) -->
+                    <div class="bg-slate-900/90 rounded-xl p-5 border border-slate-700/50 flex flex-col justify-between shadow-inner">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-rose-500/20 text-rose-400 text-xs font-bold px-3 py-1.5 rounded-md border border-rose-500/30">SINCE + Inicio</span>
+                                <i class="fa-solid fa-calendar-day text-rose-400 text-lg"></i>
+                            </div>
+                            <p class="text-xs font-mono text-cyan-300 mb-3 bg-slate-950 p-2 rounded">Subject + Have/Has + V3 + SINCE + Point in Time</p>
+                            <p class="text-sm text-slate-300 italic leading-relaxed">"She <strong>has spearheaded</strong> the AI initiative <strong>since 2021</strong>."</p>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-5 border-t border-slate-800 pt-3">Uso: Identifica la fecha, año o momento preciso de origen.</p>
+                    </div>
+
+                    <!-- Modern Ongoing Markers -->
+                    <div class="bg-slate-900/90 rounded-xl p-5 border border-slate-700/50 flex flex-col justify-between shadow-inner">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-3 py-1.5 rounded-md border border-amber-500/30">Up to now / To date</span>
+                                <i class="fa-solid fa-chart-line text-amber-400 text-lg"></i>
+                            </div>
+                            <p class="text-xs font-mono text-cyan-300 mb-3 bg-slate-950 p-2 rounded">Subject + Have/Has + V3 + Up to now</p>
+                            <p class="text-sm text-slate-300 italic leading-relaxed">"We <strong>have deployed</strong> ten updates <strong>up to now</strong>."</p>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-5 border-t border-slate-800 pt-3">Uso: Enfatiza la suma acumulada de resultados vigentes hoy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8 Comparative Examples -->
+            <div class="space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-purple-400"></i> 8 Matices Avanzados
+                    </h3>
+                    <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1.5 rounded-full">Toca el audio para escuchar pronunciación</span>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4" id="comparative-examples-grid">
+                    <!-- Populated via JavaScript -->
+                </div>
+            </div>
+
+            <!-- 16 Flashcards Section -->
+            <div class="space-y-4 pt-6 border-t border-slate-800">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-clone text-cyan-400"></i> 16 Flashcards (Recuerdo Activo)
+                    </h3>
+                    <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1.5 rounded-full">Toca cualquier tarjeta para voltearla</span>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="flashcards-grid">
+                    <!-- Populated via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= MODULE 2 (MULTIPLE CHOICE & CLICK-TO-BUILD COMPLIANT UI) ================= -->
+        <section id="module2" class="tab-content hidden space-y-8">
+            <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-6 sm:p-8 shadow-xl backdrop-blur max-w-4xl mx-auto">
+                <!-- Quiz Header -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6 border-b border-slate-700 gap-6">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                            <i class="fa-solid fa-gamepad text-cyan-400 text-2xl"></i> Desafíos Interactivos B2+
+                        </h2>
+                        <p class="text-sm text-slate-400 mt-2">Evalúa tu precisión en estructuras de duración inconclusa, marcadores temporales y pragmática.</p>
+                    </div>
+                    <div class="flex items-center gap-6 bg-slate-900 px-6 py-3 rounded-xl border border-slate-700 w-full sm:w-auto justify-center shadow-inner">
+                        <div class="text-center">
+                            <p class="text-[10px] sm:text-xs text-slate-400 uppercase font-bold tracking-wider mb-1">Puntaje</p>
+                            <p class="text-xl sm:text-2xl font-extrabold text-cyan-400" id="quiz-score">0 / 12</p>
+                        </div>
+                        <div class="h-10 w-px bg-slate-700"></div>
+                        <div class="text-center">
+                            <p class="text-[10px] sm:text-xs text-slate-400 uppercase font-bold tracking-wider mb-1">Progreso</p>
+                            <p class="text-xl sm:text-2xl font-extrabold text-purple-400" id="quiz-progress">0%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiz Progress Bar -->
+                <div class="w-full bg-slate-900 h-3 rounded-full overflow-hidden my-8 border border-slate-700/50">
+                    <div id="quiz-bar" class="bg-gradient-to-r from-cyan-500 to-purple-600 h-full w-0 transition-all duration-300"></div>
+                </div>
+
+                <!-- Quiz Container -->
+                <div id="quiz-container" class="space-y-8">
+                    <!-- Current Question Card inserted by JS -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= MODULE 3 (AI SPEECH RECOGNITION) ================= -->
+        <section id="module3" class="tab-content hidden space-y-8">
+            <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-6 sm:p-8 shadow-xl backdrop-blur max-w-4xl mx-auto">
+                <!-- Module Header -->
+                <div class="pb-6 border-b border-slate-700 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                            <i class="fa-solid fa-microphone-lines text-rose-400 text-2xl"></i> Entrenamiento Oral AI
+                        </h2>
+                        <p class="text-sm text-slate-400 mt-2 leading-relaxed">Escucha el audio nativo. Toca grabar y habla libremente; el sistema ha sido optimizado con algoritmos <strong>Fuzzy Matching</strong> (tolerante con nombres propios) y de fusión de textos para evitar duplicaciones indeseadas al grabar en tu celular.</p>
+                    </div>
+                    <span class="bg-rose-500/10 text-rose-400 text-xs font-bold px-4 py-1.5 rounded-full border border-rose-500/20 whitespace-nowrap">Motor de Inteligencia de Voz</span>
+                </div>
+
+                <!-- Exercise Selector Carousel/Grid -->
+                <div class="my-8">
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-3 tracking-wider">Selecciona la frase para practicar:</label>
+                    <select id="speech-selector" onchange="loadSpeechExercise(this.value)" class="w-full bg-slate-900 border border-slate-700 text-cyan-300 font-semibold text-sm sm:text-base rounded-xl px-4 py-3.5 focus:outline-none focus:border-cyan-500 truncate shadow-inner">
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+
+                <!-- Practice Display Box -->
+                <div class="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-700/80 shadow-inner space-y-8 relative overflow-hidden">
+                    <!-- Aesthetic background glow -->
+                    <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-cyan-900/20 blur-3xl pointer-events-none"></div>
+
+                    <div class="flex justify-between items-start gap-4 relative z-10">
+                        <div class="flex-1">
+                            <span class="text-[10px] sm:text-xs font-bold text-cyan-400 uppercase tracking-wider block mb-2" id="speech-category">Categoría</span>
+                            <h3 class="text-xl sm:text-2xl font-bold text-white leading-tight" id="speech-target-text">Loading target phrase...</h3>
+                            <p class="text-sm sm:text-base text-slate-400 italic mt-3" id="speech-translation">Traducción...</p>
+                        </div>
+                        <button onclick="speakTargetPhrase()" class="p-3.5 bg-slate-800 hover:bg-slate-700 text-cyan-400 rounded-xl border border-slate-700 transition active:scale-95 touch-manipulation shadow-md shrink-0" title="Escuchar pronunciación nativa">
+                            <i class="fa-solid fa-volume-high text-xl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Audio Recording Controls -->
+                    <div class="flex flex-col items-center justify-center py-8 border-t border-b border-slate-800/80 gap-5 relative z-10">
+                        <button id="mic-btn" onclick="toggleSpeechRecording()" class="w-24 h-24 rounded-full bg-gradient-to-tr from-rose-600 to-pink-500 hover:from-rose-500 hover:to-pink-400 text-white flex items-center justify-center shadow-lg shadow-rose-500/20 transition-all transform active:scale-95 touch-manipulation">
+                            <i class="fa-solid fa-microphone text-4xl" id="mic-icon"></i>
+                        </button>
+                        <p class="text-sm font-semibold text-slate-400 text-center px-4" id="mic-status">Toca el micrófono para grabar tu voz</p>
+                    </div>
+
+                    <!-- Real-Time Transcription Output Box -->
+                    <div class="space-y-3 relative z-10">
+                        <label class="block text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">Transcripción en Tiempo Real:</label>
+                        <div id="transcript-box" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-5 min-h-[90px] text-base sm:text-lg text-slate-300 italic font-mono flex items-center leading-relaxed">
+                            --
+                        </div>
+                    </div>
+
+                    <!-- AI Feedback Box (Fuzzy Match & Medium Strictness) -->
+                    <div id="feedback-box" class="hidden rounded-xl p-6 border transition-all space-y-4 shadow-lg relative z-10">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/50 pb-3">
+                            <span class="text-sm sm:text-base font-bold uppercase tracking-wide flex items-center gap-2" id="feedback-title">
+                                <i class="fa-solid fa-chart-pie"></i> Resultado del Análisis
+                            </span>
+                            <span class="text-3xl font-extrabold" id="feedback-score">0%</span>
+                        </div>
+                        <p class="text-sm sm:text-base font-medium leading-relaxed" id="feedback-text"></p>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="flex flex-col sm:flex-row justify-between items-center pt-6 gap-4 border-t border-slate-700/50">
+                    <button onclick="prevSpeechExercise()" class="w-full sm:w-auto px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-bold rounded-xl border border-slate-700 transition active:scale-95 touch-manipulation flex items-center justify-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-chevron-left"></i> Anterior
+                    </button>
+                    <span class="text-xs sm:text-sm text-slate-400 font-bold bg-slate-900 px-4 py-2 rounded-lg border border-slate-800" id="speech-counter">1 de 16</span>
+                    <button onclick="nextSpeechExercise()" class="w-full sm:w-auto px-8 py-3.5 bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-bold rounded-xl transition active:scale-95 touch-manipulation flex items-center justify-center gap-2 shadow-lg shadow-cyan-600/30">
+                        Siguiente <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER / COPYRIGHT -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-8 text-center text-xs text-slate-500 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center gap-2">
+            <p class="font-medium">© Developed for educational excellence By Coach Carlos O</p>
+            <p class="text-slate-600">Plataforma Neuroeducativa de Aprendizaje Acelerado • Inglés Nivel Avanzado B2+</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // ================= GLOBAL DATA & AUDIO INIT =================
+        let ttsInitialized = false;
+
+        function initializeAudioContext() {
+            if (!ttsInitialized && 'speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance('');
+                utterance.volume = 0;
+                window.speechSynthesis.speak(utterance);
+                ttsInitialized = true;
+            }
+        }
+        window.addEventListener('click', initializeAudioContext, { once: true });
+        window.addEventListener('touchstart', initializeAudioContext, { once: true });
+
+        // 8 Comparative Examples (Module 1)
+        const comparativeExamples = [
+            {
+                title: "Duración Inconclusa (For) vs. Período Concluido en el Pasado",
+                perfect: "We have lived in Bogota for six years.",
+                perfectTrans: "Hemos vivido en Bogotá durante seis años (y aún vivimos aquí).",
+                past: "We lived in Bogota for six years before moving to Medellin.",
+                pastTrans: "Vivimos en Bogotá durante seis años (período concluido).",
+                note: "El Present Perfect con 'for' indica que la situación sigue activa hoy."
+            },
+            {
+                title: "Punto de Inicio Preciso (Since) vs. Fecha Específica Pasada",
+                perfect: "Dr. Ramos has directed the research facility since 2018.",
+                perfectTrans: "El Dr. Ramos ha dirigido la instalación desde 2018 (sigue siéndolo).",
+                past: "Dr. Ramos assumed leadership of the research facility in 2018.",
+                pastTrans: "El Dr. Ramos asumió el liderazgo en 2018 (evento puntual pasado).",
+                note: "'Since' conecta un momento específico del pasado directamente con el presente."
+            },
+            {
+                title: "Verbos Estáticos (Know / Belong / Own)",
+                perfect: "They have owned the software patent for over a decade.",
+                perfectTrans: "Han sido propietarios de la patente durante más de una década.",
+                past: "They owned the software patent for ten years until selling it.",
+                pastTrans: "Fueron propietarios de la patente diez años hasta que la vendieron.",
+                note: "Los verbos estáticos expresan continuidad en Present Perfect Simple."
+            },
+            {
+                title: "Acumulado Progresivo (To Date / Up to now)",
+                perfect: "Our platform has processed over two million transactions to date.",
+                perfectTrans: "Nuestra plataforma ha procesado dos millones de transacciones a la fecha.",
+                past: "Our platform processed two million transactions last year.",
+                pastTrans: "Nuestra plataforma procesó dos millones de transacciones el año pasado.",
+                note: "'To date' y 'up to now' marcan una cifra acumulada que sigue abierta."
+            },
+            {
+                title: "Duración de Empleo y Rol Profesional (For)",
+                perfect: "She has worked as senior learning coach for five years.",
+                perfectTrans: "Ha trabajado como coach senior durante cinco años (continúa en el rol).",
+                past: "She worked as senior learning coach for five years at her previous firm.",
+                pastTrans: "Trabajó como coach senior durante cinco años (empleo finalizado).",
+                note: "En perfiles profesionales, Present Perfect indica vigencia laboral actual."
+            },
+            {
+                title: "Cláusula Subordinada (Since + Past Simple)",
+                perfect: "The metrics have improved significantly since we implemented the protocol.",
+                perfectTrans: "Las métricas han mejorado desde que implementamos el protocolo.",
+                past: "The metrics improved when we implemented the protocol last month.",
+                pastTrans: "Las métricas mejoraron cuando implementamos el protocolo.",
+                note: "'Since' puede ser seguido por una oración completa en Past Simple."
+            },
+            {
+                title: "Extensión Temporal Abierta (How long)",
+                perfect: "How long have you maintained this educational platform?",
+                perfectTrans: "¿Cuánto tiempo has mantenido esta plataforma? (sigue existiendo).",
+                past: "How long did you maintain that educational platform?",
+                pastTrans: "¿Cuánto tiempo mantuviste esa plataforma? (plataforma pasada).",
+                note: "'How long have you + V3' investiga la duración total vigente."
+            },
+            {
+                title: "Duración de Instituciones (Since)",
+                perfect: "Our university has maintained an academic partnership since July.",
+                perfectTrans: "Nuestra universidad ha mantenido un convenio desde julio.",
+                past: "Our university established an academic partnership in July.",
+                pastTrans: "Nuestra universidad estableció un convenio en julio.",
+                note: "'Since' enfatiza la vigencia activa del vínculo institucional."
+            }
+        ];
+
+        // 16 Flashcards (Module 1)
+        const flashcardsData = [
+            { front: "Has operated for...", back: "Ha operado durante...", context: "The facility has operated for over ten years." },
+            { front: "Have known since...", back: "Hemos conocido desde...", context: "We have known each other since university." },
+            { front: "Has served for...", back: "Ha ejercido durante...", context: "He has served as CEO for five years now." },
+            { front: "Have maintained to date", back: "Hemos mantenido a la fecha", context: "We have maintained top quality standards to date." },
+            { front: "Has expanded since...", back: "Se ha expandido desde...", context: "The network has expanded since the merger." },
+            { front: "Have resided for...", back: "Han residido durante...", context: "They have resided in Bogota for a decade." },
+            { front: "Has been in effect since", back: "Ha estado vigente desde", context: "The regulation has been in effect since January." },
+            { front: "Have accumulated up to now", back: "Hemos acumulado hasta ahora", context: "We have accumulated vast data up to now." },
+            { front: "Has spearheaded for...", back: "Ha liderado durante...", context: "She has spearheaded the project for two years." },
+            { front: "Have held the position since", back: "He ocupado el cargo desde", context: "I have held this position since 2022." },
+            { front: "Has remained for...", back: "Ha permanecido durante...", context: "The policy has remained unchanged for years." },
+            { front: "Have advocated since...", back: "Han abogado desde...", context: "Experts have advocated reform since last spring." },
+            { front: "Has grown for...", back: "Ha crecido durante...", context: "User adoption has grown for consecutive quarters." },
+            { front: "Have suffered no downtime", back: "No han sufrido caídas", context: "The system has suffered no downtime to date." },
+            { front: "Has flourished since...", back: "Ha florecido desde...", context: "The startup has flourished since receiving funding." },
+            { front: "Have partnered for...", back: "Nos hemos aliado durante...", context: "We have partnered with the university for five years." }
+        ];
+
+        // 12 Quizzes (Module 2) - CLICK TO BUILD UI INTEGRATED
+        const quizQuestions = [
+            {
+                question: "Which sentence correctly expresses an ongoing action that began in the past and continues into the present?",
+                options: [
+                    "Our company has operated in South America for twelve years.",
+                    "Our company operated in South America for twelve years until 2020.",
+                    "Our company is operating in South America since twelve years.",
+                    "Our company operates in South America for twelve years ago."
+                ],
+                correct: 0,
+                explanation: "Present Perfect + 'for' indicates that the twelve-year period started in the past and remains ongoing now."
+            },
+            {
+                question: "Choose the correct sentence to show a precise starting moment for an active professional position:",
+                options: [
+                    "She has been the department head since three years.",
+                    "She has been the department head since 2023.",
+                    "She was the department head since 2023.",
+                    "She is the department head for 2023."
+                ],
+                correct: 1,
+                explanation: "'Since' must be used with a specific point in time (e.g., a year, a date, or a past event mark)."
+            },
+            {
+                question: "Select the sentence that contains a duration error with 'for' and 'since':",
+                options: [
+                    "We have worked together since we graduated.",
+                    "They have developed this platform for five years.",
+                    "He has managed the regional team since six months.",
+                    "The institution has expanded its reach since 2020."
+                ],
+                correct: 2,
+                explanation: "'Six months' is a duration, not a point in time. It requires 'for six months', not 'since'."
+            },
+            {
+                question: "What is the key difference between 'I have lived here for two years' and 'I lived here for two years'?",
+                options: [
+                    "The first means I still live here now; the second means I no longer live here.",
+                    "The first indicates a completed action; the second indicates a future plan.",
+                    "Both mean that I currently live somewhere else.",
+                    "The first is informal slang; the second is formal executive English."
+                ],
+                correct: 0,
+                explanation: "Present Perfect with 'for' keeps the duration open to the present. Simple Past with 'for' closes the duration in the past."
+            },
+            {
+                question: "Complete the statement appropriately: 'Our engineering team _____ zero security breaches to date.'",
+                options: [
+                    "experienced",
+                    "has experienced",
+                    "is experiencing",
+                    "was experienced"
+                ],
+                correct: 1,
+                explanation: "'To date' frames an open accumulation up to the present moment, requiring the Present Perfect ('has experienced')."
+            },
+            {
+                question: "Identify the correct structure when combining 'since' with a past simple time clause:",
+                options: [
+                    "Revenue has increased steadily since we launched the AI tool.",
+                    "Revenue increased steadily since we have launched the AI tool.",
+                    "Revenue is increasing steadily since we launch the AI tool.",
+                    "Revenue has been increased since we launch the AI tool."
+                ],
+                correct: 0,
+                explanation: "The main clause uses Present Perfect ('has increased') and the 'since' clause uses Simple Past ('since we launched')."
+            },
+            {
+                question: "Which question correctly asks about the ongoing duration of someone's current residence?",
+                options: [
+                    "How long did you live in this city?",
+                    "How long have you lived in this city?",
+                    "How long are you living in this city for?",
+                    "How long do you live in this city since?"
+                ],
+                correct: 1,
+                explanation: "'How long have you + V3...?' is the standard structure to ask about the duration of a current, ongoing state."
+            },
+            {
+                question: "Fill in the blank: 'Dr. Ortiz _____ an educational platform for over ten years now.'",
+                options: [
+                    "has maintained",
+                    "maintained",
+                    "maintains for",
+                    "is maintaining since"
+                ],
+                correct: 0,
+                explanation: "'For over ten years now' combines duration and present continuity, calling for Present Perfect ('has maintained')."
+            },
+            {
+                question: "Select the sentence using a stative verb to describe continuous past-to-present ownership:",
+                options: [
+                    "They have owned this regional license since the company was founded.",
+                    "They are owning this regional license for ten years.",
+                    "They own this regional license since five years.",
+                    "They were owning this regional license up to now."
+                ],
+                correct: 0,
+                explanation: "'Own' is a stative verb. Its ongoing duration from the past to now is expressed with Present Perfect Simple ('have owned')."
+            },
+            {
+                question: "Which temporal marker best completes: 'The new policy has been in full effect _____ last Monday.'?",
+                options: [
+                    "for",
+                    "since",
+                    "ago",
+                    "during"
+                ],
+                correct: 1,
+                explanation: "'Last Monday' is a specific starting point in time, which requires 'since'."
+            },
+            {
+                question: "Choose the sentence that correctly uses 'up to now' in an academic context:",
+                options: [
+                    "Up to now, the research team has collected over five thousand surveys.",
+                    "Up to now, the research team collected five thousand surveys yesterday.",
+                    "Up to now, the research team is collecting surveys.",
+                    "Up to now, the research team collects surveys since May."
+                ],
+                correct: 0,
+                explanation: "'Up to now' specifies cumulative progress up to the present and pairs with Present Perfect ('has collected')."
+            },
+            {
+                question: "Identify the sentence that contains a grammatical error:",
+                options: [
+                    "She has served as lead researcher since 2021.",
+                    "We have known the solution for several weeks.",
+                    "He has worked at the university since five years.",
+                    "The framework has remained unchanged to date."
+                ],
+                correct: 2,
+                explanation: "'Five years' is a duration of time and must take 'for', not 'since'. It should read 'for five years'."
+            }
+        ];
+
+        // 16 Speech Practice Items (Module 3)
+        const speechExercises = [
+            {
+                category: "Ongoing Operations",
+                target: "Our educational platform has operated in South America for over ten years now.",
+                translation: "Nuestra plataforma educativa ha operado en Sudamérica durante más de diez años."
+            },
+            {
+                category: "Executive Tenure",
+                target: "She has served as senior managing director since the corporate merger in 2022.",
+                translation: "Ella ha ejercido como directora general senior desde la fusión corporativa en 2022."
+            },
+            {
+                category: "Acquired Metrics",
+                target: "We have processed more than two million automated transactions to date.",
+                translation: "Hemos procesado más de dos millones de transacciones automatizadas hasta la fecha."
+            },
+            {
+                category: "Stative Continuity",
+                target: "They have owned the international technology patent for over a decade.",
+                translation: "Han sido propietarios de la patente internacional de tecnología durante más de una década."
+            },
+            {
+                category: "Subordinate Time Clauses",
+                target: "System efficiency has improved dramatically since we implemented the new protocol.",
+                translation: "La eficiencia del sistema ha mejorado drásticamente desde que implementamos el nuevo protocolo."
+            },
+            {
+                category: "Academic Partnerships",
+                target: "Our university has maintained an active research partnership since last year.",
+                translation: "Nuestra universidad ha mantenido un convenio de investigación activo desde el año pasado."
+            },
+            {
+                category: "Professional Experience",
+                target: "I have worked as an English teacher and curriculum designer for fifteen years.",
+                translation: "He trabajado como profesor de inglés y diseñador curricular durante quince años."
+            },
+            {
+                category: "Regulatory Status",
+                target: "The new data privacy policy has been in full effect since January first.",
+                translation: "La nueva política de privacidad de datos ha estado en pleno vigor desde el primero de enero."
+            },
+            {
+                category: "Continuous Stewardship",
+                target: "Dr. Ortiz has spearheaded neuroeducational research for over two decades now.",
+                translation: "El Dr. Ortiz ha liderado la investigación neuroeducativa durante más de dos décadas."
+            },
+            {
+                category: "Uptime Benchmarks",
+                target: "Our cloud server network has suffered zero technical downtime up to now.",
+                translation: "Nuestra red de servidores en la nube no ha sufrido interrupciones técnicas hasta el momento."
+            },
+            {
+                category: "Strategic Expansion",
+                target: "The regional business network has expanded continuously since 2020.",
+                translation: "La red de negocios regional se ha expandido continuamente desde 2020."
+            },
+            {
+                category: "Long-standing Trust",
+                target: "We have maintained a strong relationship with our global partners for years.",
+                translation: "Hemos mantenido una relación sólida con nuestros socios globales durante años."
+            },
+            {
+                category: "Consecutive Growth",
+                target: "Student enrollment has grown consistently for six consecutive quarters.",
+                translation: "La inscripción de estudiantes ha crecido consistentemente durante seis trimestres consecutivos."
+            },
+            {
+                category: "Policy Consistency",
+                target: "The institutional guidelines have remained completely unchanged since their release.",
+                translation: "Las pautas institucionales han permanecido completamente sin cambios desde su publicación."
+            },
+            {
+                category: "Cumulative Findings",
+                target: "The research lab has gathered substantial evidence over the past three months.",
+                translation: "El laboratorio de investigación ha reunido evidencia sustancial durante los últimos tres meses."
+            },
+            {
+                category: "Duration Inquiries",
+                target: "How long have you managed this cross-functional team of software engineers?",
+                translation: "¿Cuánto tiempo has gestionado este equipo multidisciplinario de ingenieros de software?"
+            }
+        ];
+
+
+        // ================= STATE MANAGEMENT =================
+        let currentQuizIndex = 0;
+        let quizScore = 0;
+        let answeredQuestions = new Array(quizQuestions.length).fill(false);
+
+        let currentSpeechIndex = 0;
+        let isRecording = false;
+        let recognition = null;
+        let finalTranscript = '';
+
+
+        // ================= INITIALIZATION =================
+        document.addEventListener('DOMContentLoaded', () => {
+            renderComparativeExamples();
+            renderFlashcards();
+            renderQuizQuestion(0);
+            initSpeechSelector();
+            loadSpeechExercise(0);
+            setupSpeechRecognition();
+        });
+
+
+        // ================= NAVIGATION =================
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('tab-active');
+                el.classList.add('text-slate-400');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.classList.add('tab-active');
+            activeBtn.classList.remove('text-slate-400');
+        }
+
+
+        // ================= MODULE 1 RENDERING =================
+        function renderComparativeExamples() {
+            const container = document.getElementById('comparative-examples-grid');
+            container.innerHTML = comparativeExamples.map((item, index) => `
+                <div class="bg-slate-900/90 rounded-xl p-5 sm:p-6 border border-slate-700/60 shadow-md space-y-4">
+                    <h4 class="text-[11px] sm:text-xs font-bold text-cyan-400 uppercase tracking-wider">${index + 1}. ${item.title}</h4>
+                    
+                    <div class="space-y-2 bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="flex-1">
+                                <p class="text-xs sm:text-sm font-bold text-emerald-400 font-mono mb-1">Duración Inconclusa (Present Perfect):</p>
+                                <p class="text-sm sm:text-base text-slate-100 font-semibold leading-snug">"${item.perfect}"</p>
+                                <p class="text-xs text-slate-400 italic mt-1 leading-snug">${item.perfectTrans}</p>
+                            </div>
+                            <button onclick="speakText('${escapeQuotes(item.perfect)}')" class="text-emerald-400 hover:text-emerald-300 p-2.5 bg-slate-800 rounded-xl shadow-sm shrink-0 active:scale-95 touch-manipulation">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="flex-1">
+                                <p class="text-xs sm:text-sm font-bold text-purple-400 font-mono mb-1">Contraste (Período Concluido):</p>
+                                <p class="text-sm sm:text-base text-slate-100 font-semibold leading-snug">"${item.past}"</p>
+                                <p class="text-xs text-slate-400 italic mt-1 leading-snug">${item.pastTrans}</p>
+                            </div>
+                            <button onclick="speakText('${escapeQuotes(item.past)}')" class="text-purple-400 hover:text-purple-300 p-2.5 bg-slate-800 rounded-xl shadow-sm shrink-0 active:scale-95 touch-manipulation">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-amber-300/90 bg-amber-500/10 p-3 rounded-lg border border-amber-500/20 leading-relaxed">
+                        <strong><i class="fa-solid fa-key mr-1"></i> Clave Neural:</strong> ${item.note}
+                    </p>
+                </div>
+            `).join('');
+        }
+
+        function renderFlashcards() {
+            const container = document.getElementById('flashcards-grid');
+            container.innerHTML = flashcardsData.map((card, index) => `
+                <div class="perspective-1000 h-56 cursor-pointer touch-manipulation" onclick="toggleCard(this, '${escapeQuotes(card.context)}')">
+                    <div class="card-inner relative w-full h-full duration-500 transform-style-3d shadow-xl rounded-2xl border border-slate-700/60">
+                        <!-- Front -->
+                        <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-5 flex flex-col justify-between backface-hidden">
+                            <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest">Card #${index + 1}</span>
+                            <div class="text-center">
+                                <h4 class="text-lg sm:text-xl font-extrabold text-white leading-snug">${card.front}</h4>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-xs font-bold text-slate-400 flex items-center justify-center gap-1.5 bg-slate-950 py-1.5 rounded-lg border border-slate-800">
+                                    <i class="fa-solid fa-rotate"></i> Toca para voltear
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Back -->
+                        <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-900/90 to-slate-900 rounded-2xl p-5 flex flex-col justify-between backface-hidden rotate-y-180 border border-purple-500/30">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[10px] font-bold text-purple-300 uppercase tracking-widest">Significado</span>
+                                <button onclick="event.stopPropagation(); speakText('${escapeQuotes(card.context)}')" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 active:scale-95 touch-manipulation shadow-md">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                            </div>
+                            <div class="text-center space-y-2">
+                                <h4 class="text-sm sm:text-base font-bold text-cyan-300 leading-snug">${card.back}</h4>
+                                <p class="text-xs sm:text-sm text-slate-300 italic">"${card.context}"</p>
+                            </div>
+                            <div class="flex justify-center items-center text-xs text-slate-400">
+                                <span class="bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800 w-full text-center">Toca para regresar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleCard(cardElement, contextText) {
+            const inner = cardElement.querySelector('.card-inner');
+            inner.classList.toggle('rotate-y-180');
+            // Only speak if we just flipped it to the back
+            if(inner.classList.contains('rotate-y-180')){
+                 speakText(contextText);
+            }
+        }
+
+
+        // ================= MODULE 2 (QUIZ) LOGIC =================
+        function renderQuizQuestion(index) {
+            currentQuizIndex = index;
+            const q = quizQuestions[index];
+            const container = document.getElementById('quiz-container');
+
+            container.innerHTML = `
+                <div class="space-y-6 sm:space-y-8">
+                    <div class="flex justify-between items-center bg-slate-950 p-3 rounded-xl border border-slate-800">
+                        <span class="text-xs sm:text-sm font-bold text-cyan-400 uppercase tracking-wider">Pregunta ${index + 1} de ${quizQuestions.length}</span>
+                        <span class="text-[10px] sm:text-xs text-slate-400 font-mono font-semibold">B2+ Proficiency</span>
+                    </div>
+
+                    <h3 class="text-lg sm:text-xl font-bold text-white leading-relaxed px-2">${q.question}</h3>
+
+                    <div class="space-y-3 sm:space-y-4">
+                        ${q.options.map((opt, i) => `
+                            <button onclick="checkAnswer(${i})" id="opt-${i}" class="w-full text-left p-4 sm:p-5 rounded-xl border-2 border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-200 text-sm sm:text-base font-medium transition-all flex items-center justify-between group active:scale-[0.98] touch-manipulation">
+                                <span class="leading-snug pr-4"><strong class="text-cyan-400 mr-2 text-base">${String.fromCharCode(65 + i)}.</strong> ${opt}</span>
+                                <i class="fa-regular fa-circle text-slate-500 text-lg group-hover:text-cyan-400 transition shrink-0"></i>
+                            </button>
+                        `).join('')}
+                    </div>
+
+                    <div id="explanation-box" class="hidden rounded-xl p-5 bg-slate-900 border-2 border-slate-700 text-sm text-slate-300 space-y-2 shadow-inner">
+                        <p class="font-bold text-cyan-400 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info"></i> Explicación Gramatical:
+                        </p>
+                        <p id="explanation-text" class="leading-relaxed text-slate-200">${q.explanation}</p>
+                    </div>
+
+                    <div class="flex justify-between items-center pt-6 border-t border-slate-700/50 gap-4">
+                        <button onclick="prevQuizQuestion()" ${index === 0 ? 'disabled class="opacity-40 cursor-not-allowed w-full sm:w-auto px-6 py-3.5 bg-slate-800 text-slate-400 text-xs sm:text-sm font-bold rounded-xl"' : 'class="w-full sm:w-auto px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-bold rounded-xl transition active:scale-95 touch-manipulation flex items-center justify-center"'}>
+                            <i class="fa-solid fa-chevron-left mr-2"></i> Anterior
+                        </button>
+                        <button onclick="nextQuizQuestion()" ${index === quizQuestions.length - 1 ? 'disabled class="opacity-40 cursor-not-allowed w-full sm:w-auto px-6 py-3.5 bg-slate-800 text-slate-400 text-xs sm:text-sm font-bold rounded-xl"' : 'class="w-full sm:w-auto px-8 py-3.5 bg-cyan-600 hover:bg-cyan-500 text-white text-xs sm:text-sm font-bold rounded-xl transition shadow-lg shadow-cyan-600/20 active:scale-95 touch-manipulation flex items-center justify-center"'}>
+                            Siguiente <i class="fa-solid fa-chevron-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function checkAnswer(selectedOption) {
+            if (answeredQuestions[currentQuizIndex]) return;
+
+            const q = quizQuestions[currentQuizIndex];
+            const isCorrect = selectedOption === q.correct;
+            answeredQuestions[currentQuizIndex] = true;
+
+            const selectedBtn = document.getElementById(`opt-${selectedOption}`);
+            const correctBtn = document.getElementById(`opt-${q.correct}`);
+
+            if (isCorrect) {
+                selectedBtn.className = "w-full text-left p-4 sm:p-5 rounded-xl border-2 border-emerald-500 bg-emerald-900/40 text-emerald-100 text-sm sm:text-base font-bold transition-all flex items-center justify-between";
+                selectedBtn.querySelector('i').className = "fa-solid fa-circle-check text-emerald-400 text-xl";
+                quizScore++;
+            } else {
+                selectedBtn.className = "w-full text-left p-4 sm:p-5 rounded-xl border-2 border-rose-500 bg-rose-900/40 text-rose-100 text-sm sm:text-base font-bold transition-all flex items-center justify-between";
+                selectedBtn.querySelector('i').className = "fa-solid fa-circle-xmark text-rose-400 text-xl";
+
+                correctBtn.className = "w-full text-left p-4 sm:p-5 rounded-xl border-2 border-emerald-500/60 bg-emerald-900/20 text-emerald-200 text-sm sm:text-base font-bold transition-all flex items-center justify-between opacity-90";
+                correctBtn.querySelector('i').className = "fa-solid fa-circle-check text-emerald-400 text-lg";
+            }
+
+            document.getElementById('explanation-box').classList.remove('hidden');
+            updateQuizHeader();
+
+            if (answeredQuestions.every(val => val === true) && quizScore >= 10) {
+                confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
+            }
+        }
+
+        function updateQuizHeader() {
+            document.getElementById('quiz-score').innerText = `${quizScore} / ${quizQuestions.length}`;
+            const answeredCount = answeredQuestions.filter(Boolean).length;
+            const progressPct = Math.round((answeredCount / quizQuestions.length) * 100);
+            document.getElementById('quiz-progress').innerText = `${progressPct}%`;
+            document.getElementById('quiz-bar').style.width = `${progressPct}%`;
+        }
+
+        function prevQuizQuestion() {
+            if (currentQuizIndex > 0) renderQuizQuestion(currentQuizIndex - 1);
+        }
+
+        function nextQuizQuestion() {
+            if (currentQuizIndex < quizQuestions.length - 1) renderQuizQuestion(currentQuizIndex + 1);
+        }
+
+
+        // ================= MODULE 3 (ORAL AI) LOGIC =================
+        function initSpeechSelector() {
+            const selector = document.getElementById('speech-selector');
+            selector.innerHTML = speechExercises.map((ex, i) => `
+                <option value="${i}">Ej ${i + 1}: ${ex.category} - "${ex.target.substring(0, 35)}..."</option>
+            `).join('');
+        }
+
+        function loadSpeechExercise(index) {
+            currentSpeechIndex = parseInt(index);
+            const ex = speechExercises[currentSpeechIndex];
+
+            document.getElementById('speech-category').innerText = `[${currentSpeechIndex + 1}/16] ${ex.category}`;
+            document.getElementById('speech-target-text').innerText = `"${ex.target}"`;
+            document.getElementById('speech-translation').innerText = ex.translation;
+            document.getElementById('speech-counter').innerText = `${currentSpeechIndex + 1} de ${speechExercises.length}`;
+            document.getElementById('speech-selector').value = currentSpeechIndex;
+
+            // Reset recording & UI boxes
+            resetSpeechUI();
+        }
+
+        function resetSpeechUI() {
+            if (isRecording) stopRecording();
+            document.getElementById('transcript-box').innerHTML = "<span class='text-slate-500'>Tu grabación transcrita aparecerá aquí en tiempo real...</span>";
+            document.getElementById('feedback-box').classList.add('hidden');
+        }
+
+        function speakTargetPhrase() {
+            const ex = speechExercises[currentSpeechIndex];
+            speakText(ex.target);
+        }
+
+        function prevSpeechExercise() {
+            if (currentSpeechIndex > 0) loadSpeechExercise(currentSpeechIndex - 1);
+        }
+
+        function nextSpeechExercise() {
+            if (currentSpeechIndex < speechExercises.length - 1) loadSpeechExercise(currentSpeechIndex + 1);
+        }
+
+        // Web Speech API Integration with Anti-Duplication & Fuzzy Matching
+        function setupSpeechRecognition() {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) {
+                document.getElementById('mic-status').innerText = "Navegador no soportado. Usa Chrome o Edge.";
+                document.getElementById('mic-btn').disabled = true;
+                return;
+            }
+
+            recognition = new SpeechRecognition();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = () => {
+                isRecording = true;
+                finalTranscript = '';
+                document.getElementById('transcript-box').innerHTML = "<span class='text-cyan-400'>Escuchando... habla de forma natural.</span>";
+                
+                const micBtn = document.getElementById('mic-btn');
+                micBtn.className = "w-24 h-24 rounded-full bg-gradient-to-br from-rose-600 to-rose-400 text-white flex items-center justify-center shadow-xl shadow-rose-500/30 transition-all transform pulse-mic active:scale-95 touch-manipulation";
+                document.getElementById('mic-icon').className = "fa-solid fa-stop text-4xl";
+                document.getElementById('mic-status').innerText = "Grabando... Toca el cuadro para detener y evaluar.";
+                
+                document.getElementById('feedback-box').classList.add('hidden');
+            };
+
+            // ULTIMATE ANTI-DUPLICATION ALGORITHM FOR MOBILE CHROME
+            recognition.onresult = (event) => {
+                if (event.results.length === 0) return;
+                
+                let currentInterim = '';
+                let currentFinal = '';
+                
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        currentFinal += event.results[i][0].transcript;
+                    } else {
+                        currentInterim += event.results[i][0].transcript;
+                    }
+                }
+                
+                if (currentFinal) {
+                    let cleanNew = currentFinal.trim();
+                    let cleanOld = finalTranscript.trim();
+                    
+                    if (cleanOld.endsWith(cleanNew)) {
+                        // Do nothing, duplicate suffix
+                    } 
+                    else if (cleanNew.startsWith(cleanOld) && cleanOld.length > 0) {
+                        finalTranscript = cleanNew + ' ';
+                    } 
+                    else {
+                        let oldWords = cleanOld.split(' ');
+                        let newWords = cleanNew.split(' ');
+                        let overlap = 0;
+                        
+                        for (let i = 1; i <= Math.min(oldWords.length, newWords.length); i++) {
+                            if (oldWords.slice(-i).join(' ').toLowerCase() === newWords.slice(0, i).join(' ').toLowerCase()) {
+                                overlap = i;
+                            }
+                        }
+                        
+                        if (overlap > 0) {
+                            finalTranscript = cleanOld + ' ' + newWords.slice(overlap).join(' ') + ' ';
+                        } else {
+                            finalTranscript += cleanNew + ' ';
+                        }
+                    }
+                }
+                
+                let displayString = (finalTranscript + currentInterim).trim();
+                
+                // Aggressive identical consecutive word cleanup
+                let words = displayString.split(/\s+/);
+                let deduped = [];
+                for (let i = 0; i < words.length; i++) {
+                    if (i === 0 || words[i].toLowerCase() !== words[i-1].toLowerCase()) {
+                        deduped.push(words[i]);
+                    }
+                }
+                displayString = deduped.join(' ');
+
+                document.getElementById('transcript-box').innerHTML = displayString ? `<span class="text-white">"${displayString}"</span>` : "<span class='text-cyan-400'>Escuchando...</span>";
+                
+                if (displayString) {
+                    evaluateSpeech(displayString);
+                }
+            };
+
+            recognition.onerror = (event) => {
+                console.error("Speech Recognition Error:", event.error);
+                if(event.error === 'no-speech'){
+                     document.getElementById('mic-status').innerText = "No se detectó voz. Intenta de nuevo.";
+                }
+                stopRecording();
+            };
+
+            recognition.onend = () => {
+                if (isRecording) {
+                    try { recognition.start(); } catch (e) { stopRecording(); }
+                } else {
+                    stopRecordingUI();
+                }
+            };
+        }
+
+        function toggleSpeechRecording() {
+            if (!recognition) return;
+            if (isRecording) {
+                stopRecording();
+            } else {
+                try { recognition.start(); } catch (e) { stopRecording(); }
+            }
+        }
+
+        function stopRecording() {
+            isRecording = false;
+            try { recognition.stop(); } catch (e) {}
+            stopRecordingUI();
+        }
+        
+        function stopRecordingUI(){
+            const micBtn = document.getElementById('mic-btn');
+            micBtn.className = "w-24 h-24 rounded-full bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center shadow-lg transition-all transform active:scale-95 touch-manipulation";
+            document.getElementById('mic-icon').className = "fa-solid fa-microphone text-4xl";
+            
+            const transcript = document.getElementById('transcript-box').innerText.replace(/"/g, '');
+            if(!transcript || transcript.includes('Escuchando...')){
+                document.getElementById('mic-status').innerText = "Haz clic para comenzar a grabar";
+            } else {
+                 document.getElementById('mic-status').innerText = "Grabación evaluada con éxito. Toca para intentar de nuevo.";
+            }
+        }
+
+        /* FUZZY MATCHING EVALUATION ALGORITHM (Medium Strictness) */
+        function evaluateSpeech(userTranscript) {
+            if (!userTranscript || userTranscript.trim() === '') return;
+            
+            const target = speechExercises[currentSpeechIndex].target;
+            const cleanTarget = target.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+            const cleanSpoken = userTranscript.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+
+            const numMap = {'1':'one','2':'two','3':'three','4':'four','5':'five','6':'six','7':'seven','8':'eight','9':'nine','10':'ten','11':'eleven','12':'twelve','pm':'p.m.','am':'a.m.','first':'1st'};
+            
+            let targetWords = cleanTarget.split(/\s+/).map(w => numMap[w] || w);
+            let spokenWords = cleanSpoken.split(/\s+/).map(w => numMap[w] || w);
+
+            let matchedCount = 0;
+            
+            targetWords.forEach(tWord => {
+                let matchIndex = spokenWords.findIndex(sWord => {
+                    if (sWord === tWord) return true;
+                    if (Math.abs(sWord.length - tWord.length) > 2) return false;
+                    
+                    let m = [], i, j;
+                    for(i=0; i<=sWord.length; i++) m[i] = [i];
+                    for(j=0; j<=tWord.length; j++) m[0][j] = j;
+                    for(i=1; i<=sWord.length; i++) {
+                        for(j=1; j<=tWord.length; j++) {
+                            m[i][j] = sWord.charAt(i-1) === tWord.charAt(j-1) ? 
+                                m[i-1][j-1] : 
+                                Math.min(m[i-1][j-1]+1, m[i][j-1]+1, m[i-1][j]+1);
+                        }
+                    }
+                    let dist = m[sWord.length][tWord.length];
+                    
+                    // Allow 1 typo for short words, 2 typos for longer words (names/proper nouns)
+                    return (tWord.length <= 4 && dist <= 1) || (tWord.length > 4 && dist <= 2);
+                });
+                
+                if (matchIndex !== -1) {
+                    matchedCount++;
+                    spokenWords.splice(matchIndex, 1);
+                }
+            });
+
+            let score = Math.round((matchedCount / targetWords.length) * 100);
+            if (cleanSpoken === cleanTarget) score = 100;
+            if (score > 100) score = 100;
+            
+            // Score flooring for motivation
+            if (cleanSpoken.includes(cleanTarget) || cleanTarget.includes(cleanSpoken)) score = Math.max(score, 80);
+            if (score < 40 && cleanSpoken.length > 5) score = 60; 
+
+            const feedbackBox = document.getElementById('feedback-box');
+            const feedbackTitle = document.getElementById('feedback-title');
+            const feedbackScore = document.getElementById('feedback-score');
+            const feedbackText = document.getElementById('feedback-text');
+
+            feedbackBox.classList.remove('hidden', 'bg-emerald-950/60', 'border-emerald-500', 'bg-amber-950/60', 'border-amber-500', 'bg-rose-950/60', 'border-rose-500');
+
+            feedbackScore.innerText = `${score}%`;
+
+            if (score >= 75) {
+                feedbackBox.classList.add('bg-emerald-950/60', 'border-emerald-500');
+                feedbackTitle.className = "text-sm sm:text-base font-bold uppercase tracking-wide flex items-center gap-2 text-emerald-400";
+                feedbackText.className = "text-sm sm:text-base text-emerald-100 font-medium";
+                feedbackText.innerHTML = "<strong>¡Excelente fluidez!</strong> Dominas la pronunciación del Presente Perfecto de duración. Estructura y nombres propios capturados.";
+                triggerConfetti();
+            } else if (score >= 45) {
+                feedbackBox.classList.add('bg-amber-950/60', 'border-amber-500');
+                feedbackTitle.className = "text-sm sm:text-base font-bold uppercase tracking-wide flex items-center gap-2 text-amber-400";
+                feedbackText.className = "text-sm sm:text-base text-amber-100 font-medium";
+                feedbackText.innerHTML = "<strong>¡Buen trabajo!</strong> Tu pronunciación es muy comprensible. Asegúrate de ligar correctamente el auxiliar 'has/have'.";
+            } else {
+                feedbackBox.classList.add('bg-rose-950/60', 'border-rose-500');
+                feedbackTitle.className = "text-sm sm:text-base font-bold uppercase tracking-wide flex items-center gap-2 text-rose-400";
+                feedbackText.className = "text-sm sm:text-base text-rose-100 font-medium";
+                feedbackText.innerHTML = "<strong>¡Sigue intentándolo!</strong> Tu cerebro está calibrando. Escucha el audio modelo arriba y repite a tu propio ritmo.";
+            }
+        }
+
+
+        // ================= TEXT-TO-SPEECH (TTS) UTILITY =================
+        function speakText(text) {
+            if (!('speechSynthesis' in window) || !globalAudioEnabled) return;
+            window.speechSynthesis.cancel();
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.9;
+
+            const voices = window.speechSynthesis.getVoices();
+            const usVoice = voices.find(v => v.lang === 'en-US' && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha'))) || voices.find(v => v.lang === 'en-US');
+            if (usVoice) utterance.voice = usVoice;
+
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function escapeQuotes(str) {
+            return str.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        }
+    </script>
+</body>
+</html>
