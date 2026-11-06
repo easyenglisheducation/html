@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Lección Neural: Pasado Progresivo</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        neural: {
+                            50: '#f0f4ff',
+                            100: '#e0e9fe',
+                            500: '#3b82f6',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .card-flip {
+            perspective: 1000px;
+        }
+        .card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .card-inner.flipped {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        /* Mobile tap highlight reset */
+        button {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-purple-500 selection:text-white">
+
+    <!-- HEADER / BRANDING -->
+    <header class="bg-slate-800/80 backdrop-blur-md border-b border-slate-700/60 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30 shrink-0">
+                    <i class="fa-solid fa-clock-rotate-left text-2xl text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-300 to-amber-300">
+                        Super Lección Neural: Pasado Progresivo
+                    </h1>
+                    <p class="text-sm text-slate-400 font-medium">
+                        Past Continuous (<span class="text-purple-400">Was / Were + Verb-ing</span>) • <span class="text-pink-400">By Coach Carlos O.</span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Global Audio Settings & Level Tag -->
+            <div class="flex flex-wrap items-center gap-3">
+                <span class="px-4 py-2 bg-purple-500/20 text-purple-300 border border-purple-500/30 text-sm font-bold rounded-full">
+                    Nivel A1/A2 Adultos
+                </span>
+                <button id="global-tts-toggle" onclick="toggleGlobalAudio()" class="p-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-200 transition-all flex items-center gap-2 text-sm font-semibold active:scale-95" title="Audio activado/desactivado">
+                    <i id="global-tts-icon" class="fa-solid fa-volume-high text-pink-400 text-lg"></i>
+                    <span id="global-tts-status">Voz US On</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION TABS -->
+    <nav class="bg-slate-800/40 border-b border-slate-700/40">
+        <div class="max-w-6xl mx-auto px-4 flex flex-wrap gap-2 py-3">
+            <button onclick="switchTab('tab-explorer')" id="btn-tab-explorer" class="tab-btn flex-1 min-w-[140px] px-5 py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2.5 transition-all bg-purple-600 text-white shadow-lg shadow-purple-500/20 active:scale-95">
+                <i class="fa-solid fa-cubes-stacked text-pink-300"></i> Fórmulas
+            </button>
+            <button onclick="switchTab('tab-quizzes')" id="btn-tab-quizzes" class="tab-btn flex-1 min-w-[140px] px-5 py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2.5 transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800 active:scale-95">
+                <i class="fa-solid fa-gamepad text-amber-400"></i> Desafíos
+            </button>
+            <button onclick="switchTab('tab-speech')" id="btn-tab-speech" class="tab-btn flex-1 min-w-[140px] px-5 py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2.5 transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800 active:scale-95">
+                <i class="fa-solid fa-microphone-lines text-emerald-400"></i> Práctica Oral
+            </button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8">
+
+        <!-- ========================================================================= -->
+        <!-- MODULE 1: FORMULA EXPLORER & FLASHCARDS -->
+        <!-- ========================================================================= -->
+        <section id="tab-explorer" class="tab-content space-y-8">
+            <!-- Intro Banner -->
+            <div class="bg-gradient-to-r from-slate-800 via-slate-800 to-purple-950/60 p-6 sm:p-8 rounded-2xl border border-slate-700/70 shadow-xl relative overflow-hidden">
+                <div class="absolute -right-8 -bottom-8 opacity-10 text-9xl font-black text-purple-400 pointer-events-none">WAS/WERE</div>
+                <h2 class="text-xl sm:text-2xl font-bold text-white mb-3 flex items-center gap-3">
+                    <i class="fa-solid fa-brain text-pink-400 text-2xl"></i> Anclaje Neural: Pasado Progresivo
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
+                    Usamos el Pasado Progresivo para hablar de <strong>acciones que estaban ocurriendo en un momento específico del pasado</strong>. La clave neural es combinar el pasado del verbo <em>To Be</em> (<strong class="text-purple-300">WAS / WERE</strong>) con un verbo terminado en <strong class="text-pink-300">-ING</strong>.
+                </p>
+            </div>
+
+            <!-- Selector Person / Mode -->
+            <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <button onclick="setFormulaSubject('wasGroup')" id="btn-subj-was" class="px-5 py-3 rounded-xl text-sm sm:text-base font-bold transition-all bg-purple-600 text-white shadow-md active:scale-95">
+                        Grupo WAS: I / He / She / It
+                    </button>
+                    <button onclick="setFormulaSubject('wereGroup')" id="btn-subj-were" class="px-5 py-3 rounded-xl text-sm sm:text-base font-bold transition-all bg-slate-700 text-slate-300 hover:bg-slate-600 active:scale-95">
+                        Grupo WERE: You / We / They
+                    </button>
+                </div>
+                <div class="flex flex-wrap gap-2 bg-slate-900/80 p-2 rounded-xl border border-slate-700 w-full md:w-auto justify-center">
+                    <button onclick="setFormulaType('aff')" id="btn-type-aff" class="flex-1 min-w-[100px] px-4 py-2.5 rounded-lg text-sm font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 active:scale-95">
+                        (+) Afirmativo
+                    </button>
+                    <button onclick="setFormulaType('neg')" id="btn-type-neg" class="flex-1 min-w-[100px] px-4 py-2.5 rounded-lg text-sm font-bold text-slate-400 hover:text-white active:scale-95">
+                        (-) Negativo
+                    </button>
+                    <button onclick="setFormulaType('int')" id="btn-type-int" class="flex-1 min-w-[100px] px-4 py-2.5 rounded-lg text-sm font-bold text-slate-400 hover:text-white active:scale-95">
+                        (?) Interrogativo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Interactive Visual Formula Display -->
+            <div id="formula-display-card" class="bg-slate-800 p-6 sm:p-8 rounded-2xl border border-purple-500/30 shadow-2xl space-y-6">
+                <!-- Formula Blocks rendered by JS -->
+            </div>
+
+            <!-- Spelling Rules & Time Markers -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-800/90 p-6 sm:p-8 rounded-2xl border border-slate-700 space-y-4">
+                    <h3 class="text-lg font-bold text-pink-300 flex items-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Reglas de Ortografía (-ING)
+                    </h3>
+                    <ul class="text-sm space-y-3 text-slate-300">
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-purple-300">Regla General:</strong> Agrega <em>-ing</em> (work ➔ <strong>working</strong>, play ➔ <strong>playing</strong>).</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-pink-300">Termina en -e muda:</strong> Elimina la <em>-e</em> y pon <em>-ing</em> (drive ➔ <strong>driving</strong>, write ➔ <strong>writing</strong>).</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-amber-300">CVC:</strong> Duplica la última consonante (run ➔ <strong>running</strong>, swim ➔ <strong>swimming</strong>).</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-800/90 p-6 sm:p-8 rounded-2xl border border-slate-700 space-y-4">
+                    <h3 class="text-lg font-bold text-cyan-300 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-day"></i> Marcadores de Tiempo Clave
+                    </h3>
+                    <ul class="text-sm space-y-3 text-slate-300">
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-cyan-300 block mb-1">at 8:00 PM yesterday:</strong> "I was working at 8:00 PM yesterday."</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-emerald-300 block mb-1">while (mientras):</strong> "She was cooking while he was studying."</li>
+                        <li class="bg-slate-900/70 p-3 rounded-xl border border-slate-800"><strong class="text-amber-300 block mb-1">when (cuando):</strong> "We were watching TV when you called."</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Flashcards Section Header -->
+            <div class="pt-6 pb-2">
+                <h3 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                    <i class="fa-solid fa-clone text-pink-400"></i> Tarjetas de Recuerdo Activo
+                </h3>
+                <p class="text-sm text-slate-400 mt-2">Toca las tarjetas para verificar el patrón correcto y consolidar la memoria.</p>
+            </div>
+
+            <!-- Flashcards Grid -->
+            <div id="flashcards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- MODULE 2: INTERACTIVE QUIZZES (10 CHALLENGES) -->
+        <!-- ========================================================================= -->
+        <section id="tab-quizzes" class="tab-content hidden space-y-8">
+            <!-- Score Header Banner -->
+            <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+                <div class="text-center sm:text-left">
+                    <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center justify-center sm:justify-start gap-3">
+                        <i class="fa-solid fa-trophy text-amber-400 text-2xl"></i> Desafíos de Fijación
+                    </h2>
+                    <p class="text-sm text-slate-400 mt-2">Demuestra tu conocimiento de Was/Were + Verb-ing en contexto.</p>
+                </div>
+                <div class="flex items-center justify-center gap-6 bg-slate-900/90 px-8 py-4 rounded-2xl border border-slate-700 w-full sm:w-auto">
+                    <div class="text-center">
+                        <span class="block text-xs sm:text-sm text-slate-400 font-semibold uppercase tracking-wider mb-1">Progreso</span>
+                        <span id="quiz-score-percent" class="text-3xl font-black text-purple-400">0%</span>
+                    </div>
+                    <div class="h-12 w-px bg-slate-700"></div>
+                    <div class="text-center">
+                        <span class="block text-xs sm:text-sm text-slate-400 font-semibold uppercase tracking-wider mb-1">Aciertos</span>
+                        <span id="quiz-score-count" class="text-3xl font-black text-emerald-400">0 / 10</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz List -->
+            <div class="bg-slate-800/90 p-5 sm:p-8 rounded-2xl border border-slate-700/80 shadow-lg space-y-6">
+                <div id="mc-quiz-container" class="space-y-8">
+                    <!-- MCQ Items injected by JS -->
+                </div>
+            </div>
+
+            <div class="text-center pt-4">
+                <button onclick="resetQuizzes()" class="px-8 py-4 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-200 text-sm sm:text-base font-bold transition-all flex items-center justify-center gap-3 mx-auto active:scale-95 w-full sm:w-auto">
+                    <i class="fa-solid fa-rotate-right"></i> Reiniciar los 10 Ejercicios
+                </button>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- MODULE 3: SPEECH RECOGNITION (16 PROMPTS) -->
+        <!-- ========================================================================= -->
+        <section id="tab-speech" class="tab-content hidden space-y-8">
+            <div class="bg-gradient-to-r from-purple-950/60 via-slate-800 to-slate-800 p-6 sm:p-8 rounded-2xl border border-purple-500/30 shadow-xl">
+                <h2 class="text-xl sm:text-2xl font-bold text-white mb-3 flex items-center gap-3">
+                    <i class="fa-solid fa-microphone text-emerald-400 text-2xl"></i> Entrenamiento Oral AI (16 Oraciones)
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
+                    Escucha la narración nativa. Toca grabar y habla libremente; el sistema ha sido optimizado con algoritmos <strong>Fuzzy Matching</strong> (tolerante con nombres propios) y de fusión de textos para evitar duplicaciones indeseadas al grabar en tu celular.
+                </p>
+            </div>
+
+            <!-- Speech Card Exercises -->
+            <div id="speech-exercises-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Speech Items injected by JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-8 text-center text-sm text-slate-500 mt-12">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p>© Developed for educational excellence By Coach Carlos O</p>
+            <p class="flex items-center gap-2 text-slate-400 font-medium">
+                <span>Super Lección Neural</span> • <span class="text-purple-400">Past Continuous Tense</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- MESSAGE TOAST -->
+    <div id="toast" class="fixed bottom-6 right-6 left-6 sm:left-auto transform translate-y-24 opacity-0 transition-all duration-300 z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border pointer-events-none">
+        <i id="toast-icon" class="fa-solid fa-circle-info text-xl shrink-0"></i>
+        <span id="toast-msg">Mensaje</span>
+    </div>
+
+    <!-- MAIN JAVASCRIPT LOGIC -->
+    <script>
+        let globalAudioEnabled = true;
+        let activeFormulaSubject = 'wasGroup';
+        let activeFormulaType = 'aff';
+
+        const quizAnswers = {};
+        const speechScores = {};
+
+        // Audio Context Handling for Mobile Auto-play
+        let ttsInitialized = false;
+
+        function initializeAudioContext() {
+            if (!ttsInitialized && 'speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance('');
+                utterance.volume = 0;
+                window.speechSynthesis.speak(utterance);
+                ttsInitialized = true;
+            }
+        }
+
+        window.addEventListener('click', initializeAudioContext, { once: true });
+        window.addEventListener('touchstart', initializeAudioContext, { once: true });
+
+        function toggleGlobalAudio() {
+            globalAudioEnabled = !globalAudioEnabled;
+            const icon = document.getElementById('global-tts-icon');
+            const status = document.getElementById('global-tts-status');
+
+            if (globalAudioEnabled) {
+                icon.className = 'fa-solid fa-volume-high text-pink-400 text-lg';
+                status.innerText = 'Voz US On';
+                showToast('Síntesis de voz activada', 'info');
+            } else {
+                icon.className = 'fa-solid fa-volume-xmark text-slate-500 text-lg';
+                status.innerText = 'Voz US Off';
+                showToast('Síntesis de voz desactivada', 'info');
+            }
+        }
+
+        function speakText(text) {
+            if (!globalAudioEnabled) return;
+            if (!('speechSynthesis' in window)) {
+                showToast('Tu navegador no soporta síntesis de texto a voz.', 'error');
+                return;
+            }
+
+            window.speechSynthesis.cancel();
+            let cleanText = text.replace(/_+/g, 'blank');
+            const utterance = new SpeechSynthesisUtterance(cleanText);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.88;
+
+            const voices = window.speechSynthesis.getVoices();
+            const usVoice = voices.find(v => v.lang === 'en-US' && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Alex'))) 
+                         || voices.find(v => v.lang === 'en-US');
+
+            if (usVoice) utterance.voice = usVoice;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                window.speechSynthesis.getVoices();
+            };
+        }
+
+        /* ===================================================================
+           DATA STRUCTURES
+           =================================================================== */
+        const formulaData = {
+            'wasGroup': { // I / He / She / It
+                'aff': {
+                    pattern: 'Sujeto (I / He / She / It) + WAS + Verbo-ing + Complemento',
+                    color: 'purple',
+                    example: 'I was working at 8 PM yesterday. / She was sleeping when I arrived.',
+                    notes: 'Usamos WAS únicamente para la primera persona singular (I) y la tercera persona singular (He, She, It).'
+                },
+                'neg': {
+                    pattern: 'Sujeto (I / He / She / It) + WASN\'T + Verbo-ing + Complemento',
+                    color: 'rose',
+                    example: 'He wasn\'t driving fast. / It wasn\'t raining this morning.',
+                    notes: 'wasn\'t es la contracción de "was not". El verbo principal siempre lleva -ing.'
+                },
+                'int': {
+                    pattern: 'WAS + Sujeto (I / he / she / it) + Verbo-ing + Complemento ?',
+                    color: 'amber',
+                    example: 'Was she studying at midnight? / Was he waiting for the bus?',
+                    notes: 'Para preguntar, colocamos WAS al principio de la oración. Respuestas cortas: Yes, she was. / No, she wasn\'t.'
+                }
+            },
+            'wereGroup': { // You / We / They
+                'aff': {
+                    pattern: 'Sujeto (You / We / They) + WERE + Verbo-ing + Complemento',
+                    color: 'purple',
+                    example: 'They were watching a movie. / You were listening to music.',
+                    notes: 'Usamos WERE para todos los sujetos plurales y para el pronombre You (tú / ustedes).'
+                },
+                'neg': {
+                    pattern: 'Sujeto (You / We / They) + WEREN\'T + Verbo-ing + Complemento',
+                    color: 'rose',
+                    example: 'We weren\'t playing games. / They weren\'t working yesterday.',
+                    notes: 'weren\'t es la contracción de "were not". Mantiene el verbo en -ing.'
+                },
+                'int': {
+                    pattern: 'WERE + Sujeto (you / we / they) + Verbo-ing + Complemento ?',
+                    color: 'amber',
+                    example: 'Were you sleeping at midnight? / Were they living in Florida?',
+                    notes: 'Inicia la pregunta con WERE. Respuestas cortas: Yes, we were. / No, we weren\'t.'
+                }
+            }
+        };
+
+        const flashcardsList = [
+            { id: 1, group: 'was', front: 'At 7:00 AM, I _____ (eat) breakfast.', back: 'was eating', type: 'I / Was', translation: 'A las 7:00 AM, yo estaba desayunando.' },
+            { id: 2, group: 'were', front: 'They _____ (talk) about the new project.', back: 'were talking', type: 'They / Were', translation: 'Ellos estaban hablando del nuevo proyecto.' },
+            { id: 3, group: 'was', front: 'She _____ (no trabajar) when you called.', back: 'wasn\'t working', type: 'Negativo (Wasn\'t)', translation: 'Ella no estaba trabajando cuando llamaste.' },
+            { id: 4, group: 'were', front: 'We _____ (no dormir) at midnight.', back: 'weren\'t sleeping', type: 'Negativo (Weren\'t)', translation: 'Nosotros no estábamos durmiendo a medianoche.' },
+            { id: 5, group: 'were', front: '_____ you (drive) to the office at 8 AM?', back: 'Were ... driving', type: 'Pregunta (Were)', translation: '¿Estabas conduciendo a la oficina a las 8 AM?' },
+            { id: 6, group: 'was', front: '_____ he (listen) to the report?', back: 'Was ... listening', type: 'Pregunta (Was)', translation: '¿Estaba él escuchando el informe?' }
+        ];
+
+        const mcQuestions = [
+            {
+                id: 'mc1',
+                question: '1. I _____ working at the office at 8:00 PM yesterday.',
+                options: [
+                    { text: 'was', correct: true },
+                    { text: 'were', correct: false },
+                    { text: 'am', correct: false }
+                ],
+                explanation: 'Para el pronombre "I" en pasado progresivo usaremos "was" + verbo en -ing.'
+            },
+            {
+                id: 'mc2',
+                question: '2. They _____ a movie when the lights went out.',
+                options: [
+                    { text: 'was watching', correct: false },
+                    { text: 'were watching', correct: true },
+                    { text: 'were watch', correct: false }
+                ],
+                explanation: 'El sujeto "They" es plural, por lo que requiere "were" seguido del verbo con -ing (watching).'
+            },
+            {
+                id: 'mc3',
+                question: '3. Selecciona la opción negativa correcta para "She":',
+                options: [
+                    { text: 'She weren\'t driving fast.', correct: false },
+                    { text: 'She wasn\'t driving fast.', correct: true },
+                    { text: 'She didn\'t driving fast.', correct: false }
+                ],
+                explanation: 'La forma negativa de Past Continuous para She es "wasn\'t" + verbo en -ing (driving).'
+            },
+            {
+                id: 'mc4',
+                question: '4. ¿Cómo formulas la pregunta correcta para "you"?',
+                options: [
+                    { text: 'Were you sleeping at midnight?', correct: true },
+                    { text: 'Was you sleeping at midnight?', correct: false },
+                    { text: 'Did you sleeping at midnight?', correct: false }
+                ],
+                explanation: 'Con el pronombre "you", las preguntas en pasado progresivo inician con "Were".'
+            },
+            {
+                id: 'mc5',
+                question: '5. What _____ he doing while you were preparing dinner?',
+                options: [
+                    { text: 'were', correct: false },
+                    { text: 'was', correct: true },
+                    { text: 'is', correct: false }
+                ],
+                explanation: 'Para el pronombre "he" la forma auxiliar en pasado progresivo es "was".'
+            },
+            {
+                id: 'mc6',
+                question: '6. We _____ taking an exam at 10:00 AM yesterday.',
+                options: [
+                    { text: 'were', correct: true },
+                    { text: 'was', correct: false },
+                    { text: 'are', correct: false }
+                ],
+                explanation: '"We" se combina siempre con "were" en el tiempo pasado progresivo.'
+            },
+            {
+                id: 'mc7',
+                question: '7. It _____ raining when we left the building.',
+                options: [
+                    { text: 'wasn\'t', correct: true },
+                    { text: 'weren\'t', correct: false },
+                    { text: 'don\'t', correct: false }
+                ],
+                explanation: 'El pronombre "It" se utiliza con "was" / "wasn\'t".'
+            },
+            {
+                id: 'mc8',
+                question: '8. _____ the children playing in the garden?',
+                options: [
+                    { text: 'Was', correct: false },
+                    { text: 'Were', correct: true },
+                    { text: 'Did', correct: false }
+                ],
+                explanation: '"The children" es un sujeto plural (ellos/they), por lo que requiere "Were".'
+            },
+            {
+                id: 'mc9',
+                question: '9. Selecciona la oración ortográficamente correcta:',
+                options: [
+                    { text: 'She was runing in the park.', correct: false },
+                    { text: 'She was running in the park.', correct: true },
+                    { text: 'She was runeing in the park.', correct: false }
+                ],
+                explanation: 'El verbo "run" cumple la regla Consonante-Vocal-Consonante (CVC), por lo que duplica la n: "running".'
+            },
+            {
+                id: 'mc10',
+                question: '10. Complete: "While I was studying, my brother _____ music."',
+                options: [
+                    { text: 'was listening to', correct: true },
+                    { text: 'were listening to', correct: false },
+                    { text: 'is listening to', correct: false }
+                ],
+                explanation: '"My brother" equivale al pronombre "he", requiriendo "was listening to".'
+            }
+        ];
+
+        const speechExercises = [
+            { id: 'sp1', phrase: 'I was working at 8 PM yesterday', translation: 'Yo estaba trabajando a las 8 PM ayer.', hint: 'Pronuncia: /ai wʌz wɜrkɪŋ æt eɪt pi-ɛm jɛstərdeɪ/' },
+            { id: 'sp2', phrase: 'They were watching a movie when I called', translation: 'Ellos estaban viendo una película cuando llamé.', hint: 'Pronuncia: /ðeɪ wɜr wɑtʃɪŋ ə muvi wɛn ai kɔld/' },
+            { id: 'sp3', phrase: 'She wasn\'t driving fast', translation: 'Ella no estaba conduciendo rápido.', hint: 'Pronuncia: /ʃi wɑzənt draɪvɪŋ fæst/' },
+            { id: 'sp4', phrase: 'Were you sleeping at midnight', translation: '¿Estabas durmiendo a medianoche?', hint: 'Pronuncia: /wɜr ju slipɪŋ æt mɪdnaɪt/' },
+            { id: 'sp5', phrase: 'We were studying for the English exam', translation: 'Estábamos estudiando para el examen de inglés.', hint: 'Pronuncia: /wi wɜr stʌdi-ɪŋ fɔr ðə ɪŋɡlɪʃ ɪɡzæm/' },
+            { id: 'sp6', phrase: 'He was taking a shower when the phone rang', translation: 'Él se estaba duchando cuando sonó el teléfono.', hint: 'Pronuncia: /hi wʌz teɪkɪŋ ə ʃaʊər wɛn ðə foʊn ræŋ/' },
+            { id: 'sp7', phrase: 'It was raining heavily this morning', translation: 'Estaba lloviendo fuertemente esta mañana.', hint: 'Pronuncia: /ɪt wʌz reɪnɪŋ hɛvəli ðɪs mɔrnɪŋ/' },
+            { id: 'sp8', phrase: 'They weren\'t listening to the manager', translation: 'Ellos no estaban escuchando al gerente.', hint: 'Pronuncia: /ðeɪ wɜrənt lɪsənɪŋ tu ðə mænədʒər/' },
+            { id: 'sp9', phrase: 'What were you doing yesterday afternoon', translation: '¿Qué estabas haciendo ayer por la tarde?', hint: 'Pronuncia: /wʌt wɜr ju du-ɪŋ jɛstərdeɪ æftərnun/' },
+            { id: 'sp10', phrase: 'She was preparing a presentation for work', translation: 'Ella estaba preparando una presentación para el trabajo.', hint: 'Pronuncia: /ʃi wʌz prɪpɛrɪŋ ə prɛzən-teɪʃən fɔr wɜrk/' },
+            { id: 'sp11', phrase: 'I wasn\'t sleeping when you arrived', translation: 'Yo no estaba durmiendo cuando llegaste.', hint: 'Pronuncia: /ai wɑzənt slipɪŋ wɛn ju əraɪvd/' },
+            { id: 'sp12', phrase: 'Were they living in New York in 2020', translation: '¿Estaban ellos viviendo en Nueva York en el 2020?', hint: 'Pronuncia: /wɜr ðeɪ lɪvɪŋ ɪn nu jɔrk ɪn twɛnti twɛnti/' },
+            { id: 'sp13', phrase: 'My colleagues were waiting in the conference room', translation: 'Mis colegas estaban esperando en la sala de conferencias.', hint: 'Pronuncia: /maɪ kɑliɡz wɜr weɪtɪŋ ɪn ðə kɑnfərəns rum/' },
+            { id: 'sp14', phrase: 'He was reading an email when I entered', translation: 'Él estaba leyendo un correo electrónico cuando entré.', hint: 'Pronuncia: /hi wʌz ridɪŋ æn imeɪl wɛn ai ɛntərd/' },
+            { id: 'sp15', phrase: 'We weren\'t playing video games all night', translation: 'Nosotros no estuvimos jugando videojuegos toda la noche.', hint: 'Pronuncia: /wi wɜrənt pleɪ-ɪŋ vɪdioʊ ɡeɪmz ɔl naɪt/' },
+            { id: 'sp16', phrase: 'Was she cooking dinner at seven o\'clock', translation: '¿Estaba ella cocinando la cena a las siete en punto?', hint: 'Pronuncia: /wʌz ʃi kʊkɪŋ dɪnər æt sɛvən əklɑk/' }
+        ];
+
+        /* ===================================================================
+           INITIALIZATION & TAB SYSTEM
+           =================================================================== */
+        window.addEventListener('DOMContentLoaded', () => {
+            renderFormula();
+            renderFlashcards();
+            renderMCQuizzes();
+            renderSpeechExercises();
+        });
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(tabId).classList.remove('hidden');
+
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = 'tab-btn flex-1 min-w-[140px] px-5 py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2.5 transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800 active:scale-95 touch-manipulation';
+            });
+
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            if (activeBtn) {
+                activeBtn.className = 'tab-btn flex-1 min-w-[140px] px-5 py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2.5 transition-all bg-purple-600 text-white shadow-lg shadow-purple-500/20 active:scale-95 touch-manipulation';
+            }
+        }
+
+        function setFormulaSubject(subjGroup) {
+            activeFormulaSubject = subjGroup;
+            document.getElementById('btn-subj-was').className = subjGroup === 'wasGroup' 
+                ? 'px-5 py-3 rounded-xl text-sm sm:text-base font-bold transition-all bg-purple-600 text-white shadow-md active:scale-95 touch-manipulation'
+                : 'px-5 py-3 rounded-xl text-sm sm:text-base font-bold transition-all bg-slate-700 text-slate-300 hover:bg-slate-600 active:scale-95 touch-manipulation';
+            
+            document.getElementById('btn-subj-were').className = subjGroup === 'wereGroup'
+                ? 'px-5 py-3 rounded-xl text-sm sm:text-base font-bold transition-all bg-indigo-600 text-white shadow-md active:scale-95 touch-manipulation'
+                : 'px-5 py-3 rounded-xl text-sm sm:text-base font-bold transition-all bg-slate-700 text-slate-300 hover:bg-slate-600 active:scale-95 touch-manipulation';
+
+            renderFormula();
+        }
+
+        function setFormulaType(type) {
+            activeFormulaType = type;
+            ['aff', 'neg', 'int'].forEach(t => {
+                const btn = document.getElementById(`btn-type-${t}`);
+                if (t === type) {
+                    btn.className = 'flex-1 min-w-[100px] px-4 py-2.5 rounded-lg text-sm font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 active:scale-95 touch-manipulation';
+                } else {
+                    btn.className = 'flex-1 min-w-[100px] px-4 py-2.5 rounded-lg text-sm font-bold text-slate-400 hover:text-white active:scale-95 touch-manipulation';
+                }
+            });
+            renderFormula();
+        }
+
+        function renderFormula() {
+            const data = formulaData[activeFormulaSubject][activeFormulaType];
+            const displayCard = document.getElementById('formula-display-card');
+
+            let partsHtml = '';
+            if (activeFormulaSubject === 'wasGroup') {
+                if (activeFormulaType === 'aff') {
+                    partsHtml = `<div class="flex flex-wrap items-center justify-center gap-3 text-center">
+                            <span class="px-5 py-3 rounded-2xl bg-purple-950 border border-purple-500/40 text-purple-300 font-extrabold text-base sm:text-lg">I / He / She / It</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-pink-950 border border-pink-500/40 text-pink-300 font-extrabold text-base sm:text-lg">WAS</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-emerald-950 border border-emerald-500/40 text-emerald-300 font-extrabold text-base sm:text-lg">Verbo-ING</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-slate-900 border border-slate-700 text-cyan-300 font-extrabold text-base sm:text-lg">Complemento</span>
+                        </div>`;
+                } else if (activeFormulaType === 'neg') {
+                    partsHtml = `<div class="flex flex-wrap items-center justify-center gap-3 text-center">
+                            <span class="px-5 py-3 rounded-2xl bg-purple-950 border border-purple-500/40 text-purple-300 font-extrabold text-base sm:text-lg">I / He / She / It</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-rose-950 border border-rose-500/40 text-rose-300 font-extrabold text-base sm:text-lg">WASN'T</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-emerald-950 border border-emerald-500/40 text-emerald-300 font-extrabold text-base sm:text-lg">Verbo-ING</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-slate-900 border border-slate-700 text-cyan-300 font-extrabold text-base sm:text-lg">Complemento</span>
+                        </div>`;
+                } else {
+                    partsHtml = `<div class="flex flex-wrap items-center justify-center gap-3 text-center">
+                            <span class="px-5 py-3 rounded-2xl bg-amber-950 border border-amber-500/40 text-amber-300 font-extrabold text-base sm:text-lg">WAS</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-purple-950 border border-purple-500/40 text-purple-300 font-extrabold text-base sm:text-lg">I / he / she / it</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-emerald-950 border border-emerald-500/40 text-emerald-300 font-extrabold text-base sm:text-lg">Verbo-ING</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-slate-900 border border-slate-700 text-cyan-300 font-extrabold text-base sm:text-lg">Complemento ?</span>
+                        </div>`;
+                }
+            } else { // Were group
+                if (activeFormulaType === 'aff') {
+                    partsHtml = `<div class="flex flex-wrap items-center justify-center gap-3 text-center">
+                            <span class="px-5 py-3 rounded-2xl bg-indigo-950 border border-indigo-500/40 text-indigo-300 font-extrabold text-base sm:text-lg">You / We / They</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-pink-950 border border-pink-500/40 text-pink-300 font-extrabold text-base sm:text-lg">WERE</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-emerald-950 border border-emerald-500/40 text-emerald-300 font-extrabold text-base sm:text-lg">Verbo-ING</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-slate-900 border border-slate-700 text-cyan-300 font-extrabold text-base sm:text-lg">Complemento</span>
+                        </div>`;
+                } else if (activeFormulaType === 'neg') {
+                    partsHtml = `<div class="flex flex-wrap items-center justify-center gap-3 text-center">
+                            <span class="px-5 py-3 rounded-2xl bg-indigo-950 border border-indigo-500/40 text-indigo-300 font-extrabold text-base sm:text-lg">You / We / They</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-rose-950 border border-rose-500/40 text-rose-300 font-extrabold text-base sm:text-lg">WEREN'T</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-emerald-950 border border-emerald-500/40 text-emerald-300 font-extrabold text-base sm:text-lg">Verbo-ING</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-slate-900 border border-slate-700 text-cyan-300 font-extrabold text-base sm:text-lg">Complemento</span>
+                        </div>`;
+                } else {
+                    partsHtml = `<div class="flex flex-wrap items-center justify-center gap-3 text-center">
+                            <span class="px-5 py-3 rounded-2xl bg-amber-950 border border-amber-500/40 text-amber-300 font-extrabold text-base sm:text-lg">WERE</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-indigo-950 border border-indigo-500/40 text-indigo-300 font-extrabold text-base sm:text-lg">you / we / they</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-emerald-950 border border-emerald-500/40 text-emerald-300 font-extrabold text-base sm:text-lg">Verbo-ING</span>
+                            <i class="fa-solid fa-plus text-slate-500"></i>
+                            <span class="px-5 py-3 rounded-2xl bg-slate-900 border border-slate-700 text-cyan-300 font-extrabold text-base sm:text-lg">Complemento ?</span>
+                        </div>`;
+                }
+            }
+
+            let escapedExample = data.example.replace(/'/g, "\\'");
+            displayCard.innerHTML = `
+                <div class="text-center space-y-3">
+                    <span class="text-xs sm:text-sm font-bold text-slate-400 uppercase tracking-widest">Patrón Gramatical Aprendizaje Neural</span>
+                    <h3 class="text-xl sm:text-3xl font-black text-white leading-tight">${data.pattern}</h3>
+                </div>
+
+                <div class="p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-700/60 my-6 shadow-inner">
+                    ${partsHtml}
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
+                    <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-700">
+                        <span class="text-xs sm:text-sm font-bold text-emerald-400 uppercase block mb-2">Ejemplo Práctico Real</span>
+                        <p class="text-base sm:text-lg font-semibold text-slate-100">${data.example}</p>
+                        <button onclick="speakText('${escapedExample}')" class="mt-4 px-4 py-2 bg-slate-800 rounded-lg text-sm font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 active:scale-95 transition-all touch-manipulation">
+                            <i class="fa-solid fa-volume-high"></i> Escuchar Pronunciación Nativa US
+                        </button>
+                    </div>
+                    <div class="bg-slate-900/50 p-5 rounded-xl border border-slate-700">
+                        <span class="text-xs sm:text-sm font-bold text-amber-400 uppercase block mb-2">Regla Nemotécnica</span>
+                        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">${data.notes}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderFlashcards() {
+            const container = document.getElementById('flashcards-grid');
+            container.innerHTML = flashcardsList.map(card => {
+                let textToSpeak = card.front.replace('_____', card.back).replace(/'/g, "\\'");
+                return `
+                <div class="card-flip h-60 w-full cursor-pointer touch-manipulation" onclick="toggleCardFlip(${card.id})">
+                    <div id="card-inner-${card.id}" class="card-inner relative w-full h-full rounded-2xl shadow-xl">
+                        <!-- FRONT -->
+                        <div class="card-front absolute inset-0 bg-slate-800 border border-slate-700/80 rounded-2xl p-6 flex flex-col justify-between">
+                            <div class="flex justify-between items-center">
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-bold ${card.group === 'was' ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'}">
+                                    ${card.type}
+                                </span>
+                                <span class="text-xs text-slate-400 font-semibold">Toca para voltear</span>
+                            </div>
+                            <div class="text-center my-auto">
+                                <p class="text-lg sm:text-xl font-extrabold text-white leading-snug">${card.front}</p>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-sm font-bold text-slate-400 flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-rotate"></i> Revelar respuesta
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- BACK -->
+                        <div class="card-back absolute inset-0 bg-gradient-to-br from-slate-800 via-purple-950 to-slate-900 border border-purple-500/40 rounded-2xl p-6 flex flex-col justify-between">
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider">Respuesta Correcta</span>
+                                <button onclick="event.stopPropagation(); speakText('${textToSpeak}')" class="p-2 rounded-lg bg-slate-700 hover:bg-slate-600 text-cyan-300 text-sm active:scale-95 touch-manipulation">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                            </div>
+                            <div class="text-center my-auto">
+                                <span class="text-3xl font-black text-cyan-300 block mb-2">${card.back}</span>
+                                <p class="text-sm text-slate-300 italic">${card.translation}</p>
+                            </div>
+                            <div class="text-center text-sm text-slate-400">
+                                Haz clic para regresar
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `}).join('');
+        }
+
+        function toggleCardFlip(id) {
+            const inner = document.getElementById(`card-inner-${id}`);
+            if (inner) inner.classList.toggle('flipped');
+        }
+
+        /* ===================================================================
+           MODULE 2: 10 INTERACTIVE QUIZZES
+           =================================================================== */
+        function renderMCQuizzes() {
+            const container = document.getElementById('mc-quiz-container');
+            container.innerHTML = mcQuestions.map(item => `
+                <div id="mc-box-${item.id}" class="bg-slate-900/60 p-6 rounded-xl border border-slate-700/60 space-y-4">
+                    <p class="text-base sm:text-lg font-bold text-slate-200">${item.question}</p>
+                    <div class="space-y-3">
+                        ${item.options.map((opt, idx) => `
+                            <button onclick="selectMCOption('${item.id}', ${idx})" id="btn-${item.id}-${idx}" 
+                                class="mc-btn w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-sm sm:text-base font-medium transition-all flex items-center justify-between active:scale-[0.98] touch-manipulation">
+                                <span>${opt.text}</span>
+                                <i class="fa-regular fa-circle text-slate-500 status-icon text-lg"></i>
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div id="explanation-${item.id}" class="hidden p-4 rounded-xl bg-purple-950/40 border border-purple-500/30 text-sm text-purple-200 font-medium mt-4 leading-relaxed">
+                        💡 <strong>Explicación Neural:</strong> ${item.explanation}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function selectMCOption(qId, optIdx) {
+            const qObj = mcQuestions.find(q => q.id === qId);
+            if (!qObj) return;
+
+            const isCorrect = qObj.options[optIdx].correct;
+            quizAnswers[qId] = isCorrect;
+
+            qObj.options.forEach((opt, idx) => {
+                const btn = document.getElementById(`btn-${qId}-${idx}`);
+                const icon = btn.querySelector('.status-icon');
+
+                if (idx === optIdx) {
+                    if (isCorrect) {
+                        btn.className = 'mc-btn w-full text-left p-4 rounded-xl border-2 border-emerald-500 bg-emerald-950/60 text-emerald-200 text-sm sm:text-base font-bold transition-all flex items-center justify-between scale-100 touch-manipulation';
+                        icon.className = 'fa-solid fa-circle-check text-emerald-400 text-xl';
+                        speakText(opt.text.replace(/'/g, "\\'"));
+                    } else {
+                        btn.className = 'mc-btn w-full text-left p-4 rounded-xl border-2 border-rose-500 bg-rose-950/60 text-rose-200 text-sm sm:text-base font-bold transition-all flex items-center justify-between scale-100 touch-manipulation';
+                        icon.className = 'fa-solid fa-circle-xmark text-rose-400 text-xl';
+                    }
+                } else if (opt.correct) {
+                    btn.className = 'mc-btn w-full text-left p-4 rounded-xl border border-emerald-500/50 bg-emerald-950/20 text-emerald-300 text-sm sm:text-base font-medium transition-all flex items-center justify-between opacity-80 touch-manipulation';
+                    icon.className = 'fa-solid fa-circle-check text-emerald-400 text-lg';
+                } else {
+                    btn.className = 'mc-btn w-full text-left p-4 rounded-xl border border-slate-800 bg-slate-900/40 text-slate-500 text-sm sm:text-base font-medium transition-all flex items-center justify-between opacity-60 pointer-events-none touch-manipulation';
+                    icon.className = 'fa-regular fa-circle text-slate-700 text-lg';
+                }
+            });
+
+            document.getElementById(`explanation-${qId}`).classList.remove('hidden');
+            updateOverallQuizScore();
+        }
+
+        function updateOverallQuizScore() {
+            const totalItems = mcQuestions.length;
+            const answeredKeys = Object.keys(quizAnswers);
+            let correctCount = 0;
+
+            answeredKeys.forEach(k => {
+                if (quizAnswers[k] === true) correctCount++;
+            });
+
+            const percent = totalItems > 0 ? Math.round((correctCount / totalItems) * 100) : 0;
+
+            document.getElementById('quiz-score-percent').innerText = `${percent}%`;
+            document.getElementById('quiz-score-count').innerText = `${correctCount} / ${totalItems}`;
+
+            if (percent === 100 && answeredKeys.length === totalItems) {
+                triggerConfetti();
+                showToast('¡Felicidades! Lograste responder correctamente los 10 desafíos.', 'success');
+            }
+        }
+
+        function resetQuizzes() {
+            Object.keys(quizAnswers).forEach(k => delete quizAnswers[k]);
+            renderMCQuizzes();
+            updateOverallQuizScore();
+            showToast('Los 10 ejercicios fueron reiniciados', 'info');
+        }
+
+        /* ===================================================================
+           MODULE 3: SPEECH RECOGNITION (16 PROMPTS)
+           =================================================================== */
+        function renderSpeechExercises() {
+            const container = document.getElementById('speech-exercises-container');
+            container.innerHTML = speechExercises.map((item, idx) => `
+                <div class="bg-slate-800/90 p-5 sm:p-6 rounded-2xl border border-slate-700 shadow-xl space-y-5">
+                    <div class="flex justify-between items-start gap-3">
+                        <div class="flex-1">
+                            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Ejercicio ${idx + 1} de 16</span>
+                            <h4 class="text-lg sm:text-xl font-black text-white mt-1 leading-snug">${item.phrase}</h4>
+                            <p class="text-sm text-slate-400 italic mt-1">${item.translation}</p>
+                        </div>
+                        <button onclick="speakText('${item.phrase.replace(/'/g, "\\'")}')" class="p-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-cyan-300 transition-all flex items-center justify-center shadow-md active:scale-95 shrink-0 touch-manipulation" title="Escuchar voz nativa US">
+                            <i class="fa-solid fa-volume-high text-lg"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-700/50">
+                        <span class="text-sm text-amber-300 font-medium block">💡 Guía fonética: <br class="sm:hidden"> ${item.hint}</span>
+                    </div>
+
+                    <!-- Mic Action Button -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <button onclick="toggleSpeechRec('${item.id}', '${item.phrase.replace(/'/g, "\\'")}')" id="mic-btn-${item.id}" class="px-6 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 shadow-lg shadow-emerald-600/20 transition-all active:scale-95 touch-manipulation">
+                            <i class="fa-solid fa-microphone text-lg"></i> Grabar mi voz
+                        </button>
+                        <span id="speech-status-${item.id}" class="text-sm text-slate-400 font-semibold text-center sm:text-left">Toca para comenzar</span>
+                    </div>
+
+                    <!-- Live Transcription & Score Feedback Box -->
+                    <div id="speech-result-box-${item.id}" class="hidden p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-4">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-slate-400 font-bold uppercase tracking-wider">Transcripción:</span>
+                            <span id="speech-score-${item.id}" class="font-black text-cyan-400 text-lg">0%</span>
+                        </div>
+                        
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <p id="speech-transcript-${item.id}" class="text-base font-bold text-slate-200 break-words leading-relaxed">...</p>
+                        </div>
+
+                        <div>
+                            <span class="text-sm font-semibold text-slate-400 block mb-2">Evaluación & Recomendación Neural:</span>
+                            <div id="speech-feedback-${item.id}" class="p-4 rounded-xl text-sm font-medium border space-y-2"></div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        let activeRecognition = null;
+        let activeMicId = null;
+        let finalTranscript = ''; // Global to keep track during continuous session
+
+        function toggleSpeechRec(exerciseId, targetPhrase) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+            if (!SpeechRecognition) {
+                showToast('Tu navegador no soporta reconocimiento de voz (Web Speech API). Por favor usa Google Chrome.', 'error');
+                return;
+            }
+
+            const micBtn = document.getElementById(`mic-btn-${exerciseId}`);
+            const statusEl = document.getElementById(`speech-status-${exerciseId}`);
+            const resultBox = document.getElementById(`speech-result-box-${exerciseId}`);
+            const transcriptEl = document.getElementById(`speech-transcript-${exerciseId}`);
+            const scoreEl = document.getElementById(`speech-score-${exerciseId}`);
+            const feedbackEl = document.getElementById(`speech-feedback-${exerciseId}`);
+
+            if (activeRecognition && activeMicId === exerciseId) {
+                activeRecognition.stop();
+                return;
+            }
+
+            if (activeRecognition) {
+                activeRecognition.stop();
+            }
+
+            activeMicId = exerciseId;
+            const recognition = new SpeechRecognition();
+            activeRecognition = recognition;
+
+            recognition.lang = 'en-US';
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            finalTranscript = '';
+
+            recognition.onstart = () => {
+                micBtn.className = 'px-6 py-4 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 animate-pulse shadow-lg shadow-rose-600/30 touch-manipulation active:scale-95';
+                micBtn.innerHTML = '<i class="fa-solid fa-square text-lg"></i> Detener y Evaluar';
+                statusEl.innerText = 'Grabando... Habla a tu ritmo. Toca para detener.';
+                statusEl.className = 'text-sm text-rose-400 font-bold text-center sm:text-left';
+                resultBox.classList.remove('hidden');
+                transcriptEl.innerText = 'Escuchando tu pronunciación...';
+            };
+
+            // BULLETPROOF ANTI-DUPLICATION ALGORITHM FOR MOBILE CHROME
+            recognition.onresult = (event) => {
+                let currentInterim = '';
+                let currentFinal = '';
+                
+                // Process only from the current relevant index
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        currentFinal += event.results[i][0].transcript;
+                    } else {
+                        currentInterim += event.results[i][0].transcript;
+                    }
+                }
+                
+                if (currentFinal) {
+                    let cleanNew = currentFinal.trim();
+                    let cleanOld = finalTranscript.trim();
+                    
+                    // 1. Wipe duplicate suffix: If old ends with new exactly
+                    if (cleanOld.endsWith(cleanNew)) {
+                        // Do nothing
+                    } 
+                    // 2. Wipe duplicate prefix: If new completely encapsulates old
+                    else if (cleanNew.startsWith(cleanOld) && cleanOld.length > 0) {
+                        finalTranscript = cleanNew + ' ';
+                    } 
+                    // 3. String Overlap Matcher
+                    else {
+                        let oldWords = cleanOld.split(' ');
+                        let newWords = cleanNew.split(' ');
+                        let overlap = 0;
+                        
+                        // Check word overlap backwards
+                        for (let i = 1; i <= Math.min(oldWords.length, newWords.length); i++) {
+                            if (oldWords.slice(-i).join(' ').toLowerCase() === newWords.slice(0, i).join(' ').toLowerCase()) {
+                                overlap = i;
+                            }
+                        }
+                        
+                        if (overlap > 0) {
+                            // Append only the non-overlapping words
+                            finalTranscript = cleanOld + ' ' + newWords.slice(overlap).join(' ') + ' ';
+                        } else {
+                            finalTranscript += cleanNew + ' ';
+                        }
+                    }
+                }
+                
+                let displayString = (finalTranscript + currentInterim).trim();
+                
+                // 4. Aggressive identical consecutive word cleanup (fixes the "I I am am" mobile bug)
+                let words = displayString.split(/\s+/);
+                let deduped = [];
+                for (let i = 0; i < words.length; i++) {
+                    if (i === 0 || words[i].toLowerCase() !== words[i-1].toLowerCase()) {
+                        deduped.push(words[i]);
+                    }
+                }
+                displayString = deduped.join(' ');
+
+                transcriptEl.innerText = displayString ? '"' + displayString + '"' : 'Escuchando...';
+
+                // Evaluate on the fly
+                if (displayString) {
+                    evaluateSpeechAccuracy(exerciseId, targetPhrase, displayString, scoreEl, feedbackEl);
+                }
+            };
+
+            recognition.onerror = (event) => {
+                if (event.error === 'no-speech') {
+                    statusEl.innerText = 'No se detectó audio. Intenta de nuevo.';
+                } else {
+                    statusEl.innerText = `Estado: ${event.error}`;
+                }
+                statusEl.className = 'text-sm text-amber-400 font-semibold text-center sm:text-left';
+                resetMicButton(exerciseId);
+            };
+
+            recognition.onend = () => {
+                resetMicButton(exerciseId);
+                if (!transcriptEl.innerText || transcriptEl.innerText === 'Escuchando tu pronunciación...') {
+                    transcriptEl.innerText = 'No se detectó voz. Haz clic en "Grabar mi voz" para intentar nuevamente.';
+                    statusEl.innerText = 'Listo para intentar';
+                } else {
+                    statusEl.innerText = 'Grabación evaluada con éxito';
+                }
+                statusEl.className = 'text-sm text-slate-400 font-semibold text-center sm:text-left';
+            };
+
+            try {
+                recognition.start();
+            } catch(e) {
+                console.error(e);
+                showToast('Error al iniciar el micrófono. Asegúrate de dar permisos.', 'error');
+                resetMicButton(exerciseId);
+            }
+        }
+
+        function resetMicButton(exerciseId) {
+            const micBtn = document.getElementById(`mic-btn-${exerciseId}`);
+            if (micBtn) {
+                micBtn.className = 'px-6 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 shadow-lg shadow-emerald-600/20 transition-all touch-manipulation active:scale-95';
+                micBtn.innerHTML = '<i class="fa-solid fa-microphone text-lg"></i> Grabar mi voz';
+            }
+            activeRecognition = null;
+            activeMicId = null;
+        }
+
+        /* FUZZY MATCHING EVALUATION ALGORITHM (Medium Strictness) */
+        function evaluateSpeechAccuracy(exerciseId, target, spoken, scoreEl, feedbackEl) {
+            const cleanTarget = target.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+            const cleanSpoken = spoken.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+
+            // Convert common numbers to words just in case
+            const numMap = {'1':'one','2':'two','3':'three','4':'four','5':'five','6':'six','7':'seven','8':'eight','9':'nine','10':'ten','11':'eleven','12':'twelve','pm':'p.m.','am':'a.m.'};
+            
+            let targetWords = cleanTarget.split(/\s+/).map(w => numMap[w] || w);
+            let spokenWords = cleanSpoken.split(/\s+/).map(w => numMap[w] || w);
+
+            let matchedCount = 0;
+            
+            // Loop targets to find matches in spoken text
+            targetWords.forEach(tWord => {
+                let matchIndex = spokenWords.findIndex(sWord => {
+                    // Exact match
+                    if (sWord === tWord) return true;
+                    // If length is vastly different, fail fast
+                    if (Math.abs(sWord.length - tWord.length) > 2) return false;
+                    
+                    // Inline Levenshtein distance calculation for fuzzy matching names & minor mishearings
+                    let m = [], i, j;
+                    for(i=0; i<=sWord.length; i++) m[i] = [i];
+                    for(j=0; j<=tWord.length; j++) m[0][j] = j;
+                    for(i=1; i<=sWord.length; i++) {
+                        for(j=1; j<=tWord.length; j++) {
+                            m[i][j] = sWord.charAt(i-1) === tWord.charAt(j-1) ? 
+                                m[i-1][j-1] : 
+                                Math.min(m[i-1][j-1]+1, m[i][j-1]+1, m[i-1][j]+1);
+                        }
+                    }
+                    let dist = m[sWord.length][tWord.length];
+                    
+                    // Medium strictness rules: Allow 1 typo for short words, 2 typos for longer words
+                    return (tWord.length <= 4 && dist <= 1) || (tWord.length > 4 && dist <= 2);
+                });
+                
+                if (matchIndex !== -1) {
+                    matchedCount++;
+                    // Remove word so it isn't matched twice
+                    spokenWords.splice(matchIndex, 1);
+                }
+            });
+
+            let similarity = Math.round((matchedCount / targetWords.length) * 100);
+            
+            // Override for exact absolute match
+            if (cleanSpoken === cleanTarget) similarity = 100;
+            if (similarity > 100) similarity = 100;
+
+            speechScores[exerciseId] = similarity;
+            scoreEl.innerText = `${similarity}%`;
+
+            // Adjusted thresholds for a fairer, more encouraging experience (75% Green, 45% Yellow)
+            if (similarity >= 75) {
+                scoreEl.className = 'font-black text-emerald-400 text-xl';
+                feedbackEl.className = 'p-4 rounded-xl text-sm font-semibold bg-emerald-950/60 border border-emerald-500/50 text-emerald-200 space-y-2 shadow-inner';
+                feedbackEl.innerHTML = `
+                    <p class="text-base font-bold text-emerald-300">🎉 ¡Fantástico trabajo! (${similarity}%)</p>
+                    <p>¡Muy bien! Tu pronunciación es clara y fluida. ¡Sigue así!</p>
+                `;
+                triggerConfetti();
+            } else if (similarity >= 45) {
+                scoreEl.className = 'font-black text-amber-400 text-xl';
+                feedbackEl.className = 'p-4 rounded-xl text-sm font-semibold bg-amber-950/60 border border-amber-500/50 text-amber-200 space-y-2 shadow-inner';
+                feedbackEl.innerHTML = `
+                    <p class="text-base font-bold text-amber-300">👍 ¡Buen esfuerzo! (${similarity}%)</p>
+                    <p>Vas por muy buen camino. Te recomendamos escuchar el audio modelo nativo y volver a intentarlo.</p>
+                `;
+            } else {
+                scoreEl.className = 'font-black text-rose-400 text-xl';
+                feedbackEl.className = 'p-4 rounded-xl text-sm font-semibold bg-rose-950/60 border border-rose-500/50 text-rose-200 space-y-2 shadow-inner';
+                feedbackEl.innerHTML = `
+                    <p class="text-base font-bold text-rose-300">💪 ¡Sigue practicando! (${similarity}%)</p>
+                    <p>El aprendizaje es un proceso. Toca el ícono de audio para escuchar la velocidad correcta y vuelve a grabar tu voz sin prisa.</p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
