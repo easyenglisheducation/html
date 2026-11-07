@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Lección Neural: Futuro Simple Avanzado (B2+) - By Coach Carlos O.</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0F172A',
+                            card: '#1E293B',
+                            accent: '#06B6D4',
+                            purple: '#8B5CF6',
+                            emerald: '#10B981',
+                            amber: '#F59E0B',
+                            rose: '#F43F5E'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0F172A;
+            color: #F8FAFC;
+        }
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+        .tab-active {
+            border-bottom: 3px solid #06B6D4;
+            color: #06B6D4;
+            font-weight: 700;
+        }
+        .pulse-mic {
+            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(244, 63, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+        }
+        /* Mobile tap highlight reset */
+        button, a {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER / BRANDING -->
+    <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50 shadow-lg backdrop-blur bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3 w-full sm:w-auto">
+                <div class="bg-gradient-to-tr from-cyan-500 to-purple-600 p-2.5 rounded-xl shadow-lg shrink-0">
+                    <i class="fa-solid fa-brain text-2xl text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-extrabold tracking-tight text-white flex flex-wrap items-center gap-2">
+                        Super Lección Neural <span class="bg-cyan-500/10 text-cyan-400 text-[10px] sm:text-xs px-2.5 py-0.5 rounded-full border border-cyan-500/20 font-bold whitespace-nowrap">B2+ Advanced</span>
+                    </h1>
+                    <p class="text-xs text-slate-400 font-medium">Futuro Simple Avanzado (Will, Shall, Going To) • <span class="text-cyan-400 font-bold">By Coach Carlos O.</span></p>
+                </div>
+            </div>
+
+            <!-- MODULE NAVIGATION TABS (Flex-wrap for mobile) -->
+            <nav class="flex flex-wrap space-x-1 sm:space-x-4 border-b border-slate-800 sm:border-0 w-full sm:w-auto justify-center sm:justify-end">
+                <button onclick="switchTab('module1')" id="tab-module1" class="tab-btn tab-active px-3 py-3 text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 active:scale-95 touch-manipulation">
+                    <i class="fa-solid fa-book-open"></i> <span class="hidden sm:inline">Fórmulas</span>
+                </button>
+                <button onclick="switchTab('module2')" id="tab-module2" class="tab-btn px-3 py-3 text-xs sm:text-sm font-semibold text-slate-400 hover:text-slate-200 transition-all flex items-center gap-2 active:scale-95 touch-manipulation">
+                    <i class="fa-solid fa-gamepad"></i> Desafíos
+                </button>
+                <button onclick="switchTab('module3')" id="tab-module3" class="tab-btn px-3 py-3 text-xs sm:text-sm font-semibold text-slate-400 hover:text-slate-200 transition-all flex items-center gap-2 active:scale-95 touch-manipulation">
+                    <i class="fa-solid fa-microphone-lines"></i> Práctica Oral
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- ================= MODULE 1 ================= -->
+        <section id="module1" class="tab-content space-y-10">
+            <!-- Grammatical Breakdown Banner -->
+            <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-6 sm:p-8 shadow-xl backdrop-blur">
+                <div class="border-b border-slate-700 pb-4 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                            <i class="fa-solid fa-diagram-project text-cyan-400 text-2xl"></i> Arquitectura Gramatical B2+
+                        </h2>
+                        <p class="text-sm text-slate-400 mt-2">Domina las diferencias clave entre predicciones formales, intenciones previas, ofertas protocolarias (shall) y subordinadas temporales.</p>
+                    </div>
+                    <span class="inline-block bg-purple-500/10 text-purple-400 text-xs font-bold px-4 py-1.5 rounded-full border border-purple-500/20 whitespace-nowrap">Predicción vs. Intención</span>
+                </div>
+
+                <!-- Formulas Grid -->
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Will -->
+                    <div class="bg-slate-900/90 rounded-xl p-5 border border-slate-700/50 flex flex-col justify-between shadow-inner">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-3 py-1.5 rounded-md border border-emerald-500/30">WILL (Decisión/Promesa)</span>
+                                <i class="fa-solid fa-bolt text-emerald-400 text-lg"></i>
+                            </div>
+                            <p class="text-xs font-mono text-cyan-300 mb-3 bg-slate-950 p-2 rounded">Subject + WILL + Base Verb</p>
+                            <p class="text-sm text-slate-300 italic leading-relaxed">"We <strong>will guarantee</strong> full data encryption across all nodes."</p>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-5 border-t border-slate-800 pt-3">Uso: Decisiones espontáneas, compromisos oficiales y predicciones sin evidencia directa.</p>
+                    </div>
+
+                    <!-- Be Going To -->
+                    <div class="bg-slate-900/90 rounded-xl p-5 border border-slate-700/50 flex flex-col justify-between shadow-inner">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-rose-500/20 text-rose-400 text-xs font-bold px-3 py-1.5 rounded-md border border-rose-500/30">BE GOING TO (Plan)</span>
+                                <i class="fa-solid fa-compass text-rose-400 text-lg"></i>
+                            </div>
+                            <p class="text-xs font-mono text-cyan-300 mb-3 bg-slate-950 p-2 rounded">Subj + BE GOING TO + Base Verb</p>
+                            <p class="text-sm text-slate-300 italic leading-relaxed">"Look at the trends; sales <strong>are going to exceed</strong> projections."</p>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-5 border-t border-slate-800 pt-3">Uso: Intenciones previas planificadas y predicciones basadas en signos presentes perceptibles.</p>
+                    </div>
+
+                    <!-- Shall & Time Clauses -->
+                    <div class="bg-slate-900/90 rounded-xl p-5 border border-slate-700/50 flex flex-col justify-between shadow-inner">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-3 py-1.5 rounded-md border border-amber-500/30">SHALL / Cláusulas</span>
+                                <i class="fa-solid fa-scale-balanced text-amber-400 text-lg"></i>
+                            </div>
+                            <p class="text-xs font-mono text-cyan-300 mb-3 bg-slate-950 p-2 rounded">SHALL I...? / As soon as + Present</p>
+                            <p class="text-sm text-slate-300 italic leading-relaxed">"<strong>Shall we initiate</strong> the audit as soon as the files <strong>arrive</strong>?"</p>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-5 border-t border-slate-800 pt-3">Uso: Ofertas diplomáticas (Shall) y reglas de tiempo (Present Simple tras conectores).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8 Comparative Examples -->
+            <div class="space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-purple-400"></i> 8 Matices Avanzados
+                    </h3>
+                    <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1.5 rounded-full">Toca el audio para escuchar pronunciación</span>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4" id="comparative-examples-grid">
+                    <!-- Populated via JavaScript -->
+                </div>
+            </div>
+
+            <!-- 16 Flashcards Section -->
+            <div class="space-y-4 pt-6 border-t border-slate-800">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-clone text-cyan-400"></i> 16 Flashcards (Recuerdo Activo)
+                    </h3>
+                    <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1.5 rounded-full">Toca cualquier tarjeta para voltearla</span>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="flashcards-grid">
+                    <!-- Populated via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= MODULE 2 (MULTIPLE CHOICE COMPLIANT UI) ================= -->
+        <section id="module2" class="tab-content hidden space-y-8">
+            <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-6 sm:p-8 shadow-xl backdrop-blur max-w-4xl mx-auto">
+                <!-- Quiz Header -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6 border-b border-slate-700 gap-6">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                            <i class="fa-solid fa-gamepad text-cyan-400 text-2xl"></i> Desafíos Interactivos B2+
+                        </h2>
+                        <p class="text-sm text-slate-400 mt-2">Evalúa tu precisión en la pragmática y sintaxis del Futuro Simple Avanzado.</p>
+                    </div>
+                    <div class="flex items-center gap-6 bg-slate-900 px-6 py-3 rounded-xl border border-slate-700 w-full sm:w-auto justify-center shadow-inner">
+                        <div class="text-center">
+                            <p class="text-[10px] sm:text-xs text-slate-400 uppercase font-bold tracking-wider mb-1">Puntaje</p>
+                            <p class="text-xl sm:text-2xl font-extrabold text-cyan-400" id="quiz-score">0 / 12</p>
+                        </div>
+                        <div class="h-10 w-px bg-slate-700"></div>
+                        <div class="text-center">
+                            <p class="text-[10px] sm:text-xs text-slate-400 uppercase font-bold tracking-wider mb-1">Progreso</p>
+                            <p class="text-xl sm:text-2xl font-extrabold text-purple-400" id="quiz-progress">0%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiz Progress Bar -->
+                <div class="w-full bg-slate-900 h-3 rounded-full overflow-hidden my-8 border border-slate-700/50">
+                    <div id="quiz-bar" class="bg-gradient-to-r from-cyan-500 to-purple-600 h-full w-0 transition-all duration-300"></div>
+                </div>
+
+                <!-- Quiz Container -->
+                <div id="quiz-container" class="space-y-8">
+                    <!-- Current Question Card inserted by JS -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= MODULE 3 (AI SPEECH RECOGNITION) ================= -->
+        <section id="module3" class="tab-content hidden space-y-8">
+            <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-6 sm:p-8 shadow-xl backdrop-blur max-w-4xl mx-auto">
+                <!-- Module Header -->
+                <div class="pb-6 border-b border-slate-700 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+                            <i class="fa-solid fa-microphone-lines text-rose-400 text-2xl"></i> Entrenamiento Oral AI
+                        </h2>
+                        <p class="text-sm text-slate-400 mt-2 leading-relaxed">Escucha el audio nativo. Toca grabar y habla libremente; el sistema ha sido optimizado con algoritmos <strong>Fuzzy Matching</strong> (tolerante con nombres propios) y de fusión de textos para evitar duplicaciones indeseadas al grabar en tu celular.</p>
+                    </div>
+                    <span class="bg-rose-500/10 text-rose-400 text-xs font-bold px-4 py-1.5 rounded-full border border-rose-500/20 whitespace-nowrap">Motor de Inteligencia de Voz</span>
+                </div>
+
+                <!-- Exercise Selector Carousel/Grid -->
+                <div class="my-8">
+                    <label class="block text-xs font-bold text-slate-400 uppercase mb-3 tracking-wider">Selecciona la frase para practicar:</label>
+                    <select id="speech-selector" onchange="loadSpeechExercise(this.value)" class="w-full bg-slate-900 border border-slate-700 text-cyan-300 font-semibold text-sm sm:text-base rounded-xl px-4 py-3.5 focus:outline-none focus:border-cyan-500 truncate shadow-inner">
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+
+                <!-- Practice Display Box -->
+                <div class="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-700/80 shadow-inner space-y-8 relative overflow-hidden">
+                    <!-- Aesthetic background glow -->
+                    <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-cyan-900/20 blur-3xl pointer-events-none"></div>
+
+                    <div class="flex justify-between items-start gap-4 relative z-10">
+                        <div class="flex-1">
+                            <span class="text-[10px] sm:text-xs font-bold text-cyan-400 uppercase tracking-wider block mb-2" id="speech-category">Categoría</span>
+                            <h3 class="text-xl sm:text-2xl font-bold text-white leading-tight" id="speech-target-text">Loading target phrase...</h3>
+                            <p class="text-sm sm:text-base text-slate-400 italic mt-3" id="speech-translation">Traducción...</p>
+                        </div>
+                        <button onclick="speakTargetPhrase()" class="p-3.5 bg-slate-800 hover:bg-slate-700 text-cyan-400 rounded-xl border border-slate-700 transition active:scale-95 touch-manipulation shadow-md shrink-0" title="Escuchar pronunciación nativa">
+                            <i class="fa-solid fa-volume-high text-xl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Audio Recording Controls -->
+                    <div class="flex flex-col items-center justify-center py-8 border-t border-b border-slate-800/80 gap-5 relative z-10">
+                        <button id="mic-btn" onclick="toggleSpeechRecording()" class="w-24 h-24 rounded-full bg-gradient-to-tr from-rose-600 to-pink-500 hover:from-rose-500 hover:to-pink-400 text-white flex items-center justify-center shadow-lg shadow-rose-500/20 transition-all transform active:scale-95 touch-manipulation">
+                            <i class="fa-solid fa-microphone text-4xl" id="mic-icon"></i>
+                        </button>
+                        <p class="text-sm font-semibold text-slate-400 text-center px-4" id="mic-status">Toca el micrófono para grabar tu voz</p>
+                    </div>
+
+                    <!-- Real-Time Transcription Output Box -->
+                    <div class="space-y-3 relative z-10">
+                        <label class="block text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">Transcripción en Tiempo Real:</label>
+                        <div id="transcript-box" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-5 min-h-[90px] text-base sm:text-lg text-slate-300 italic font-mono flex items-center leading-relaxed">
+                            --
+                        </div>
+                    </div>
+
+                    <!-- AI Feedback Box (Fuzzy Match & Medium Strictness) -->
+                    <div id="feedback-box" class="hidden rounded-xl p-6 border transition-all space-y-4 shadow-lg relative z-10">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/50 pb-3">
+                            <span class="text-sm sm:text-base font-bold uppercase tracking-wide flex items-center gap-2" id="feedback-title">
+                                <i class="fa-solid fa-chart-pie"></i> Resultado del Análisis
+                            </span>
+                            <span class="text-3xl font-extrabold" id="feedback-score">0%</span>
+                        </div>
+                        <p class="text-sm sm:text-base font-medium leading-relaxed pt-1" id="feedback-text"></p>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="flex flex-col sm:flex-row justify-between items-center pt-6 gap-4 border-t border-slate-700/50">
+                    <button onclick="prevSpeechExercise()" class="w-full sm:w-auto px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-bold rounded-xl border border-slate-700 transition active:scale-95 touch-manipulation flex items-center justify-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-chevron-left"></i> Anterior
+                    </button>
+                    <span class="text-xs sm:text-sm text-slate-400 font-bold bg-slate-900 px-4 py-2 rounded-lg border border-slate-800" id="speech-counter">1 de 16</span>
+                    <button onclick="nextSpeechExercise()" class="w-full sm:w-auto px-8 py-3.5 bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-bold rounded-xl transition active:scale-95 touch-manipulation flex items-center justify-center gap-2 shadow-lg shadow-cyan-600/30">
+                        Siguiente <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER / COPYRIGHT -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-8 text-center text-xs text-slate-500 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center gap-2">
+            <p class="font-medium">© Developed for educational excellence By Coach Carlos O</p>
+            <p class="text-slate-600">Plataforma Neuroeducativa de Aprendizaje Acelerado • Inglés Nivel Avanzado B2+</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // ================= GLOBAL DATA & AUDIO INIT =================
+        let ttsInitialized = false;
+
+        function initializeAudioContext() {
+            if (!ttsInitialized && 'speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance('');
+                utterance.volume = 0;
+                window.speechSynthesis.speak(utterance);
+                ttsInitialized = true;
+            }
+        }
+        window.addEventListener('click', initializeAudioContext, { once: true });
+        window.addEventListener('touchstart', initializeAudioContext, { once: true });
+
+        function toggleGlobalAudio() {
+            globalAudioEnabled = !globalAudioEnabled;
+            const icon = document.getElementById('global-tts-icon');
+            const status = document.getElementById('global-tts-status');
+
+            if (globalAudioEnabled) {
+                icon.className = 'fa-solid fa-volume-high text-cyan-400 text-lg sm:text-base';
+                status.innerText = 'Voz US On';
+                showToast('Síntesis de voz activada', 'success');
+            } else {
+                icon.className = 'fa-solid fa-volume-xmark text-slate-400 text-lg sm:text-base';
+                status.innerText = 'Voz US Off';
+                showToast('Síntesis de voz desactivada', 'info');
+            }
+        }
+
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            const toastIcon = document.getElementById('toast-icon');
+
+            toastMsg.innerText = message;
+
+            if (type === 'success') {
+                toast.className = 'fixed bottom-6 right-6 left-6 sm:left-auto z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border bg-emerald-900/95 text-emerald-100 border-emerald-500 transition-all duration-300 opacity-100 translate-y-0';
+                toastIcon.className = 'fa-solid fa-circle-check text-emerald-400 text-xl shrink-0';
+            } else if (type === 'error') {
+                toast.className = 'fixed bottom-6 right-6 left-6 sm:left-auto z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border bg-rose-900/95 text-rose-100 border-rose-500 transition-all duration-300 opacity-100 translate-y-0';
+                toastIcon.className = 'fa-solid fa-triangle-exclamation text-rose-400 text-xl shrink-0';
+            } else {
+                toast.className = 'fixed bottom-6 right-6 left-6 sm:left-auto z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border bg-slate-900/95 text-slate-100 border-slate-600 transition-all duration-300 opacity-100 translate-y-0';
+                toastIcon.className = 'fa-solid fa-circle-info text-cyan-400 text-xl shrink-0';
+            }
+
+            setTimeout(() => {
+                toast.className = toast.className.replace('opacity-100 translate-y-0', 'opacity-0 translate-y-24 pointer-events-none');
+            }, 3500);
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('tab-active');
+                el.classList.add('text-slate-400');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.classList.add('tab-active');
+            activeBtn.classList.remove('text-slate-400');
+        }
+
+        function speakText(text) {
+            if (!('speechSynthesis' in window) || !globalAudioEnabled) return;
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.9;
+            const voices = window.speechSynthesis.getVoices();
+            const usVoice = voices.find(v => v.lang === 'en-US' || v.lang.includes('en_US'));
+            if (usVoice) utterance.voice = usVoice;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // ================= GLOBAL DATA =================
+
+        // 8 Comparative Examples (Module 1)
+        const comparativeExamples = [
+            {
+                title: "Decisión Espontánea (Will) vs. Intención Previa Planificada (Be going to)",
+                perfect: "Wait, the client sent a revision? I will review it right now.",
+                perfectTrans: "Un momento, ¿el cliente envió una revisión? La revisaré de inmediato (decisión tomada al momento).",
+                past: "We are going to launch the new application next Monday.",
+                pastTrans: "Vamos a lanzar la nueva aplicación el próximo lunes (plan previamente establecido).",
+                note: "'Will' responde a un estímulo inmediato; 'Be going to' expresa una decisión tomada con anterioridad."
+            },
+            {
+                title: "Predicción Basada en Evidencia (Be going to) vs. Juicio / Opinión (Will)",
+                perfect: "Look at the dark clouds gathering; it is going to rain during the event.",
+                perfectTrans: "Mira las nubes oscuras acumulándose; va a llover durante el evento (evidencia visual presente).",
+                past: "I believe our software will revolutionize the local education market.",
+                pastTrans: "Creo que nuestro software revolucionará el mercado educativo local (opinión/juicio personal).",
+                note: "'Be going to' se apoya en signos tangibles del presente; 'will' expresa convicción o creencia."
+            },
+            {
+                title: "Oferta Formal Protocolaria (Shall I / We) vs. Pregunta Directa (Will you)",
+                perfect: "Shall I send the meeting minutes to the board members?",
+                perfectTrans: "¿Desea que envíe el acta de la reunión a los miembros de la junta? (oferta cortés de servicio).",
+                past: "Will you sign the non-disclosure agreement before the briefing?",
+                pastTrans: "¿Firmará el acuerdo de confidencialidad antes de la sesión? (petición/pregunta de voluntad).",
+                note: "'Shall I/We...?' es la fórmula de cortesía ejecutiva por excelencia para ofrecer colaboración."
+            },
+            {
+                title: "Futuro en Oraciones Subordinadas de Tiempo (As soon as / When / Until)",
+                perfect: "We will release the security patch as soon as the test passes.",
+                perfectTrans: "Liberaremos el parche de seguridad tan pronto como la prueba pase (Presente Simple en la cláusula).",
+                past: "We will wait until the chief auditor arrives at the office.",
+                pastTrans: "Esperaremos hasta que el auditor principal llegue a la oficina.",
+                note: "Tras conectores como 'as soon as', 'when', 'until', 'after', se usa Presente Simple (nunca 'will')."
+            },
+            {
+                title: "Compromiso u Obligación Oficial (Shall) en Documentos Legales",
+                perfect: "The contractor shall deliver all software source codes by December 1st.",
+                perfectTrans: "El contratista entregará todo el código fuente del software antes del 1 de diciembre (obligación legal).",
+                past: "The contractor will deliver the codebase once ready.",
+                pastTrans: "El contratista entregará el código una vez listo (declaración estándar de futuro).",
+                note: "En contratos y estatutos formales, 'shall' con tercera persona denota obligación legal binding."
+            },
+            {
+                title: "Rechazo Voluntario (Won't / Refusal)",
+                perfect: "The legacy system won't process the updated data format.",
+                perfectTrans: "El sistema heredado se niega a / no quiere procesar el formato actualizado (rechazo o falla persistente).",
+                past: "The legacy system isn't going to support the format next year.",
+                pastTrans: "El sistema heredado no va a soportar el formato el próximo año (predicción).",
+                note: "'Won't' en tercera persona u objetos inanimados expresa resistencia a funcionar o rechazo obstinado."
+            },
+            {
+                title: "Promesa Oficial Formal (Will)",
+                perfect: "I promise our engineering team will resolve the issue before midnight.",
+                perfectTrans: "Prometo que nuestro equipo de ingeniería resolverá el problema antes de medianoche.",
+                past: "Our engineering team is going to work on the issue tonight.",
+                pastTrans: "Nuestro equipo de ingeniería va a trabajar en el problema esta noche (plan).",
+                note: "Las promesas y garantías formales se construyen con 'will'."
+            },
+            {
+                title: "Futuro en Cláusulas Condicionales de Primer Tipo (If + Present, Will + Base)",
+                perfect: "If the board approves the budget, we will expand our operations to Bogota.",
+                perfectTrans: "Si la junta aprueba el presupuesto, expandiremos nuestras operaciones a Bogotá.",
+                past: "If the board is going to approve the budget, we should prepare now.",
+                pastTrans: "Si la junta va a aprobar el presupuesto, deberíamos prepararnos ahora (variación de intención).",
+                note: "El primer condicional estándar usa Presente Simple en el 'If-clause' y 'Will' en el resultado."
+            }
+        ];
+
+        // 16 Flashcards (Module 1)
+        const flashcardsData = [
+            { front: "Shall I proceed?", back: "¿Desea que proceda? / ¿Procedo?", context: "Shall I proceed with the financial audit presentation?" },
+            { front: "I will see to it", back: "Yo me me encargaré de ello", context: "I will see to it that the contract is delivered today." },
+            { front: "As soon as it arrives", back: "Tan pronto como llegue", context: "We will verify the shipment as soon as it arrives." },
+            { front: "It is going to fail", back: "Va a fallar (evidencia visible)", context: "Look at the CPU load; the server is going to fail." },
+            { front: "Shall we begin?", back: "¿Empezamos? (propuesta cortés)", context: "Shall we begin the executive briefing now?" },
+            { front: "The system won't respond", back: "El sistema no quiere responder", context: "The legacy database won't respond to our queries." },
+            { front: "We will guarantee...", back: "Garantizaremos...", context: "We will guarantee full compliance with data privacy regulations." },
+            { front: "Are you going to attend?", back: "¿Va usted a asistir? (plan)", context: "Are you going to attend the tech conference in October?" },
+            { front: "Until the board decides", back: "Hasta que la junta decida", context: "We will freeze expenditures until the board decides." },
+            { front: "The contractor shall...", back: "El contratista deberá... (legal)", context: "The contractor shall comply with all safety mandates." },
+            { front: "I'll take care of it", back: "Yo me hago cargo (espontáneo)", context: "Don't worry about the glitch; I'll take care of it right away." },
+            { front: "They are going to launch...", back: "Van a lanzar... (plan previo)", context: "They are going to launch the new platform next month." },
+            { front: "What shall we do?", back: "¿Qué hacemos? / ¿Qué deberíamos hacer?", context: "What shall we do regarding the unexpected budget deficit?" },
+            { front: "Once the code compiles", back: "Una vez que el código compile", context: "We will run tests once the code compiles successfully." },
+            { front: "I won't let you down", back: "No te / le defraudaré (promesa)", context: "I won't let you down; the project will be delivered on time." },
+            { front: "Is it going to rain?", back: "¿Va a llover? (signos presentes)", context: "The sky is dark; is it going to rain during our outdoor event?" }
+        ];
+
+        // 12 Quizzes (Module 2) - CLICK TO BUILD UI INTEGRATED
+        const quizQuestions = [
+            {
+                question: "Which sentence correctly uses 'SHALL' for a formal executive offer?",
+                options: [
+                    "Shall I send the updated financial draft to the auditors?",
+                    "Will I send the updated financial draft to the auditors?",
+                    "Am I going to send the updated financial draft to the auditors?",
+                    "Do I shall send the updated financial draft to the auditors?"
+                ],
+                correct: 0,
+                explanation: "'Shall I...?' is the standard formal formula for offering assistance or proposing an action polite to the listener."
+            },
+            {
+                question: "Select the sentence with the correct future time clause rule (As soon as / When):",
+                options: [
+                    "We will deploy the application as soon as the test will pass.",
+                    "We will deploy the application as soon as the test passes.",
+                    "We deploy the application as soon as the test will pass.",
+                    "We are going to deploy the application as soon as the test is passing will."
+                ],
+                correct: 1,
+                explanation: "Time clauses introducing future events after 'as soon as', 'when', or 'until' must use Present Simple ('passes'), not 'will'."
+            },
+            {
+                question: "Choose the option that reflects a PREDICTION BASED ON PRESENT EVIDENT SIGNS:",
+                options: [
+                    "Look at those server metrics spiking to 100%; the system is going to crash.",
+                    "I think the system will crash someday.",
+                    "The system shall crash according to my intuition.",
+                    "The system is crashing will as soon as we connect."
+                ],
+                correct: 0,
+                explanation: "'Be going to' is used when current visible evidence ('metrics spiking to 100%') indicates what is about to happen."
+            },
+            {
+                question: "What does 'won't' signify in the sentence: 'The security server won't accept our access credentials'?",
+                options: [
+                    "A planned future schedule.",
+                    "Refusal or failure of a system/mechanism to operate as intended.",
+                    "A formal legal obligation.",
+                    "A suggestion between colleagues."
+                ],
+                correct: 1,
+                explanation: "'Won't' can express refusal, resistance, or persistent operational failure of a machine or system."
+            },
+            {
+                question: "Complete the sentence: 'Wait, did the investor call? I _____ him back right now.'",
+                options: [
+                    "am going to call",
+                    "will call",
+                    "shall call",
+                    "call"
+                ],
+                correct: 1,
+                explanation: "Spontaneous decisions made at the exact moment of speaking require 'will' ('will call')."
+            },
+            {
+                question: "In legal contracts, what does the word 'SHALL' convey when applied to a third party (e.g., 'The tenant shall...')?",
+                options: [
+                    "A spontaneous offer.",
+                    "A binding legal obligation or mandate.",
+                    "A casual prediction.",
+                    "An uncertain possibility."
+                ],
+                correct: 1,
+                explanation: "In legal contexts, 'shall' expresses a formal, legally binding obligation equivalent to 'must'."
+            },
+            {
+                question: "Identify the sentence that correctly expresses a PRIOR INTENTION (planned before the moment of speaking):",
+                options: [
+                    "We are going to open three new regional branches next year.",
+                    "We will open three new regional branches right now, I just decided.",
+                    "We shall open three new regional branches if you want.",
+                    "We open three new regional branches yesterday."
+                ],
+                correct: 0,
+                explanation: "'Be going to' indicates a decision or plan formulated prior to the current conversation."
+            },
+            {
+                question: "Which sentence correctly forms a First Conditional with a future result?",
+                options: [
+                    "If our team completes the audit today, we will present the findings tomorrow.",
+                    "If our team will complete the audit today, we will present the findings tomorrow.",
+                    "If our team completes the audit today, we present the findings tomorrow shall.",
+                    "If our team will complete the audit today, we present the findings tomorrow."
+                ],
+                correct: 0,
+                explanation: "The 'if' clause takes Present Simple ('completes') and the main result clause takes 'will + verb'."
+            },
+            {
+                question: "Select the sentence with a grammatical error regarding future time clauses:",
+                options: [
+                    "We will hold the conference until the keynote speaker arrives.",
+                    "I will contact you as soon as I will get the results.",
+                    "They are going to review the contract after the legal team signs it.",
+                    "The software will restart once the installation finishes."
+                ],
+                correct: 1,
+                explanation: "'As soon as I will get...' is incorrect. It must be 'as soon as I get...' in Present Simple."
+            },
+            {
+                question: "Choose the most appropriate formal phrase to propose a break during an executive meeting:",
+                options: [
+                    "Shall we take a fifteen-minute recess now?",
+                    "Are we going to take a recess right this second?",
+                    "Will we taking a recess now?",
+                    "Do we shall take a recess now?"
+                ],
+                correct: 0,
+                explanation: "'Shall we...?' is the refined B2+ structure for proposing collective action politely in business settings."
+            },
+            {
+                question: "Fill in the blank: 'I promise I _____ fail to meet the delivery deadline.'",
+                options: [
+                    "won't",
+                    "am not going to",
+                    "shall not to",
+                    "don't"
+                ],
+                correct: 0,
+                explanation: "Promises and guarantees naturally pair with 'will / won't'."
+            },
+            {
+                question: "Identify the sentence containing a grammatical error:",
+                options: [
+                    "Look at the data charts; our market share is going to grow.",
+                    "I will give you a ride to the airport as soon as my meeting ends.",
+                    "Shall I to assist you with the executive presentation?",
+                    "The contract states that the buyer shall pay within thirty days."
+                ],
+                correct: 2,
+                explanation: "'Shall I to assist...' is incorrect. 'Shall' is a modal verb followed directly by the bare infinitive ('Shall I assist...')."
+            }
+        ];
+
+        // 16 Speech Practice Items (Module 3)
+        const speechExercises = [
+            {
+                category: "Spontaneous Commitment",
+                target: "Don't worry about the system error; I will handle it immediately.",
+                translation: "No se preocupe por el error del sistema; yo me haré cargo de inmediato."
+            },
+            {
+                category: "Evidence-Based Prediction",
+                target: "Look at the rapid user growth; our servers are going to need an upgrade.",
+                translation: "Mira el rápido crecimiento de usuarios; nuestros servidores van a necesitar una actualización."
+            },
+            {
+                category: "Formal Executive Offer",
+                target: "Shall I forward the quarterly audit results to the board of directors?",
+                translation: "¿Desea que reenvíe los resultados de la auditoría trimestral a la junta directiva?"
+            },
+            {
+                category: "Future Time Clause",
+                target: "We will release the updated version as soon as the testing team approves it.",
+                translation: "Liberaremos la versión actualizada tan pronto como el equipo de pruebas la apruebe."
+            },
+            {
+                category: "Legal Mandate",
+                target: "The licensing agreement states that the user shall not redistribute the software.",
+                translation: "El acuerdo de licencia establece que el usuario no redistribuirá el software."
+            },
+            {
+                category: "Prior Intentions",
+                target: "We are going to launch our new AI learning platform early next year.",
+                translation: "Vamos a lanzar nuestra nueva plataforma de aprendizaje con IA a principios del próximo año."
+            },
+            {
+                category: "Executive Guarantees",
+                target: "I promise our engineering team will deliver the build before the deadline.",
+                translation: "Prometo que nuestro equipo de ingeniería entregará la versión antes del plazo limite."
+            },
+            {
+                category: "System Resistance",
+                target: "The legacy application won't authenticate our new security tokens.",
+                translation: "La aplicación heredada no quiere / se niega a autenticar nuestros nuevos tokens de seguridad."
+            },
+            {
+                category: "Diplomatic Suggestions",
+                target: "Shall we schedule a follow-up session to review the budget allocations?",
+                translation: "¿Agendamos una sesión de seguimiento para revisar las asignaciones presupuestarias?"
+            },
+            {
+                category: "First Conditional Result",
+                target: "If market demand increases, we will expand our regional infrastructure.",
+                translation: "Si la demanda del mercado aumenta, expandiremos nuestra infraestructura regional."
+            },
+            {
+                category: "Time Bound Release",
+                target: "The system will remain offline until engineers finish the data migration.",
+                translation: "El sistema permanecerá fuera de línea hasta que los ingenieros terminen la migración de datos."
+            },
+            {
+                category: "Formal Promises",
+                target: "We will ensure that all customer records remain strictly confidential.",
+                translation: "Garantizaremos que todos los registros de los clientes permanezcan estrictamente confidenciales."
+            },
+            {
+                category: "Visual Evidence",
+                target: "The sky is extremely dark; it is going to pour during the outdoor ceremony.",
+                translation: "El cielo está extremadamente oscuro; va a llover a cántaros durante la ceremonia al aire libre."
+            },
+            {
+                category: "Protocolary Question",
+                target: "Shall we invite the chief compliance officer to our strategy meeting?",
+                translation: "¿Invitamos al oficial principal de cumplimiento a nuestra reunión de estrategia?"
+            },
+            {
+                category: "Instant Resolution",
+                target: "I see the discrepancy now; I will correct the spreadsheet right away.",
+                translation: "Veo la discrepancia ahora; corregiré la hoja de cálculo de inmediato."
+            },
+            {
+                category: "Strategic Plans",
+                target: "Our firm is going to invest in renewable technology across all facilities.",
+                translation: "Nuestra firma va a invertir en tecnología renovable en todas las instalaciones."
+            }
+        ];
+
+
+        // ================= STATE MANAGEMENT =================
+        let currentQuizIndex = 0;
+        let quizScore = 0;
+        let answeredQuestions = new Array(quizQuestions.length).fill(false);
+
+        let currentSpeechIndex = 0;
+        let isRecording = false;
+        let recognition = null;
+        let finalTranscript = '';
+
+
+        // ================= INITIALIZATION =================
+        document.addEventListener('DOMContentLoaded', () => {
+            renderComparativeExamples();
+            renderFlashcards();
+            renderQuizQuestion(0);
+            initSpeechSelector();
+            loadSpeechExercise(0);
+            setupSpeechRecognition();
+        });
+
+
+        // ================= NAVIGATION =================
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('tab-active');
+                el.classList.add('text-slate-400');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.classList.add('tab-active');
+            activeBtn.classList.remove('text-slate-400');
+        }
+
+
+        // ================= MODULE 1 RENDERING =================
+        function renderComparativeExamples() {
+            const container = document.getElementById('comparative-examples-grid');
+            container.innerHTML = comparativeExamples.map((item, index) => `
+                <div class="bg-slate-900/90 rounded-xl p-5 sm:p-6 border border-slate-700/60 shadow-md space-y-4">
+                    <h4 class="text-[11px] sm:text-xs font-bold text-cyan-400 uppercase tracking-wider">${index + 1}. ${item.title}</h4>
+                    
+                    <div class="space-y-2 bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="flex-1">
+                                <p class="text-xs sm:text-sm font-bold text-emerald-400 font-mono mb-1">Futuro Simple Avanzado (Will/Shall):</p>
+                                <p class="text-sm sm:text-base text-slate-100 font-semibold leading-snug">"${item.perfect}"</p>
+                                <p class="text-xs text-slate-400 italic mt-1 leading-snug">${item.perfectTrans}</p>
+                            </div>
+                            <button onclick="speakText('${escapeQuotes(item.perfect)}')" class="text-emerald-400 hover:text-emerald-300 p-2.5 bg-slate-800 rounded-xl shadow-sm shrink-0 active:scale-95 touch-manipulation">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="flex-1">
+                                <p class="text-xs sm:text-sm font-bold text-purple-400 font-mono mb-1">Contraste / Intención Previa (Going to):</p>
+                                <p class="text-sm sm:text-base text-slate-100 font-semibold leading-snug">"${item.past}"</p>
+                                <p class="text-xs text-slate-400 italic mt-1 leading-snug">${item.pastTrans}</p>
+                            </div>
+                            <button onclick="speakText('${escapeQuotes(item.past)}')" class="text-purple-400 hover:text-purple-300 p-2.5 bg-slate-800 rounded-xl shadow-sm shrink-0 active:scale-95 touch-manipulation">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-amber-300/90 bg-amber-500/10 p-3 rounded-lg border border-amber-500/20 leading-relaxed">
+                        <strong><i class="fa-solid fa-key mr-1"></i> Clave Neural:</strong> ${item.note}
+                    </p>
+                </div>
+            `).join('');
+        }
+
+        function renderFlashcards() {
+            const container = document.getElementById('flashcards-grid');
+            container.innerHTML = flashcardsData.map((card, index) => `
+                <div class="perspective-1000 h-56 cursor-pointer touch-manipulation" onclick="toggleCard(this, '${escapeQuotes(card.context)}')">
+                    <div class="card-inner relative w-full h-full duration-500 transform-style-3d shadow-xl rounded-2xl border border-slate-700/60">
+                        <!-- Front -->
+                        <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-5 flex flex-col justify-between backface-hidden">
+                            <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest">Card #${index + 1}</span>
+                            <div class="text-center">
+                                <h4 class="text-lg sm:text-xl font-extrabold text-white leading-snug">${card.front}</h4>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-xs font-bold text-slate-400 flex items-center justify-center gap-1.5 bg-slate-950 py-1.5 rounded-lg border border-slate-800">
+                                    <i class="fa-solid fa-rotate"></i> Toca para voltear
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Back -->
+                        <div class="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-900/90 to-slate-900 rounded-2xl p-5 flex flex-col justify-between backface-hidden rotate-y-180 border border-purple-500/30">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[10px] font-bold text-purple-300 uppercase tracking-widest">Significado</span>
+                                <button onclick="event.stopPropagation(); speakText('${escapeQuotes(card.context)}')" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 active:scale-95 touch-manipulation shadow-md">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                            </div>
+                            <div class="text-center space-y-2">
+                                <h4 class="text-sm sm:text-base font-bold text-cyan-300 leading-snug">${card.back}</h4>
+                                <p class="text-xs sm:text-sm text-slate-300 italic">"${card.context}"</p>
+                            </div>
+                            <div class="flex justify-center items-center text-xs text-slate-400">
+                                <span class="bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800 w-full text-center">Toca para regresar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleCard(cardElement, contextText) {
+            const inner = cardElement.querySelector('.card-inner');
+            inner.classList.toggle('rotate-y-180');
+            // Only speak if we just flipped it to the back
+            if(inner.classList.contains('rotate-y-180')){
+                 speakText(contextText);
+            }
+        }
+
+
+        // ================= MODULE 2 (QUIZ) LOGIC =================
+        function renderQuizQuestion(index) {
+            currentQuizIndex = index;
+            const q = quizQuestions[index];
+            const container = document.getElementById('quiz-container');
+
+            container.innerHTML = `
+                <div class="space-y-6 sm:space-y-8">
+                    <div class="flex justify-between items-center bg-slate-950 p-3 rounded-xl border border-slate-800">
+                        <span class="text-xs sm:text-sm font-bold text-cyan-400 uppercase tracking-wider">Pregunta ${index + 1} de ${quizQuestions.length}</span>
+                        <span class="text-[10px] sm:text-xs text-slate-400 font-mono font-semibold">B2+ Proficiency</span>
+                    </div>
+
+                    <h3 class="text-lg sm:text-xl font-bold text-white leading-relaxed px-2">${q.question}</h3>
+
+                    <div class="space-y-3 sm:space-y-4">
+                        ${q.options.map((opt, i) => `
+                            <button onclick="checkAnswer(${i})" id="opt-${i}" class="w-full text-left p-4 sm:p-5 rounded-xl border-2 border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-200 text-sm sm:text-base font-medium transition-all flex items-center justify-between group active:scale-[0.98] touch-manipulation">
+                                <span class="leading-snug pr-4"><strong class="text-cyan-400 mr-2 text-base">${String.fromCharCode(65 + i)}.</strong> ${opt}</span>
+                                <i class="fa-regular fa-circle text-slate-500 text-lg group-hover:text-cyan-400 transition shrink-0"></i>
+                            </button>
+                        `).join('')}
+                    </div>
+
+                    <div id="explanation-box" class="hidden rounded-xl p-5 bg-slate-900 border-2 border-slate-700 text-sm text-slate-300 space-y-2 shadow-inner">
+                        <p class="font-bold text-cyan-400 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info"></i> Explicación Gramatical:
+                        </p>
+                        <p id="explanation-text" class="leading-relaxed text-slate-200">${q.explanation}</p>
+                    </div>
+
+                    <div class="flex justify-between items-center pt-6 border-t border-slate-700/50 gap-4">
+                        <button onclick="prevQuizQuestion()" ${index === 0 ? 'disabled class="opacity-40 cursor-not-allowed w-full sm:w-auto px-6 py-3.5 bg-slate-800 text-slate-400 text-xs sm:text-sm font-bold rounded-xl"' : 'class="w-full sm:w-auto px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-bold rounded-xl transition active:scale-95 touch-manipulation flex items-center justify-center"'}>
+                            <i class="fa-solid fa-chevron-left mr-2"></i> Anterior
+                        </button>
+                        <button onclick="nextQuizQuestion()" ${index === quizQuestions.length - 1 ? 'disabled class="opacity-40 cursor-not-allowed w-full sm:w-auto px-6 py-3.5 bg-slate-800 text-slate-400 text-xs sm:text-sm font-bold rounded-xl"' : 'class="w-full sm:w-auto px-8 py-3.5 bg-cyan-600 hover:bg-cyan-500 text-white text-xs sm:text-sm font-bold rounded-xl transition shadow-lg shadow-cyan-600/20 active:scale-95 touch-manipulation flex items-center justify-center"'}>
+                            Siguiente <i class="fa-solid fa-chevron-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function checkAnswer(selectedOption) {
+            if (answeredQuestions[currentQuizIndex]) return;
+
+            const q = quizQuestions[currentQuizIndex];
+            const isCorrect = selectedOption === q.correct;
+            answeredQuestions[currentQuizIndex] = true;
+
+            const selectedBtn = document.getElementById(`opt-${selectedOption}`);
+            const correctBtn = document.getElementById(`opt-${q.correct}`);
+
+            if (isCorrect) {
+                selectedBtn.className = "w-full text-left p-4 sm:p-5 rounded-xl border-2 border-emerald-500 bg-emerald-900/40 text-emerald-100 text-sm sm:text-base font-bold transition-all flex items-center justify-between";
+                selectedBtn.querySelector('i').className = "fa-solid fa-circle-check text-emerald-400 text-xl";
+                quizScore++;
+            } else {
+                selectedBtn.className = "w-full text-left p-4 sm:p-5 rounded-xl border-2 border-rose-500 bg-rose-900/40 text-rose-100 text-sm sm:text-base font-bold transition-all flex items-center justify-between";
+                selectedBtn.querySelector('i').className = "fa-solid fa-circle-xmark text-rose-400 text-xl";
+
+                correctBtn.className = "w-full text-left p-4 sm:p-5 rounded-xl border-2 border-emerald-500/60 bg-emerald-900/20 text-emerald-200 text-sm sm:text-base font-bold transition-all flex items-center justify-between opacity-90";
+                correctBtn.querySelector('i').className = "fa-solid fa-circle-check text-emerald-400 text-lg";
+            }
+
+            document.getElementById('explanation-box').classList.remove('hidden');
+            updateQuizHeader();
+
+            if (answeredQuestions.every(val => val === true) && quizScore >= 10) {
+                confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
+            }
+        }
+
+        function updateQuizHeader() {
+            document.getElementById('quiz-score').innerText = `${quizScore} / ${quizQuestions.length}`;
+            const answeredCount = answeredQuestions.filter(Boolean).length;
+            const progressPct = Math.round((answeredCount / quizQuestions.length) * 100);
+            document.getElementById('quiz-progress').innerText = `${progressPct}%`;
+            document.getElementById('quiz-bar').style.width = `${progressPct}%`;
+        }
+
+        function prevQuizQuestion() {
+            if (currentQuizIndex > 0) renderQuizQuestion(currentQuizIndex - 1);
+        }
+
+        function nextQuizQuestion() {
+            if (currentQuizIndex < quizQuestions.length - 1) renderQuizQuestion(currentQuizIndex + 1);
+        }
+
+
+        // ================= MODULE 3 (ORAL AI) LOGIC =================
+        function initSpeechSelector() {
+            const selector = document.getElementById('speech-selector');
+            selector.innerHTML = speechExercises.map((ex, i) => `
+                <option value="${i}">Ej ${i + 1}: ${ex.category} - "${ex.target.substring(0, 35)}..."</option>
+            `).join('');
+        }
+
+        function loadSpeechExercise(index) {
+            currentSpeechIndex = parseInt(index);
+            const ex = speechExercises[currentSpeechIndex];
+
+            document.getElementById('speech-category').innerText = `[${currentSpeechIndex + 1}/16] ${ex.category}`;
+            document.getElementById('speech-target-text').innerText = `"${ex.target}"`;
+            document.getElementById('speech-translation').innerText = ex.translation;
+            document.getElementById('speech-counter').innerText = `${currentSpeechIndex + 1} de ${speechExercises.length}`;
+            document.getElementById('speech-selector').value = currentSpeechIndex;
+
+            // Reset recording & UI boxes
+            resetSpeechUI();
+        }
+
+        function resetSpeechUI() {
+            if (isRecording) stopRecording();
+            document.getElementById('transcript-box').innerHTML = "<span class='text-slate-500'>Tu grabación transcrita aparecerá aquí en tiempo real...</span>";
+            document.getElementById('feedback-box').classList.add('hidden');
+        }
+
+        function speakTargetPhrase() {
+            const ex = speechExercises[currentSpeechIndex];
+            speakText(ex.target);
+        }
+
+        function prevSpeechExercise() {
+            if (currentSpeechIndex > 0) loadSpeechExercise(currentSpeechIndex - 1);
+        }
+
+        function nextSpeechExercise() {
+            if (currentSpeechIndex < speechExercises.length - 1) loadSpeechExercise(currentSpeechIndex + 1);
+        }
+
+        // Web Speech API Integration with Anti-Duplication & Fuzzy Matching
+        function setupSpeechRecognition() {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) {
+                document.getElementById('mic-status').innerText = "Navegador no soportado. Usa Chrome o Edge.";
+                document.getElementById('mic-btn').disabled = true;
+                return;
+            }
+
+            recognition = new SpeechRecognition();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = () => {
+                isRecording = true;
+                finalTranscript = '';
+                document.getElementById('transcript-box').innerHTML = "<span class='text-cyan-400'>Escuchando... habla de forma natural.</span>";
+                
+                const micBtn = document.getElementById('mic-btn');
+                micBtn.className = "w-24 h-24 rounded-full bg-gradient-to-br from-rose-600 to-rose-400 text-white flex items-center justify-center shadow-xl shadow-rose-500/30 transition-all transform pulse-mic active:scale-95 touch-manipulation";
+                document.getElementById('mic-icon').className = "fa-solid fa-stop text-4xl";
+                document.getElementById('mic-status').innerText = "Grabando... Toca el recuadro de nuevo para detener y evaluar.";
+                
+                document.getElementById('feedback-box').classList.add('hidden');
+            };
+
+            // ULTIMATE ANTI-DUPLICATION ALGORITHM FOR MOBILE CHROME
+            recognition.onresult = (event) => {
+                if (event.results.length === 0) return;
+                
+                let currentInterim = '';
+                let currentFinal = '';
+                
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        currentFinal += event.results[i][0].transcript;
+                    } else {
+                        currentInterim += event.results[i][0].transcript;
+                    }
+                }
+                
+                if (currentFinal) {
+                    let cleanNew = currentFinal.trim();
+                    let cleanOld = finalTranscript.trim();
+                    
+                    if (cleanOld.endsWith(cleanNew)) {
+                        // Do nothing, duplicate suffix
+                    } 
+                    else if (cleanNew.startsWith(cleanOld) && cleanOld.length > 0) {
+                        finalTranscript = cleanNew + ' ';
+                    } 
+                    else {
+                        let oldWords = cleanOld.split(' ');
+                        let newWords = cleanNew.split(' ');
+                        let overlap = 0;
+                        
+                        for (let i = 1; i <= Math.min(oldWords.length, newWords.length); i++) {
+                            if (oldWords.slice(-i).join(' ').toLowerCase() === newWords.slice(0, i).join(' ').toLowerCase()) {
+                                overlap = i;
+                            }
+                        }
+                        
+                        if (overlap > 0) {
+                            finalTranscript = cleanOld + ' ' + newWords.slice(overlap).join(' ') + ' ';
+                        } else {
+                            finalTranscript += cleanNew + ' ';
+                        }
+                    }
+                }
+                
+                let displayString = (finalTranscript + currentInterim).trim();
+                
+                // Aggressive identical consecutive word cleanup
+                let words = displayString.split(/\s+/);
+                let deduped = [];
+                for (let i = 0; i < words.length; i++) {
+                    if (i === 0 || words[i].toLowerCase() !== words[i-1].toLowerCase()) {
+                        deduped.push(words[i]);
+                    }
+                }
+                displayString = deduped.join(' ');
+
+                document.getElementById('transcript-box').innerHTML = displayString ? `<span class="text-white">"${displayString}"</span>` : "<span class='text-cyan-400'>Escuchando...</span>";
+                
+                if (displayString) {
+                    evaluateSpeech(displayString);
+                }
+            };
+
+            recognition.onerror = (event) => {
+                console.error("Speech Recognition Error:", event.error);
+                if(event.error === 'no-speech'){
+                     document.getElementById('mic-status').innerText = "No se detectó voz. Intenta de nuevo.";
+                }
+                stopRecording();
+            };
+
+            recognition.onend = () => {
+                if (isRecording) {
+                    try { recognition.start(); } catch (e) { stopRecording(); }
+                } else {
+                    stopRecordingUI();
+                }
+            };
+        }
+
+        function toggleSpeechRecording() {
+            if (!recognition) return;
+            if (isRecording) {
+                stopRecording();
+            } else {
+                try { recognition.start(); } catch (e) { stopRecording(); }
+            }
+        }
+
+        function stopRecording() {
+            isRecording = false;
+            try { recognition.stop(); } catch (e) {}
+            stopRecordingUI();
+        }
+        
+        function stopRecordingUI(){
+            const micBtn = document.getElementById('mic-btn');
+            micBtn.className = "w-24 h-24 rounded-full bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center shadow-lg transition-all transform active:scale-95 touch-manipulation";
+            document.getElementById('mic-icon').className = "fa-solid fa-microphone text-4xl";
+            
+            const transcript = document.getElementById('transcript-box').innerText.replace(/"/g, '');
+            if(!transcript || transcript.includes('Escuchando...')){
+                document.getElementById('mic-status').innerText = "Haz clic en el micrófono para grabar";
+            } else {
+                 document.getElementById('mic-status').innerText = "Grabación evaluada con éxito. Toca para intentar de nuevo.";
+            }
+        }
+
+        /* FUZZY MATCHING EVALUATION ALGORITHM (Medium Strictness) */
+        function evaluateSpeech(userTranscript) {
+            if (!userTranscript || userTranscript.trim() === '') return;
+            
+            const target = speechExercises[currentSpeechIndex].target;
+            const cleanTarget = target.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+            const cleanSpoken = userTranscript.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+
+            const numMap = {'1':'one','2':'two','3':'three','4':'four','5':'five','6':'six','7':'seven','8':'eight','9':'nine','10':'ten','11':'eleven','12':'twelve','pm':'p.m.','am':'a.m.','first':'1st'};
+            
+            let targetWords = cleanTarget.split(/\s+/).map(w => numMap[w] || w);
+            let spokenWords = cleanSpoken.split(/\s+/).map(w => numMap[w] || w);
+
+            let matchedCount = 0;
+            
+            targetWords.forEach(tWord => {
+                let matchIndex = spokenWords.findIndex(sWord => {
+                    if (sWord === tWord) return true;
+                    if (Math.abs(sWord.length - tWord.length) > 2) return false;
+                    
+                    let m = [], i, j;
+                    for(i=0; i<=sWord.length; i++) m[i] = [i];
+                    for(j=0; j<=tWord.length; j++) m[0][j] = j;
+                    for(i=1; i<=sWord.length; i++) {
+                        for(j=1; j<=tWord.length; j++) {
+                            m[i][j] = sWord.charAt(i-1) === tWord.charAt(j-1) ? 
+                                m[i-1][j-1] : 
+                                Math.min(m[i-1][j-1]+1, m[i][j-1]+1, m[i-1][j]+1);
+                        }
+                    }
+                    let dist = m[sWord.length][tWord.length];
+                    
+                    // Allow 1 typo for short words, 2 typos for longer words (names/proper nouns)
+                    return (tWord.length <= 4 && dist <= 1) || (tWord.length > 4 && dist <= 2);
+                });
+                
+                if (matchIndex !== -1) {
+                    matchedCount++;
+                    spokenWords.splice(matchIndex, 1);
+                }
+            });
+
+            let score = Math.round((matchedCount / targetWords.length) * 100);
+            if (cleanSpoken === cleanTarget) score = 100;
+            if (score > 100) score = 100;
+            
+            // Score flooring for motivation
+            if (cleanSpoken.includes(cleanTarget) || cleanTarget.includes(cleanSpoken)) score = Math.max(score, 80);
+            if (score < 40 && cleanSpoken.length > 5) score = 60; 
+
+            const feedbackBox = document.getElementById('feedback-box');
+            const feedbackTitle = document.getElementById('feedback-title');
+            const feedbackScore = document.getElementById('feedback-score');
+            const feedbackText = document.getElementById('feedback-text');
+
+            feedbackBox.classList.remove('hidden', 'bg-emerald-950/60', 'border-emerald-500', 'bg-amber-950/60', 'border-amber-500', 'bg-rose-950/60', 'border-rose-500');
+
+            feedbackScore.innerText = `${score}%`;
+
+            if (score >= 75) {
+                feedbackBox.classList.add('bg-emerald-950/60', 'border-emerald-500');
+                feedbackTitle.className = "text-sm sm:text-base font-bold uppercase tracking-wide flex items-center gap-1.5 text-emerald-400";
+                feedbackText.className = "text-sm sm:text-base text-emerald-100 font-medium";
+                feedbackText.innerHTML = "<strong>¡Excelente fluidez y precisión!</strong> Dominas la entonación y acentuación en estructuras de futuro simple avanzado.";
+                triggerConfetti();
+            } else if (score >= 45) {
+                feedbackBox.classList.add('bg-amber-950/60', 'border-amber-500');
+                feedbackTitle.className = "text-sm sm:text-base font-bold uppercase tracking-wide flex items-center gap-1.5 text-amber-400";
+                feedbackText.className = "text-sm sm:text-base text-amber-100 font-medium";
+                feedbackText.innerHTML = "<strong>¡Buen trabajo!</strong> Tu articulación es clara. Presta atención al ritmo narrativo y las reducciones.";
+            } else {
+                feedbackBox.classList.add('bg-rose-950/60', 'border-rose-500');
+                feedbackTitle.className = "text-sm sm:text-base font-bold uppercase tracking-wide flex items-center gap-1.5 text-rose-400";
+                feedbackText.className = "text-sm sm:text-base text-rose-100 font-medium";
+                feedbackText.innerHTML = "<strong>Sigue practicando.</strong> Haz clic en el botón de audio arriba para escuchar la pronunciación nativa e imitar el patrón de acentuación.";
+            }
+        }
+
+
+        // ================= TEXT-TO-SPEECH (TTS) UTILITY =================
+        function speakText(text) {
+            if (!('speechSynthesis' in window) || !globalAudioEnabled) return;
+            window.speechSynthesis.cancel();
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.9;
+
+            const voices = window.speechSynthesis.getVoices();
+            const usVoice = voices.find(v => v.lang === 'en-US' || v.lang.includes('en_US'));
+            if (usVoice) utterance.voice = usVoice;
+
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function escapeQuotes(str) {
+            return str.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        }
+    </script>
+</body>
+</html>
