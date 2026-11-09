@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Lección Neural: Future Simple (Elementary / A2) - By Coach Carlos O.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .gradient-header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #2563eb 100%);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 4px;
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+    .pulse-mic {
+      animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(225, 29, 72, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+    }
+    /* Mobile tap highlight reset */
+    button, a {
+        -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-blue-200">
+
+  <!-- Header Banner -->
+  <header class="gradient-header text-white py-6 sm:py-8 px-4 sm:px-8 shadow-xl">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div>
+        <div class="flex flex-wrap items-center gap-2 text-blue-300 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3">
+          <span class="bg-blue-900/60 backdrop-blur px-3 py-1.5 rounded-lg border border-blue-400/30">Coach Carlos O.</span>
+          <span class="hidden sm:inline">•</span>
+          <span class="bg-blue-900/40 px-3 py-1.5 rounded-lg">Elementary Series (A2 / Elementary)</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">Super Lección Neural: Future Simple</h1>
+        <p class="text-blue-100 mt-2 text-sm sm:text-base max-w-2xl font-light leading-relaxed">
+          Aprende a diferenciar decisiones espontáneas (Will) de planes y evidencias futuras (Be Going To) con naturalidad americana y entrenamiento oral en vivo.
+        </p>
+      </div>
+      <!-- Global Audio Settings -->
+      <button id="global-tts-toggle" onclick="toggleGlobalAudio()" class="p-3 sm:px-4 sm:py-2.5 rounded-xl bg-blue-900/50 hover:bg-blue-800/80 text-white border border-blue-400/30 transition-all flex items-center gap-2 text-xs sm:text-sm font-semibold active:scale-95 touch-manipulation w-full sm:w-auto justify-center" title="Audio activado/desactivado">
+        <i id="global-tts-icon" class="fa-solid fa-volume-high text-blue-300 text-lg sm:text-base"></i>
+        <span id="global-tts-status">Voz US On</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs (Flex-wrap for Mobile) -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-20 shadow-sm">
+    <div class="max-w-5xl mx-auto flex flex-wrap custom-scrollbar text-xs sm:text-sm font-semibold text-slate-600">
+      <button onclick="switchTab('mod1')" id="tab-mod1" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-blue-600 text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        1: Blueprint
+      </button>
+      <button onclick="switchTab('mod2')" id="tab-mod2" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-transparent hover:text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        2: Usos & Contrastes
+      </button>
+      <button onclick="switchTab('mod3')" id="tab-mod3" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-transparent hover:text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        3: Phonics Lab
+      </button>
+      <button onclick="switchTab('mod4')" id="tab-mod4" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-transparent hover:text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        4: Oral AI Lab
+      </button>
+      <button onclick="switchTab('mod5')" id="tab-mod5" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-transparent hover:text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        5: Errores
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-8">
+
+    <!-- MODULE 1 -->
+    <section id="content-mod1" class="tab-content space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-3 flex items-center gap-3">
+          <span class="w-2.5 h-6 bg-blue-600 rounded-full inline-block"></span>
+          Marco de Activación Neurolingüística
+        </h2>
+        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+          El futuro simple en inglés se divide principalmente en dos herramientas esenciales: <strong>WILL</strong> para decisiones del momento y promesas, y <strong>BE GOING TO</strong> para intenciones previas y planes organizados.
+        </p>
+
+        <!-- Logic Visual -->
+        <div class="bg-slate-900 text-slate-100 p-4 sm:p-6 rounded-xl text-[11px] sm:text-sm font-mono leading-relaxed mb-8 shadow-inner overflow-x-auto whitespace-pre sm:whitespace-normal">
+          <p class="text-blue-400 font-bold mb-3">// Fórmulas Principales del Futuro</p>
+          <p class="text-emerald-400">┌─► WILL + Verbo Base (Decisiones, ofertas, predicciones)</p>
+          <p class="text-slate-300 pl-4 mb-2">└─► Ejemplo: "I <strong>will help</strong> you with your homework."</p>
+          <p class="text-amber-400">└─► AM / IS / ARE + GOING TO + Verbo Base (Planes, evidencias)</p>
+          <p class="text-slate-300 pl-4">    └─► Ejemplo: "She <strong>is going to visit</strong> her parents next weekend."</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 shadow-sm">
+            <h3 class="font-bold text-blue-900 text-sm sm:text-base mb-3">Estructura con "Will"</h3>
+            <p class="text-slate-600 text-xs sm:text-sm mb-4">Sujeto + <strong>will ('ll)</strong> + Verbo Principal</p>
+            <div class="bg-white p-4 rounded-xl border border-slate-200 text-xs sm:text-sm font-mono text-slate-800 space-y-2">
+              <p>• Afirmativa: "I <strong>will travel</strong> to Canada."</p>
+              <p>• Negativa: "They <strong>won't (will not)</strong> arrive late."</p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 shadow-sm">
+            <h3 class="font-bold text-blue-900 text-sm sm:text-base mb-3">Estructura con "Going To"</h3>
+            <p class="text-slate-600 text-xs sm:text-sm mb-4">Sujeto + <strong>am/is/are going to</strong> + Verbo</p>
+            <div class="bg-white p-4 rounded-xl border border-slate-200 text-xs sm:text-sm font-mono text-slate-800 space-y-2">
+              <p>• Afirmativa: "We <strong>are going to buy</strong> a new car."</p>
+              <p>• Negativa: "He <strong>isn't going to quit</strong> his job."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 2 -->
+    <section id="content-mod2" class="tab-content hidden space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+          <span class="w-2.5 h-6 bg-blue-600 rounded-full inline-block"></span>
+          Usos y Contrastes Pragmáticos
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 shadow-sm">
+            <h3 class="font-bold text-blue-900 text-sm sm:text-base mb-3">¿Cuándo usar WILL?</h3>
+            <ul class="text-slate-600 text-xs sm:text-sm space-y-3 list-none">
+              <li class="flex items-start gap-2">
+                 <i class="fa-solid fa-bolt text-emerald-500 mt-0.5 shrink-0"></i>
+                 <span><strong>Decisiones instantáneas:</strong> "It's raining. I'll take an umbrella."</span>
+              </li>
+              <li class="flex items-start gap-2">
+                 <i class="fa-solid fa-handshake text-emerald-500 mt-0.5 shrink-0"></i>
+                 <span><strong>Promesas y ofertas:</strong> "I will never forget this."</span>
+              </li>
+              <li class="flex items-start gap-2">
+                 <i class="fa-solid fa-lightbulb text-emerald-500 mt-0.5 shrink-0"></i>
+                 <span><strong>Predicciones (opiniones):</strong> "I think AI will change education."</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 shadow-sm">
+            <h3 class="font-bold text-blue-900 text-sm sm:text-base mb-3">¿Cuándo usar BE GOING TO?</h3>
+            <ul class="text-slate-600 text-xs sm:text-sm space-y-3 list-none">
+              <li class="flex items-start gap-2">
+                 <i class="fa-solid fa-calendar-days text-amber-500 mt-0.5 shrink-0"></i>
+                 <span><strong>Planes previos:</strong> "We are going to study English tonight."</span>
+              </li>
+              <li class="flex items-start gap-2">
+                 <i class="fa-solid fa-eye text-amber-500 mt-0.5 shrink-0"></i>
+                 <span><strong>Predicciones (evidencia visual):</strong> "Look at those dark clouds! It is going to rain."</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 3 -->
+    <section id="content-mod3" class="tab-content hidden space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-3 flex items-center gap-3">
+          <span class="w-2.5 h-6 bg-blue-600 rounded-full inline-block"></span>
+          Shadowing & Phonics Lab
+        </h2>
+        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+          Escucha la pronunciación nativa y entrena tu aparato fonador imitando las contracciones comunes en inglés americano (ej. <em>going to</em> $\rightarrow$ <em>gonna</em>).
+        </p>
+
+        <div class="space-y-4">
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+            <div class="flex-1">
+              <span class="text-[10px] font-bold text-blue-600 uppercase tracking-widest block mb-1">Spontaneous Decision (Will)</span>
+              <p class="text-slate-900 font-semibold text-sm sm:text-base leading-snug">"I'll help you with your English homework tomorrow morning."</p>
+              <p class="text-slate-500 font-mono text-xs mt-2">/aɪl hɛlp ju wɪð jʊər ˈɪŋ.ɡlɪʃ ˈhoʊmˌwɝːk təˈmɑːr.oʊ ˈmɔːr.nɪŋ/</p>
+            </div>
+            <button onclick="speakText('I will help you with your English homework tomorrow morning.')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i> Listen Audio
+            </button>
+          </div>
+
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+            <div class="flex-1">
+              <span class="text-[10px] font-bold text-blue-600 uppercase tracking-widest block mb-1">Planned Intention (Going To)</span>
+              <p class="text-slate-900 font-semibold text-sm sm:text-base leading-snug">"We are going to travel to Cartagena next summer."</p>
+              <p class="text-slate-500 font-mono text-xs mt-2">/wiː ɑːr ˈɡoʊ.ɪŋ tu ˈtræv.əl tu kɑːr.təˈheɪ.nə nɛkst ˈsʌm.ɚ/</p>
+            </div>
+            <button onclick="speakText('We are going to travel to Cartagena next summer.')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i> Listen Audio
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 4: INTERACTIVE QUIZ & SPEECH RECORDING SYSTEM (12 SCENARIOS) -->
+    <section id="content-mod4" class="tab-content hidden space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+        
+        <!-- Quiz Header / Status -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-200 pb-5 gap-4">
+          <div>
+            <span class="text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-blue-600 block mb-1" id="quiz-progress-text">Question 1 of 12</span>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900 leading-tight">Future Simple Simulación & Oral AI Lab</h2>
+          </div>
+          <div class="bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-bold text-xs sm:text-sm border border-blue-200 w-full sm:w-auto text-center" id="score-badge">
+            Score: 0 / 12
+          </div>
+        </div>
+
+        <!-- Quiz Container Body -->
+        <div id="quiz-card-body" class="space-y-6">
+          <div id="scenario-box" class="bg-slate-100 border-l-4 border-blue-600 p-4 sm:p-5 rounded-r-xl text-xs sm:text-sm text-slate-700 leading-relaxed font-medium"></div>
+          <p id="prompt-box" class="text-slate-900 font-extrabold text-base sm:text-lg leading-snug px-2"></p>
+
+          <!-- Options Grid -->
+          <div id="options-grid" class="flex flex-col gap-3"></div>
+
+          <!-- Explanation Panel -->
+          <div id="explanation-box" class="hidden p-5 rounded-xl bg-blue-50 border border-blue-200 text-blue-900 text-xs sm:text-sm leading-relaxed shadow-inner"></div>
+
+          <!-- SPEECH PRACTICE & VOICE RECORDING SYSTEM PANEL -->
+          <div id="speech-practice-panel" class="bg-slate-900 text-slate-100 rounded-2xl p-5 sm:p-8 border border-slate-800 shadow-2xl space-y-6 mt-8 relative overflow-hidden">
+             <!-- Aesthetic background glow -->
+             <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-blue-900/20 blur-3xl pointer-events-none"></div>
+
+            <div class="flex justify-between items-start border-b border-slate-800 pb-4 relative z-10 gap-4">
+              <div class="flex-1">
+                <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest block mb-1.5">Entrenamiento de Habla Neural</span>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Escucha la pronunciación nativa y luego graba tu voz (Fuzzy-Match y Anti-Duplicación activados):</p>
+              </div>
+              <button onclick="playCurrentAudio()" class="p-3 bg-slate-800 hover:bg-slate-700 text-cyan-400 rounded-xl border border-slate-700 transition active:scale-95 touch-manipulation shadow-md shrink-0" title="Escuchar audio nativo">
+                <i class="fa-solid fa-volume-high text-lg"></i>
+              </button>
+            </div>
+
+            <!-- Target Sentence Display -->
+            <div class="bg-slate-950/80 p-5 rounded-xl border border-slate-800 relative z-10 shadow-inner">
+              <span class="text-[10px] font-bold text-slate-500 uppercase block mb-2 tracking-wider">Frase Objetivo (Target Phrase):</span>
+              <p id="target-phrase-text" class="text-sm sm:text-base font-bold text-cyan-300 italic leading-snug">"Loading target audio..."</p>
+            </div>
+
+            <!-- Mic Controls -->
+            <div class="flex flex-col items-center justify-center py-6 border-t border-b border-slate-800/80 gap-5 relative z-10">
+              <button id="mic-btn" onclick="toggleSpeechRecording()" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-rose-600 to-pink-500 hover:from-rose-500 hover:to-pink-400 text-white flex items-center justify-center shadow-xl shadow-rose-500/20 transition-all transform active:scale-95 touch-manipulation">
+                <i class="fa-solid fa-microphone text-3xl sm:text-4xl" id="mic-icon"></i>
+              </button>
+              <p class="text-xs sm:text-sm font-semibold text-slate-400 text-center px-4" id="mic-status">Toca el micrófono para grabar tu voz</p>
+            </div>
+
+            <!-- Live Transcript Box -->
+            <div class="space-y-2 relative z-10">
+              <label class="block text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider">Transcripción en Tiempo Real:</label>
+              <div id="transcript-box" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 sm:p-5 min-h-[80px] text-xs sm:text-sm text-slate-300 italic font-mono flex items-center leading-relaxed">
+                Tu grabación transcrita aparecerá aquí en tiempo real...
+              </div>
+            </div>
+
+            <!-- AI Feedback Box -->
+            <div id="feedback-box" class="hidden rounded-xl p-5 sm:p-6 border transition-all space-y-3 shadow-lg relative z-10">
+              <div class="flex items-center justify-between border-b border-slate-700/50 pb-3">
+                <span class="text-xs sm:text-sm font-bold uppercase tracking-wide flex items-center gap-2" id="feedback-title">
+                  <i class="fa-solid fa-chart-pie"></i> Resultado de Pronunciación
+                </span>
+                <span class="text-2xl sm:text-3xl font-extrabold" id="feedback-score">0%</span>
+              </div>
+              <p class="text-xs sm:text-sm font-medium leading-relaxed pt-1" id="feedback-text"></p>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-slate-100">
+            <button onclick="playCurrentAudio()" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i>
+              <span>Escuchar Audio Nativo</span>
+            </button>
+            <button id="btn-next" onclick="nextQuestion()" class="hidden w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-blue-600/30 active:scale-95 touch-manipulation flex items-center justify-center gap-2">
+              Siguiente Escenario <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MODULE 5 -->
+    <section id="content-mod5" class="tab-content hidden space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+          <span class="w-2.5 h-6 bg-blue-600 rounded-full inline-block"></span>
+          Módulo 5: Tabla Consolidada de Errores Comunes
+        </h2>
+
+        <div class="overflow-x-auto rounded-xl border border-slate-200">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse min-w-[600px]">
+            <thead>
+              <tr class="bg-slate-100 border-b border-slate-300 text-slate-700 font-semibold uppercase tracking-wider">
+                <th class="p-4">Error Frecuente (A2)</th>
+                <th class="p-4">Forma Correcta</th>
+                <th class="p-4">Razón Pedagógica</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-4 text-rose-600 font-mono">I will visiting my grandmother tomorrow.</td>
+                <td class="p-4 text-emerald-700 font-mono font-bold">I am going to visit my grandmother tomorrow.</td>
+                <td class="p-4 text-slate-600 leading-relaxed">Después de <em>will</em> o <em>going to</em> el verbo va en forma base, sin -ing. Además, para planes se usa going to.</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-4 text-rose-600 font-mono">She going to buy a new computer.</td>
+                <td class="p-4 text-emerald-700 font-mono font-bold">She is going to buy a new computer.</td>
+                <td class="p-4 text-slate-600 leading-relaxed">En la estructura <em>be going to</em> nunca se debe omitir el verbo auxiliar 'to be' (am/is/are).</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-4 text-rose-600 font-mono">Will you to come to my party?</td>
+                <td class="p-4 text-emerald-700 font-mono font-bold">Will you come to my party?</td>
+                <td class="p-4 text-slate-600 leading-relaxed">El modal <em>will</em> funciona directamente con el verbo base, sin la partícula 'to'.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500 mt-auto">
+    <div class="max-w-5xl mx-auto px-4">
+        <p class="font-medium">© Developed for educational excellence By Coach Carlos O.</p>
+        <p class="mt-1 text-slate-400">Elementary Series (A2)</p>
+    </div>
+  </footer>
+
+  <!-- MESSAGE TOAST -->
+  <div id="toast" class="fixed bottom-6 right-6 left-6 sm:left-auto transform translate-y-24 opacity-0 transition-all duration-300 z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border pointer-events-none bg-slate-900/95 text-slate-100 border-slate-700">
+      <i id="toast-icon" class="fa-solid fa-circle-info text-xl shrink-0 text-blue-400"></i>
+      <span id="toast-msg">Mensaje</span>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // ================= GLOBAL DATA & AUDIO INIT =================
+    let globalAudioEnabled = true;
+    let ttsInitialized = false;
+
+    function initializeAudioContext() {
+        if (!ttsInitialized && 'speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance('');
+            utterance.volume = 0;
+            window.speechSynthesis.speak(utterance);
+            ttsInitialized = true;
+        }
+    }
+    window.addEventListener('click', initializeAudioContext, { once: true });
+    window.addEventListener('touchstart', initializeAudioContext, { once: true });
+
+    function toggleGlobalAudio() {
+        globalAudioEnabled = !globalAudioEnabled;
+        const icon = document.getElementById('global-tts-icon');
+        const status = document.getElementById('global-tts-status');
+
+        if (globalAudioEnabled) {
+            icon.className = 'fa-solid fa-volume-high text-blue-300 text-lg sm:text-base';
+            status.innerText = 'Voz US On';
+            showToast('Síntesis de voz activada', 'success');
+        } else {
+            icon.className = 'fa-solid fa-volume-xmark text-slate-400 text-lg sm:text-base';
+            status.innerText = 'Voz US Off';
+            showToast('Síntesis de voz desactivada', 'info');
+        }
+    }
+
+    function showToast(message, type = 'info') {
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toast-msg');
+        const toastIcon = document.getElementById('toast-icon');
+
+        toastMsg.innerText = message;
+
+        if (type === 'success') {
+            toast.className = 'fixed bottom-6 right-6 left-6 sm:left-auto z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border bg-emerald-900/95 text-emerald-100 border-emerald-500 transition-all duration-300 opacity-100 translate-y-0';
+            toastIcon.className = 'fa-solid fa-circle-check text-emerald-400 text-xl shrink-0';
+        } else if (type === 'error') {
+            toast.className = 'fixed bottom-6 right-6 left-6 sm:left-auto z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border bg-rose-900/95 text-rose-100 border-rose-500 transition-all duration-300 opacity-100 translate-y-0';
+            toastIcon.className = 'fa-solid fa-triangle-exclamation text-rose-400 text-xl shrink-0';
+        } else {
+            toast.className = 'fixed bottom-6 right-6 left-6 sm:left-auto z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border bg-slate-900/95 text-slate-100 border-slate-600 transition-all duration-300 opacity-100 translate-y-0';
+            toastIcon.className = 'fa-solid fa-circle-info text-blue-400 text-xl shrink-0';
+        }
+
+        setTimeout(() => {
+            toast.className = toast.className.replace('opacity-100 translate-y-0', 'opacity-0 translate-y-24 pointer-events-none');
+        }, 3500);
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('border-blue-600', 'text-blue-600');
+        btn.classList.add('border-transparent', 'hover:text-blue-600');
+      });
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('hidden');
+      });
+
+      document.getElementById(`tab-${tabId}`).classList.add('border-blue-600', 'text-blue-600');
+      document.getElementById(`tab-${tabId}`).classList.remove('border-transparent');
+      document.getElementById(`content-${tabId}`).classList.remove('hidden');
+    }
+
+    function speakText(text) {
+      if (!('speechSynthesis' in window) || !globalAudioEnabled) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.9;
+      const voices = window.speechSynthesis.getVoices();
+      const usVoice = voices.find(v => v.lang === 'en-US' || v.lang.includes('en_US'));
+      if (usVoice) utterance.voice = usVoice;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // 12 FULL SCENARIOS (FUTURE SIMPLE ELEMENTARY PRACTICE)
+    const quizData = [
+      {
+        scenario: "Context: Making a spontaneous offer when someone rings the doorbell.",
+        prompt: "Choose the correct sentence for an instantaneous decision:",
+        options: [
+          { text: "I'm going to open the door right now.", correct: false, explanation: "Incorrect. Spontaneous decisions made at the moment of speaking use 'will'." },
+          { text: "I'll open the door right now.", correct: true, explanation: "Correct! 'Will' is used for sudden decisions and spontaneous offers." },
+          { text: "I opening the door right now.", correct: false, explanation: "Incorrect. Missing auxiliary and verb structure." },
+          { text: "I opens the door right now.", correct: false, explanation: "Incorrect. Present simple is incorrect for future reaction." }
+        ],
+        audio: "I will open the door right now."
+      },
+      {
+        scenario: "Context: Talking about a vacation plan arranged months in advance.",
+        prompt: "Choose the correct sentence for a pre-arranged plan:",
+        options: [
+          { text: "We will travel to Europe next month.", correct: false, explanation: "Incorrect. Pre-arranged plans and intentions use 'be going to'." },
+          { text: "We are going to travel to Europe next month.", correct: true, explanation: "Correct! 'Be going to' indicates a firm plan decided before the moment of speaking." },
+          { text: "We going to travel to Europe next month.", correct: false, explanation: "Incorrect. Missing the verb 'are' in the auxiliary structure." },
+          { text: "We travels to Europe next month.", correct: false, explanation: "Incorrect. Present simple format is invalid here." }
+        ],
+        audio: "We are going to travel to Europe next month."
+      },
+      {
+        scenario: "Context: Looking at dark storm clouds gathering in the sky.",
+        prompt: "Choose the correct prediction based on present visual evidence:",
+        options: [
+          { text: "It will rain very soon.", correct: false, explanation: "Incorrect. Predictions based on direct present evidence use 'is going to'." },
+          { text: "It is going to rain very soon.", correct: true, explanation: "Correct! When we see evidence right now, we use 'going to'." },
+          { text: "It going to rain very soon.", correct: false, explanation: "Incorrect. Missing auxiliary 'is'." },
+          { text: "It rains very soon.", correct: false, explanation: "Incorrect. Present simple does not express immediate visual prediction." }
+        ],
+        audio: "It is going to rain very soon."
+      },
+      {
+        scenario: "Context: Making a promise to a friend regarding secrecy.",
+        prompt: "Choose the correct sentence for a solemn promise:",
+        options: [
+          { text: "I am going to keep your secret safe.", correct: false, explanation: "Incorrect. Promises are traditionally made using 'will'." },
+          { text: "I'll keep your secret safe.", correct: true, explanation: "Correct! 'Will' is standard for making promises." },
+          { text: "I keeping your secret safe.", correct: false, explanation: "Incorrect. Grammatically incomplete." },
+          { text: "I keep your secret safe tomorrow.", correct: false, explanation: "Incorrect. Present simple fails to convey future commitment." }
+        ],
+        audio: "I will keep your secret safe."
+      },
+      {
+        scenario: "Context: Asking someone about their weekend intentions.",
+        prompt: "Select the correct question form for future plans:",
+        options: [
+          { text: "What will you do this weekend?", correct: false, explanation: "Incorrect. Asking about personal schedules/plans uses 'going to'." },
+          { text: "What are you going to do this weekend?", correct: true, explanation: "Correct! 'Are you going to...?' is used to ask about someone's intentions." },
+          { text: "What you going to do this weekend?", correct: false, explanation: "Incorrect. Missing verb 'are'." },
+          { text: "What do you going to do this weekend?", correct: false, explanation: "Incorrect. Do not use 'do' with 'going to'." }
+        ],
+        audio: "What are you going to do this weekend?"
+      },
+      {
+        scenario: "Context: Predicting global trends in technology for the year 2050.",
+        prompt: "Choose the correct prediction based on general opinion:",
+        options: [
+          { text: "Robots are going to replace all teachers.", correct: false, explanation: "Incorrect. General opinions about the distant future typically use 'will'." },
+          { text: "Robots will replace many routine tasks in the future.", correct: true, explanation: "Correct! 'Will' expresses general predictions and personal beliefs about tomorrow." },
+          { text: "Robots replacing routine tasks.", correct: false, explanation: "Incorrect. Missing verb components." },
+          { text: "Robots to replace tasks.", correct: false, explanation: "Incorrect. Invalid sentence structure." }
+        ],
+        audio: "Robots will replace many routine tasks in the future."
+      },
+      {
+        scenario: "Context: Responding to a heavy suitcase at the airport.",
+        prompt: "Select the correct spontaneous offer to help:",
+        options: [
+          { text: "I'm going to carry that heavy bag for you.", correct: false, explanation: "Incorrect. Offering help on the spot requires 'will'." },
+          { text: "I'll carry that heavy bag for you.", correct: true, explanation: "Correct! 'I'll' is ideal for spontaneous offers." },
+          { text: "I carry that bag for you.", correct: false, explanation: "Incorrect. Present simple lacks future modal force." },
+          { text: "I carrying that bag.", correct: false, explanation: "Incorrect. Missing auxiliary." }
+        ],
+        audio: "I will carry that heavy bag for you."
+      },
+      {
+        scenario: "Context: Discussing university studies and career majors.",
+        prompt: "Choose the correct sentence for a decided personal goal:",
+        options: [
+          { text: "She will study medicine at university next year.", correct: false, explanation: "Incorrect. University majors decided beforehand use 'going to'." },
+          { text: "She is going to study medicine at university next year.", correct: true, explanation: "Correct! Career goals and premeditated intentions use 'is going to'." },
+          { text: "She study medicine next year.", correct: false, explanation: "Incorrect. Subject-verb agreement and tense error." },
+          { text: "She studies medicine next year.", correct: false, explanation: "Incorrect. Present simple." }
+        ],
+        audio: "She is going to study medicine at university next year."
+      },
+      {
+        scenario: "Context: Ordering food at a restaurant table.",
+        prompt: "Select the correct sentence for an order made at that exact moment:",
+        options: [
+          { text: "I'm going to have the grilled salmon, please.", correct: true, explanation: "Correct! Native speakers commonly use both, but 'I'll have' or 'I'm going to have' are standard restaurant choices." },
+          { text: "I have the grilled salmon.", correct: false, explanation: "Incorrect. Present simple does not work for food orders." },
+          { text: "I having grilled salmon.", correct: false, explanation: "Incorrect. Incomplete verb phrase." },
+          { text: "I salmon will have.", correct: false, explanation: "Incorrect. Word order error." }
+        ],
+        audio: "I am going to have the grilled salmon, please."
+      },
+      {
+        scenario: "Context: Expressing lack of intention to do something.",
+        prompt: "Choose the correct negative sentence with 'won't':",
+        options: [
+          { text: "They won't forget to bring the documents.", correct: true, explanation: "Correct! 'Won't' (will not) is used for future negatives." },
+          { text: "They don't will forget documents.", correct: false, explanation: "Incorrect. Never combine 'do/don't' with 'will'." },
+          { text: "They not going to forget.", correct: false, explanation: "Incorrect. Missing verb 'are'." },
+          { text: "They will not forgetting.", correct: false, explanation: "Incorrect. Invalid gerund after will." }
+        ],
+        audio: "They won't forget to bring the documents."
+      },
+      {
+        scenario: "Context: Talking about a scheduled phone call this evening.",
+        prompt: "Select the correct sentence for a planned telephone call:",
+        options: [
+          { text: "He will call you tonight after work.", correct: false, explanation: "Acceptable, but pre-arranged phone appointments use 'is going to'." },
+          { text: "He is going to call you tonight after work.", correct: true, explanation: "Correct! Planned actions use 'is going to'." },
+          { text: "He call you tonight.", correct: false, explanation: "Incorrect. Missing future indicator." },
+          { text: "He calling you tonight.", correct: false, explanation: "Incorrect. Missing auxiliary 'is'." }
+        ],
+        audio: "He is going to call you tonight after work."
+      },
+      {
+        scenario: "Context: Warning someone about an unstable object.",
+        prompt: "Choose the correct prediction based on immediate physical evidence:",
+        options: [
+          { text: "Be careful! That cup will fall.", correct: false, explanation: "Incorrect. Imminent danger happening right now uses 'going to'." },
+          { text: "Be careful! That cup is going to fall.", correct: true, explanation: "Correct! Evidence happening right in front of us requires 'going to'." },
+          { text: "Be careful! That cup falling.", correct: false, explanation: "Incorrect. Incomplete sentence." },
+          { text: "Be careful! That cup falls.", correct: false, explanation: "Incorrect. Present simple." }
+        ],
+        audio: "Be careful! That cup is going to fall."
+      }
+    ];
+
+    let currentQuestionIdx = 0;
+    let currentScore = 0;
+    let isRecording = false;
+    let recognition = null;
+    let finalTranscript = '';
+
+    function renderQuestion() {
+      const current = quizData[currentQuestionIdx];
+      document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestionIdx + 1} of ${quizData.length}`;
+      document.getElementById('scenario-box').innerText = current.scenario;
+      document.getElementById('prompt-box').innerText = current.prompt;
+      document.getElementById('target-phrase-text').innerText = `"${current.audio}"`;
+
+      const grid = document.getElementById('options-grid');
+      grid.innerHTML = '';
+
+      current.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'opt-btn w-full text-left p-4 sm:p-5 rounded-xl border-2 border-slate-200 hover:border-blue-500 bg-white text-xs sm:text-base text-slate-800 font-medium transition-all focus:outline-none active:scale-[0.98] touch-manipulation leading-snug';
+        btn.innerText = opt.text;
+        btn.onclick = () => selectOption(idx);
+        grid.appendChild(btn);
+      });
+
+      document.getElementById('explanation-box').classList.add('hidden');
+      document.getElementById('btn-next').classList.add('hidden');
+      resetSpeechUI();
+    }
+
+    function selectOption(selectedIdx) {
+      const current = quizData[currentQuestionIdx];
+      const buttons = document.querySelectorAll('.opt-btn');
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        btn.classList.remove('hover:border-blue-500');
+
+        if (current.options[idx].correct) {
+          btn.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-900', 'font-bold');
+        } else if (idx === selectedIdx) {
+          btn.classList.add('bg-rose-50', 'border-rose-500', 'text-rose-900');
+        }
+      });
+
+      const isCorrect = current.options[selectedIdx].correct;
+      if (isCorrect) currentScore++;
+
+      document.getElementById('score-badge').innerText = `Score: ${currentScore} / ${quizData.length}`;
+
+      const expBox = document.getElementById('explanation-box');
+      expBox.innerHTML = `<strong>${isCorrect ? '✓ Correct!' : '✗ Incorrect.'}</strong> ${current.options[selectedIdx].explanation}`;
+      expBox.classList.remove('hidden');
+
+      const nextBtn = document.getElementById('btn-next');
+      if (currentQuestionIdx < quizData.length - 1) {
+        nextBtn.innerHTML = 'Siguiente Escenario <i class="fa-solid fa-arrow-right"></i>';
+      } else {
+        nextBtn.innerText = "View Final Results";
+      }
+      nextBtn.classList.remove('hidden');
+    }
+
+    function nextQuestion() {
+      currentQuestionIdx++;
+      if (currentQuestionIdx < quizData.length) {
+        renderQuestion();
+      } else {
+        showFinalResults();
+      }
+    }
+
+    function showFinalResults() {
+      const cardBody = document.getElementById('quiz-card-body');
+      cardBody.innerHTML = `
+        <div class="text-center py-10 space-y-5">
+          <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-4xl font-bold shadow-inner">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Lección Completada</h3>
+          <p class="text-slate-600 text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+            Has completado la evaluación de Future Simple con un puntaje de <strong class="text-blue-600 text-lg">${currentScore} / ${quizData.length}</strong>.
+          </p>
+          <button onclick="resetQuiz()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm sm:text-base py-3.5 px-8 rounded-xl transition-all shadow-lg active:scale-95 touch-manipulation">
+            Reiniciar Lección
+          </button>
+        </div>
+      `;
+    }
+
+    function resetQuiz() {
+      currentQuestionIdx = 0;
+      currentScore = 0;
+      document.getElementById('score-badge').innerText = `Score: 0 / ${quizData.length}`;
+      location.reload();
+    }
+
+    function playCurrentAudio() {
+      speakText(quizData[currentQuestionIdx].audio);
+    }
+
+    // ================= WEB SPEECH API & RECOGNITION SYSTEM =================
+    function setupSpeechRecognition() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        document.getElementById('mic-status').innerText = "Tu navegador no soporta Reconocimiento de Voz nativo (se recomienda Chrome/Edge).";
+        document.getElementById('mic-btn').disabled = true;
+        return;
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+
+      recognition.onstart = () => {
+        isRecording = true;
+        finalTranscript = '';
+        document.getElementById('transcript-box').innerHTML = "<span class='text-cyan-400'>Escuchando... habla de forma natural.</span>";
+        
+        const micBtn = document.getElementById('mic-btn');
+        micBtn.className = "w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-rose-600 to-rose-400 text-white flex items-center justify-center shadow-xl shadow-rose-500/30 transition-all transform pulse-mic active:scale-95 touch-manipulation";
+        document.getElementById('mic-icon').className = "fa-solid fa-stop text-3xl";
+        document.getElementById('mic-status').innerText = "Grabando... Toca el recuadro de nuevo para detener y evaluar.";
+        
+        document.getElementById('feedback-box').classList.add('hidden');
+      };
+
+      // ULTIMATE ANTI-DUPLICATION ALGORITHM FOR MOBILE CHROME
+      recognition.onresult = (event) => {
+        if (event.results.length === 0) return;
+        
+        let currentInterim = '';
+        let currentFinal = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            currentFinal += event.results[i][0].transcript;
+          } else {
+            currentInterim += event.results[i][0].transcript;
+          }
+        }
+        
+        if (currentFinal) {
+          let cleanNew = currentFinal.trim();
+          let cleanOld = finalTranscript.trim();
+          
+          if (cleanOld.endsWith(cleanNew)) {
+            // Do nothing
+          } 
+          else if (cleanNew.startsWith(cleanOld) && cleanOld.length > 0) {
+            finalTranscript = cleanNew + ' ';
+          } 
+          else {
+            let oldWords = cleanOld.split(' ');
+            let newWords = cleanNew.split(' ');
+            let overlap = 0;
+            
+            for (let i = 1; i <= Math.min(oldWords.length, newWords.length); i++) {
+              if (oldWords.slice(-i).join(' ').toLowerCase() === newWords.slice(0, i).join(' ').toLowerCase()) {
+                overlap = i;
+              }
+            }
+            
+            if (overlap > 0) {
+              finalTranscript = cleanOld + ' ' + newWords.slice(overlap).join(' ') + ' ';
+            } else {
+              finalTranscript += cleanNew + ' ';
+            }
+          }
+        }
+        
+        let displayString = (finalTranscript + currentInterim).trim();
+        
+        // Aggressive identical consecutive word cleanup
+        let words = displayString.split(/\s+/);
+        let deduped = [];
+        for (let i = 0; i < words.length; i++) {
+          if (i === 0 || words[i].toLowerCase() !== words[i-1].toLowerCase()) {
+            deduped.push(words[i]);
+          }
+        }
+        displayString = deduped.join(' ');
+
+        document.getElementById('transcript-box').innerHTML = displayString ? `<span class="text-white">"${displayString}"</span>` : "<span class='text-cyan-400'>Escuchando...</span>";
+        
+        if (displayString) {
+          evaluateSpeech(displayString);
+        }
+      };
+
+      recognition.onerror = (event) => {
+        console.error("Speech Recognition Error:", event.error);
+        if(event.error === 'no-speech'){
+             document.getElementById('mic-status').innerText = "No se detectó voz. Intenta de nuevo.";
+        }
+        stopRecording();
+      };
+
+      recognition.onend = () => {
+        if (isRecording) {
+          try { recognition.start(); } catch (e) { stopRecording(); }
+        } else {
+          stopRecordingUI();
+        }
+      };
+    }
+
+    function toggleSpeechRecording() {
+      if (!recognition) return;
+      if (isRecording) {
+        stopRecording();
+      } else {
+        try { recognition.start(); } catch (e) { stopRecording(); }
+      }
+    }
+
+    function stopRecording() {
+      isRecording = false;
+      try { recognition.stop(); } catch (e) {}
+      stopRecordingUI();
+    }
+
+    function stopRecordingUI(){
+        const micBtn = document.getElementById('mic-btn');
+        micBtn.className = "w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center shadow-lg transition-all transform active:scale-95 touch-manipulation";
+        document.getElementById('mic-icon').className = "fa-solid fa-microphone text-3xl";
+        
+        const transcript = document.getElementById('transcript-box').innerText.replace(/"/g, '');
+        if(!transcript || transcript.includes('Escuchando...')){
+            document.getElementById('mic-status').innerText = "Haz clic en el micrófono para grabar";
+        } else {
+             document.getElementById('mic-status').innerText = "Grabación evaluada con éxito. Toca para intentar de nuevo.";
+        }
+    }
+
+    function resetSpeechUI() {
+      if (isRecording) stopRecording();
+      document.getElementById('transcript-box').innerHTML = "<span class='text-slate-500'>Tu grabación transcrita aparecerá aquí en tiempo real...</span>";
+      document.getElementById('feedback-box').classList.add('hidden');
+    }
+
+    /* FUZZY MATCHING EVALUATION ALGORITHM (Medium Strictness) */
+    function evaluateSpeech(userTranscript) {
+      if (!userTranscript || userTranscript.trim() === '') return;
+      
+      const target = quizData[currentQuestionIdx].audio;
+      const cleanTarget = target.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+      const cleanSpoken = userTranscript.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+
+      const numMap = {'1':'one','2':'two','3':'three','4':'four','5':'five','6':'six','7':'seven','8':'eight','9':'nine','10':'ten','11':'eleven','12':'twelve','pm':'p.m.','am':'a.m.','first':'1st'};
+      
+      let targetWords = cleanTarget.split(/\s+/).map(w => numMap[w] || w);
+      let spokenWords = cleanSpoken.split(/\s+/).map(w => numMap[w] || w);
+
+      let matchedCount = 0;
+      
+      targetWords.forEach(tWord => {
+          let matchIndex = spokenWords.findIndex(sWord => {
+              if (sWord === tWord) return true;
+              if (Math.abs(sWord.length - tWord.length) > 2) return false;
+              
+              let m = [], i, j;
+              for(i=0; i<=sWord.length; i++) m[i] = [i];
+              for(j=0; j<=tWord.length; j++) m[0][j] = j;
+              for(i=1; i<=sWord.length; i++) {
+                  for(j=1; j<=tWord.length; j++) {
+                      m[i][j] = sWord.charAt(i-1) === tWord.charAt(j-1) ? 
+                          m[i-1][j-1] : 
+                          Math.min(m[i-1][j-1]+1, m[i][j-1]+1, m[i-1][j]+1);
+                  }
+              }
+              let dist = m[sWord.length][tWord.length];
+              
+              // Allow 1 typo for short words, 2 typos for longer words
+              return (tWord.length <= 4 && dist <= 1) || (tWord.length > 4 && dist <= 2);
+          });
+          
+          if (matchIndex !== -1) {
+              matchedCount++;
+              spokenWords.splice(matchIndex, 1);
+          }
+      });
+
+      let score = Math.round((matchedCount / targetWords.length) * 100);
+      if (cleanSpoken === cleanTarget) score = 100;
+      if (score > 100) score = 100;
+      
+      // Score flooring for motivation
+      if (cleanSpoken.includes(cleanTarget) || cleanTarget.includes(cleanSpoken)) score = Math.max(score, 80);
+      if (score < 40 && cleanSpoken.length > 5) score = 60; 
+
+      const feedbackBox = document.getElementById('feedback-box');
+      const feedbackTitle = document.getElementById('feedback-title');
+      const feedbackScore = document.getElementById('feedback-score');
+      const feedbackText = document.getElementById('feedback-text');
+
+      feedbackBox.classList.remove('hidden', 'bg-emerald-950/80', 'border-emerald-500', 'bg-amber-950/80', 'border-amber-500', 'bg-rose-950/80', 'border-rose-500');
+
+      feedbackScore.innerText = `${score}%`;
+
+      if (score >= 75) {
+        feedbackBox.classList.add('bg-emerald-950/80', 'border-emerald-500');
+        feedbackTitle.className = "text-xs sm:text-sm font-bold uppercase tracking-wide flex items-center gap-1.5 text-emerald-400";
+        feedbackText.className = "text-xs sm:text-sm text-emerald-100 font-medium";
+        feedbackText.innerHTML = "<strong>¡Excelente fluidez y precisión!</strong> Dominas la entonación y acentuación en estructuras de futuro.";
+      } else if (score >= 45) {
+        feedbackBox.classList.add('bg-amber-950/80', 'border-amber-500');
+        feedbackTitle.className = "text-xs sm:text-sm font-bold uppercase tracking-wide flex items-center gap-1.5 text-amber-400";
+        feedbackText.className = "text-xs sm:text-sm text-amber-100 font-medium";
+        feedbackText.innerHTML = "<strong>¡Buen intento!</strong> Tu articulación es clara. Presta atención al ritmo narrativo y las reducciones.";
+      } else {
+        feedbackBox.classList.add('bg-rose-950/80', 'border-rose-500');
+        feedbackTitle.className = "text-xs sm:text-sm font-bold uppercase tracking-wide flex items-center gap-1.5 text-rose-400";
+        feedbackText.className = "text-xs sm:text-sm text-rose-100 font-medium";
+        feedbackText.innerHTML = "<strong>Sigue practicando.</strong> Haz clic en el botón verde arriba para escuchar la pronunciación nativa e imitar el patrón de acentuación.";
+      }
+    }
+
+    window.onload = function() {
+      renderQuestion();
+      setupSpeechRecognition();
+    };
+  </script>
+</body>
+</html>
