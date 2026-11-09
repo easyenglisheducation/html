@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Lección Neural: Prepositions of Place and Time (A1 / A2) - By Coach Carlos O.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .gradient-header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #2563eb 100%);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 4px;
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+    .pulse-mic {
+      animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(225, 29, 72, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+    }
+    /* Mobile tap highlight reset */
+    button, a {
+        -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-blue-200">
+
+  <!-- Header Banner -->
+  <header class="gradient-header text-white py-6 sm:py-8 px-4 sm:px-8 shadow-xl">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div>
+        <div class="flex flex-wrap items-center gap-2 text-blue-300 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3">
+          <span class="bg-blue-900/60 backdrop-blur px-3 py-1.5 rounded-lg border border-blue-400/30">Coach Carlos O.</span>
+          <span class="hidden sm:inline">•</span>
+          <span class="bg-blue-900/40 px-3 py-1.5 rounded-lg">Elementary Series (A1 / A2)</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">Super Lección Neural: In, On, At</h1>
+        <p class="text-blue-100 mt-2 text-sm sm:text-base max-w-2xl font-light leading-relaxed">
+          Domina el uso de las preposiciones de tiempo y lugar aplicando la regla de la pirámide invertida (de lo general a lo específico).
+        </p>
+      </div>
+      <!-- Global Audio Settings -->
+      <button id="global-tts-toggle" onclick="toggleGlobalAudio()" class="p-3 sm:px-4 sm:py-2.5 rounded-xl bg-blue-900/50 hover:bg-blue-800/80 text-white border border-blue-400/30 transition-all flex items-center gap-2 text-xs sm:text-sm font-semibold active:scale-95 touch-manipulation w-full sm:w-auto justify-center" title="Audio activado/desactivado">
+        <i id="global-tts-icon" class="fa-solid fa-volume-high text-blue-300 text-lg sm:text-base"></i>
+        <span id="global-tts-status">Voz US On</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs (Flex-wrap for Mobile) -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-20 shadow-sm">
+    <div class="max-w-5xl mx-auto flex flex-wrap custom-scrollbar text-xs sm:text-sm font-semibold text-slate-600">
+      <button onclick="switchTab('mod1')" id="tab-mod1" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-blue-600 text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        1: Blueprint
+      </button>
+      <button onclick="switchTab('mod2')" id="tab-mod2" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-transparent hover:text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        2: Matrix
+      </button>
+      <button onclick="switchTab('mod3')" id="tab-mod3" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-transparent hover:text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        3: Phonics Lab
+      </button>
+      <button onclick="switchTab('mod4')" id="tab-mod4" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-transparent hover:text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        4: Oral AI Lab
+      </button>
+      <button onclick="switchTab('mod5')" id="tab-mod5" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-transparent hover:text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        5: Errores
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-8">
+
+    <!-- MODULE 1 -->
+    <section id="content-mod1" class="tab-content space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-3 flex items-center gap-3">
+          <span class="w-2.5 h-6 bg-blue-600 rounded-full inline-block"></span>
+          Marco de Activación Neurolingüística (La Pirámide Invertida)
+        </h2>
+        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+          Para no confundir jamás <strong>IN, ON</strong> y <strong>AT</strong>, imagina una pirámide invertida: comenzamos con espacios o tiempos muy grandes y generales, pasamos a superficies o días específicos, y terminamos en puntos exactos.
+        </p>
+
+        <!-- Logic Visual -->
+        <div class="bg-slate-900 text-slate-100 p-4 sm:p-6 rounded-xl text-[11px] sm:text-sm font-mono leading-relaxed mb-8 shadow-inner overflow-x-auto whitespace-pre sm:whitespace-normal">
+          <p class="text-blue-400 font-bold mb-3">// La Regla de Oro (De lo General a lo Exacto)</p>
+          <p class="text-emerald-400">▲ IN ──► Espacios grandes / Años, meses (General)</p>
+          <p class="text-slate-300 pl-4 mb-2">└─ Ejemplos: <em>in Colombia, in July, in 2026</em></p>
+          <p class="text-amber-400">◆ ON ──► Superficies / Días, fechas (Medio)</p>
+          <p class="text-slate-300 pl-4 mb-2">└─ Ejemplos: <em>on the table, on Monday</em></p>
+          <p class="text-cyan-400">▼ AT ──► Puntos exactos / Horas, direcciones (Específico)</p>
+          <p class="text-slate-300 pl-4">└─ Ejemplos: <em>at 8:00 AM, at the bus stop</em></p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <div class="p-5 border border-slate-200 rounded-2xl bg-slate-50 shadow-sm">
+            <span class="font-bold text-emerald-700 block mb-2 text-sm sm:text-base">IN (General / Dentro)</span>
+            <p class="text-slate-600 text-xs sm:text-sm">Espacios cerrados, ciudades, países, meses y años.</p>
+          </div>
+          <div class="p-5 border border-slate-200 rounded-2xl bg-slate-50 shadow-sm">
+            <span class="font-bold text-amber-700 block mb-2 text-sm sm:text-base">ON (Superficie / Días)</span>
+            <p class="text-slate-600 text-xs sm:text-sm">Superficies de objetos, calles, días específicos y fechas.</p>
+          </div>
+          <div class="p-5 border border-slate-200 rounded-2xl bg-slate-50 shadow-sm">
+            <span class="font-bold text-cyan-700 block mb-2 text-sm sm:text-base">AT (Punto Exacto)</span>
+            <p class="text-slate-600 text-xs sm:text-sm">Ubicaciones precisas, direcciones numéricas y horas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 2 -->
+    <section id="content-mod2" class="tab-content hidden space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+          <span class="w-2.5 h-6 bg-blue-600 rounded-full inline-block"></span>
+          Matriz Comparativa (Place vs. Time)
+        </h2>
+        <div class="overflow-x-auto rounded-xl border border-slate-200">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse min-w-[600px]">
+            <thead>
+              <tr class="bg-slate-100 border-b border-slate-300 text-slate-700 font-semibold uppercase tracking-wider">
+                <th class="p-4">Preposición</th>
+                <th class="p-4">Uso para Lugar (Place)</th>
+                <th class="p-4">Uso para Tiempo (Time)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-4 font-bold text-emerald-700 text-lg">IN</td>
+                <td class="p-4 text-slate-600">Países, ciudades, habitaciones, autos<br><em class="text-[11px] sm:text-xs text-slate-500">in Paris, in the kitchen</em></td>
+                <td class="p-4 text-slate-600">Meses, años, siglos, partes del día<br><em class="text-[11px] sm:text-xs text-slate-500">in May, in 2026, in the afternoon</em></td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-4 font-bold text-amber-700 text-lg">ON</td>
+                <td class="p-4 text-slate-600">Calles, superficies, transporte público<br><em class="text-[11px] sm:text-xs text-slate-500">on 5th Avenue, on the desk</em></td>
+                <td class="p-4 text-slate-600">Días de la semana, fechas exactas<br><em class="text-[11px] sm:text-xs text-slate-500">on Monday, on October 23rd</em></td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-4 font-bold text-cyan-700 text-lg">AT</td>
+                <td class="p-4 text-slate-600">Direcciones (con #), puntos específicos<br><em class="text-[11px] sm:text-xs text-slate-500">at 12 Main St, at the door</em></td>
+                <td class="p-4 text-slate-600">Horas exactas, festividades, 'night'<br><em class="text-[11px] sm:text-xs text-slate-500">at 6:30 PM, at noon, at night</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 3 -->
+    <section id="content-mod3" class="tab-content hidden space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-3 flex items-center gap-3">
+          <span class="w-2.5 h-6 bg-blue-600 rounded-full inline-block"></span>
+          Shadowing & Phonics Lab
+        </h2>
+        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+          Escucha la pronunciación nativa y entrena tu fluidez repitiendo en voz alta cada frase de ejemplo.
+        </p>
+
+        <div class="space-y-4">
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+            <div class="flex-1">
+              <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-widest block mb-1">Preposition 'In' (Time & Place)</span>
+              <p class="text-slate-900 font-semibold text-sm sm:text-base leading-snug">"I live in Colombia, and I usually wake up early in the morning."</p>
+              <p class="text-slate-500 font-mono text-xs mt-2">/aɪ lɪv ɪn kəˈlɑːm.bi.ə | ənd aɪ ˈuː.ʒu.ə.li weɪk ʌp ˈɜːr.li ɪn ðə ˈmɔːr.nɪŋ/</p>
+            </div>
+            <button onclick="speakText('I live in Colombia, and I usually wake up early in the morning.')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i> Listen Audio
+            </button>
+          </div>
+
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+            <div class="flex-1">
+              <span class="text-[10px] font-bold text-amber-700 uppercase tracking-widest block mb-1">Preposition 'On' (Time & Place)</span>
+              <p class="text-slate-900 font-semibold text-sm sm:text-base leading-snug">"Your keys are on the kitchen table, and our meeting is on Monday."</p>
+              <p class="text-slate-500 font-mono text-xs mt-2">/jʊər kiːz ɑːr ɑːn ðə ˈkɪtʃ.ən ˈteɪ.bəl | ənd ˈaʊ.wɚ ˈmiː.tɪŋ ɪz ɑːn ˈmʌn.deɪ/</p>
+            </div>
+            <button onclick="speakText('Your keys are on the kitchen table, and our meeting is on Monday.')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i> Listen Audio
+            </button>
+          </div>
+
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+            <div class="flex-1">
+              <span class="text-[10px] font-bold text-cyan-700 uppercase tracking-widest block mb-1">Preposition 'At' (Time & Place)</span>
+              <p class="text-slate-900 font-semibold text-sm sm:text-base leading-snug">"She is waiting for you at the bus stop at 5 o'clock."</p>
+              <p class="text-slate-500 font-mono text-xs mt-2">/ʃiː ɪz ˈweɪ.tɪŋ fɔːr ju ət ðə bʌs stɑːp ət faɪv əˈklɑːk/</p>
+            </div>
+            <button onclick="speakText('She is waiting for you at the bus stop at 5 o clock.')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i> Listen Audio
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 4: INTERACTIVE QUIZ & SPEECH RECORDING SYSTEM (12 SCENARIOS) -->
+    <section id="content-mod4" class="tab-content hidden space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+        
+        <!-- Quiz Header / Status -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-200 pb-5 gap-4">
+          <div>
+            <span class="text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-blue-600 block mb-1" id="quiz-progress-text">Question 1 of 12</span>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900 leading-tight">Prepositions Simulación & Oral AI Lab</h2>
+          </div>
+          <div class="bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-bold text-xs sm:text-sm border border-blue-200 w-full sm:w-auto text-center" id="score-badge">
+            Score: 0 / 12
+          </div>
+        </div>
+
+        <!-- Quiz Container Body -->
+        <div id="quiz-card-body" class="space-y-6">
+          <div id="scenario-box" class="bg-slate-100 border-l-4 border-blue-600 p-4 sm:p-5 rounded-r-xl text-xs sm:text-sm text-slate-700 leading-relaxed font-medium"></div>
+          <p id="prompt-box" class="text-slate-900 font-extrabold text-base sm:text-lg leading-snug px-2"></p>
+
+          <!-- Options Grid -->
+          <div id="options-grid" class="flex flex-col gap-3"></div>
+
+          <!-- Explanation Panel -->
+          <div id="explanation-box" class="hidden p-5 rounded-xl bg-blue-50 border border-blue-200 text-blue-900 text-xs sm:text-sm leading-relaxed shadow-inner"></div>
+
+          <!-- SPEECH PRACTICE & VOICE RECORDING SYSTEM PANEL -->
+          <div id="speech-practice-panel" class="bg-slate-900 text-slate-100 rounded-2xl p-5 sm:p-8 border border-slate-800 shadow-2xl space-y-6 mt-8 relative overflow-hidden">
+             <!-- Aesthetic background glow -->
+             <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-blue-900/20 blur-3xl pointer-events-none"></div>
+
+            <div class="flex justify-between items-start border-b border-slate-800 pb-4 relative z-10 gap-4">
+              <div class="flex-1">
+                <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest block mb-1.5">Entrenamiento de Habla Neural</span>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Escucha la pronunciación nativa y luego graba tu voz (Fuzzy-Match y Anti-Duplicación activados):</p>
+              </div>
+              <button onclick="playCurrentAudio()" class="p-3 bg-slate-800 hover:bg-slate-700 text-cyan-400 rounded-xl border border-slate-700 transition active:scale-95 touch-manipulation shadow-md shrink-0" title="Escuchar audio nativo">
+                <i class="fa-solid fa-volume-high text-lg"></i>
+              </button>
+            </div>
+
+            <!-- Target Sentence Display -->
+            <div class="bg-slate-950/80 p-5 rounded-xl border border-slate-800 relative z-10 shadow-inner">
+              <span class="text-[10px] font-bold text-slate-500 uppercase block mb-2 tracking-wider">Frase Objetivo (Target Phrase):</span>
+              <p id="target-phrase-text" class="text-sm sm:text-base font-bold text-cyan-300 italic leading-snug">"Loading target audio..."</p>
+            </div>
+
+            <!-- Mic Controls -->
+            <div class="flex flex-col items-center justify-center py-6 border-t border-b border-slate-800/80 gap-5 relative z-10">
+              <button id="mic-btn" onclick="toggleSpeechRecording()" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-rose-600 to-pink-500 hover:from-rose-500 hover:to-pink-400 text-white flex items-center justify-center shadow-xl shadow-rose-500/20 transition-all transform active:scale-95 touch-manipulation">
+                <i class="fa-solid fa-microphone text-3xl sm:text-4xl" id="mic-icon"></i>
+              </button>
+              <p class="text-xs sm:text-sm font-semibold text-slate-400 text-center px-4" id="mic-status">Toca el micrófono para grabar tu voz</p>
+            </div>
+
+            <!-- Live Transcript Box -->
+            <div class="space-y-2 relative z-10">
+              <label class="block text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider">Transcripción en Tiempo Real:</label>
+              <div id="transcript-box" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 sm:p-5 min-h-[80px] text-xs sm:text-sm text-slate-300 italic font-mono flex items-center leading-relaxed">
+                Tu grabación transcrita aparecerá aquí en tiempo real...
+              </div>
+            </div>
+
+            <!-- AI Feedback Box -->
+            <div id="feedback-box" class="hidden rounded-xl p-5 sm:p-6 border transition-all space-y-3 shadow-lg relative z-10">
+              <div class="flex items-center justify-between border-b border-slate-700/50 pb-3">
+                <span class="text-xs sm:text-sm font-bold uppercase tracking-wide flex items-center gap-2" id="feedback-title">
+                  <i class="fa-solid fa-chart-pie"></i> Resultado de Pronunciación
+                </span>
+                <span class="text-2xl sm:text-3xl font-extrabold" id="feedback-score">0%</span>
+              </div>
+              <p class="text-xs sm:text-sm font-medium leading-relaxed pt-1" id="feedback-text"></p>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-slate-100">
+            <button onclick="playCurrentAudio()" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i>
+              <span>Escuchar Audio Nativo</span>
+            </button>
+            <button id="btn-next" onclick="nextQuestion()" class="hidden w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-blue-600/30 active:scale-95 touch-manipulation flex items-center justify-center gap-2">
+              Siguiente Escenario <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MODULE 5 -->
+    <section id="content-mod5" class="tab-content hidden space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+          <span class="w-2.5 h-6 bg-blue-600 rounded-full inline-block"></span>
+          Módulo 5: Tabla Consolidada de Errores Comunes
+        </h2>
+
+        <div class="overflow-x-auto rounded-xl border border-slate-200">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse min-w-[600px]">
+            <thead>
+              <tr class="bg-slate-100 border-b border-slate-300 text-slate-700 font-semibold uppercase tracking-wider">
+                <th class="p-4">Error Frecuente (A1/A2)</th>
+                <th class="p-4">Forma Correcta</th>
+                <th class="p-4">Razón Pedagógica</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-4 text-rose-600 font-mono">My birthday is on July.</td>
+                <td class="p-4 text-emerald-700 font-mono font-bold">My birthday is in July.</td>
+                <td class="p-4 text-slate-600 leading-relaxed">Para meses del año se utiliza la preposición general <em>in</em>, nunca <em>on</em>.</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-4 text-rose-600 font-mono">We have a meeting at Monday.</td>
+                <td class="p-4 text-emerald-700 font-mono font-bold">We have a meeting on Monday.</td>
+                <td class="p-4 text-slate-600 leading-relaxed">Para días de la semana se utiliza la preposición de superficie <em>on</em>.</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-4 text-rose-600 font-mono">I am in the bus stop.</td>
+                <td class="p-4 text-emerald-700 font-mono font-bold">I am at the bus stop.</td>
+                <td class="p-4 text-slate-600 leading-relaxed">Para puntos de encuentro específicos se utiliza el punto exacto <em>at</em>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500 mt-auto">
+    <div class="max-w-5xl mx-auto px-4">
+        <p class="font-medium">© Developed for educational excellence By Coach Carlos O.</p>
+        <p class="mt-1 text-slate-400">Elementary Series (A1 / A2)</p>
+    </div>
+  </footer>
+
+  <!-- MESSAGE TOAST -->
+  <div id="toast" class="fixed bottom-6 right-6 left-6 sm:left-auto transform translate-y-24 opacity-0 transition-all duration-300 z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border pointer-events-none bg-slate-900/95 text-slate-100 border-slate-700">
+      <i id="toast-icon" class="fa-solid fa-circle-info text-xl shrink-0 text-blue-400"></i>
+      <span id="toast-msg">Mensaje</span>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // ================= GLOBAL DATA & AUDIO INIT =================
+    let globalAudioEnabled = true;
+    let ttsInitialized = false;
+
+    function initializeAudioContext() {
+        if (!ttsInitialized && 'speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance('');
+            utterance.volume = 0;
+            window.speechSynthesis.speak(utterance);
+            ttsInitialized = true;
+        }
+    }
+    window.addEventListener('click', initializeAudioContext, { once: true });
+    window.addEventListener('touchstart', initializeAudioContext, { once: true });
+
+    function toggleGlobalAudio() {
+        globalAudioEnabled = !globalAudioEnabled;
+        const icon = document.getElementById('global-tts-icon');
+        const status = document.getElementById('global-tts-status');
+
+        if (globalAudioEnabled) {
+            icon.className = 'fa-solid fa-volume-high text-blue-300 text-lg sm:text-base';
+            status.innerText = 'Voz US On';
+            showToast('Síntesis de voz activada', 'success');
+        } else {
+            icon.className = 'fa-solid fa-volume-xmark text-slate-400 text-lg sm:text-base';
+            status.innerText = 'Voz US Off';
+            showToast('Síntesis de voz desactivada', 'info');
+        }
+    }
+
+    function showToast(message, type = 'info') {
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toast-msg');
+        const toastIcon = document.getElementById('toast-icon');
+
+        toastMsg.innerText = message;
+
+        if (type === 'success') {
+            toast.className = 'fixed bottom-6 right-6 left-6 sm:left-auto z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border bg-emerald-900/95 text-emerald-100 border-emerald-500 transition-all duration-300 opacity-100 translate-y-0';
+            toastIcon.className = 'fa-solid fa-circle-check text-emerald-400 text-xl shrink-0';
+        } else if (type === 'error') {
+            toast.className = 'fixed bottom-6 right-6 left-6 sm:left-auto z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border bg-rose-900/95 text-rose-100 border-rose-500 transition-all duration-300 opacity-100 translate-y-0';
+            toastIcon.className = 'fa-solid fa-triangle-exclamation text-rose-400 text-xl shrink-0';
+        } else {
+            toast.className = 'fixed bottom-6 right-6 left-6 sm:left-auto z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border bg-slate-900/95 text-slate-100 border-slate-600 transition-all duration-300 opacity-100 translate-y-0';
+            toastIcon.className = 'fa-solid fa-circle-info text-blue-400 text-xl shrink-0';
+        }
+
+        setTimeout(() => {
+            toast.className = toast.className.replace('opacity-100 translate-y-0', 'opacity-0 translate-y-24 pointer-events-none');
+        }, 3500);
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('border-blue-600', 'text-blue-600');
+        btn.classList.add('border-transparent', 'hover:text-blue-600');
+      });
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('hidden');
+      });
+
+      document.getElementById(`tab-${tabId}`).classList.add('border-blue-600', 'text-blue-600');
+      document.getElementById(`tab-${tabId}`).classList.remove('border-transparent');
+      document.getElementById(`content-${tabId}`).classList.remove('hidden');
+    }
+
+    function speakText(text) {
+      if (!('speechSynthesis' in window) || !globalAudioEnabled) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.9;
+      const voices = window.speechSynthesis.getVoices();
+      const usVoice = voices.find(v => v.lang === 'en-US' || v.lang.includes('en_US'));
+      if (usVoice) utterance.voice = usVoice;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // 12 FULL SCENARIOS (PREPOSITIONS PRACTICE)
+    const quizData = [
+      {
+        scenario: "Context: Talking about living in a specific country.",
+        prompt: "Choose the correct preposition: 'She lives ___ Colombia.'",
+        options: [
+          { text: "She lives on Colombia.", correct: false, explanation: "Incorrect. Countries use 'in'." },
+          { text: "She lives in Colombia.", correct: true, explanation: "Correct! Countries, cities, and large regions take 'in'." },
+          { text: "She lives at Colombia.", correct: false, explanation: "Incorrect. 'At' is for exact addresses or points." },
+          { text: "She lives to Colombia.", correct: false, explanation: "'To' expresses movement towards a place." }
+        ],
+        audio: "She lives in Colombia."
+      },
+      {
+        scenario: "Context: Talking about the days of the week for an appointment.",
+        prompt: "Choose the correct preposition: 'Our English class is ___ Monday.'",
+        options: [
+          { text: "Our English class is in Monday.", correct: false, explanation: "Incorrect. Days of the week take 'on'." },
+          { text: "Our English class is on Monday.", correct: true, explanation: "Correct! Specific days of the week take 'on'." },
+          { text: "Our English class is at Monday.", correct: false, explanation: "Incorrect. 'At' is for hours or festivals." },
+          { text: "Our English class is by Monday.", correct: false, explanation: "'By' indicates a deadline." }
+        ],
+        audio: "Our English class is on Monday."
+      },
+      {
+        scenario: "Context: Checking the exact time on a clock.",
+        prompt: "Choose the correct preposition: 'The train arrives ___ 6:30 AM.'",
+        options: [
+          { text: "The train arrives in 6:30 AM.", correct: false, explanation: "Incorrect. Exact clock times take 'at'." },
+          { text: "The train arrives on 6:30 AM.", correct: false, explanation: "Incorrect. 'On' is for dates and days." },
+          { text: "The train arrives at 6:30 AM.", correct: true, explanation: "Correct! Exact times use 'at'." },
+          { text: "The train arrives by 6:30 AM.", correct: false, explanation: "'By' means not later than 6:30 AM, but 'at' is exact time." }
+        ],
+        audio: "The train arrives at 6:30 AM."
+      },
+      {
+        scenario: "Context: Looking for car keys on a piece of furniture.",
+        prompt: "Choose the correct preposition: 'Your keys are ___ the kitchen table.'",
+        options: [
+          { text: "Your keys are in the table.", correct: false, explanation: "Incorrect. Objects resting on a flat surface take 'on'." },
+          { text: "Your keys are on the table.", correct: true, explanation: "Correct! Surfaces use 'on'." },
+          { text: "Your keys are at the table.", correct: false, explanation: "Incorrect. 'At the table' means sitting ready to eat, but 'on' means physically on top of it." },
+          { text: "Your keys are under the table.", correct: false, explanation: "Different spatial position." }
+        ],
+        audio: "Your keys are on the kitchen table."
+      },
+      {
+        scenario: "Context: Mentioning the month of a birthday celebration.",
+        prompt: "Choose the correct preposition: 'My birthday is ___ July.'",
+        options: [
+          { text: "My birthday is on July.", correct: false, explanation: "Incorrect. Months take 'in'." },
+          { text: "My birthday is in July.", correct: true, explanation: "Correct! Months and years take 'in'." },
+          { text: "My birthday is at July.", correct: false, explanation: "Incorrect. 'At' is for exact times." },
+          { text: "My birthday is by July.", correct: false, explanation: "Incorrect meaning." }
+        ],
+        audio: "My birthday is in July."
+      },
+      {
+        scenario: "Context: Waiting for someone at a specific location downtown.",
+        prompt: "Choose the correct preposition: 'I am waiting ___ the bus stop.'",
+        options: [
+          { text: "I am waiting in the bus stop.", correct: false, explanation: "Incorrect. Specific locations/points use 'at'." },
+          { text: "I am waiting on the bus stop.", correct: false, explanation: "Incorrect. 'At' is standard for bus stops and specific points." },
+          { text: "I am waiting at the bus stop.", correct: true, explanation: "Correct! Specific meeting points take 'at'." },
+          { text: "I am waiting by the bus stop.", correct: false, explanation: "'By' means close to, but 'at' is the standard fixed location." }
+        ],
+        audio: "I am waiting at the bus stop."
+      },
+      {
+        scenario: "Context: Talking about a specific date with day and month.",
+        prompt: "Choose the correct preposition: 'The conference is ___ October 23rd.'",
+        options: [
+          { text: "The conference is in October 23rd.", correct: false, explanation: "Incorrect. Full dates with day numbers take 'on'." },
+          { text: "The conference is on October 23rd.", correct: true, explanation: "Correct! Specific dates take 'on'." },
+          { text: "The conference is at October 23rd.", correct: false, explanation: "Incorrect. 'At' is for hours." },
+          { text: "The conference is by October 23rd.", correct: false, explanation: "Incorrect meaning." }
+        ],
+        audio: "The conference is on October 23rd."
+      },
+      {
+        scenario: "Context: Describing morning routines.",
+        prompt: "Choose the correct preposition: 'He drinks coffee ___ the morning.'",
+        options: [
+          { text: "He drinks coffee at the morning.", correct: false, explanation: "Incorrect. Parts of the day (morning, afternoon, evening) take 'in'." },
+          { text: "He drinks coffee on the morning.", correct: false, explanation: "Incorrect." },
+          { text: "He drinks coffee in the morning.", correct: true, explanation: "Correct! Parts of the day take 'in' (exception: at night)." },
+          { text: "He drinks coffee by the morning.", correct: false, explanation: "Incorrect." }
+        ],
+        audio: "He drinks coffee in the morning."
+      },
+      {
+        scenario: "Context: Indicating physical presence inside a room.",
+        prompt: "Choose the correct preposition: 'The students are ___ the classroom.'",
+        options: [
+          { text: "The students are on the classroom.", correct: false, explanation: "Incorrect. Rooms and enclosed spaces take 'in'." },
+          { text: "The students are in the classroom.", correct: true, explanation: "Correct! Enclosed spaces use 'in'." },
+          { text: "The students are at the classroom.", correct: false, explanation: "Incorrect. 'At' refers to the school building as a whole point, but inside a room is 'in'." },
+          { text: "The students are under the classroom.", correct: false, explanation: "Incorrect." }
+        ],
+        audio: "The students are in the classroom."
+      },
+      {
+        scenario: "Context: Mentioning a specific year in the past.",
+        prompt: "Choose the correct preposition: 'The company was founded ___ 2010.'",
+        options: [
+          { text: "The company was founded on 2010.", correct: false, explanation: "Incorrect. Years take 'in'." },
+          { text: "The company was founded in 2010.", correct: true, explanation: "Correct! Years take 'in'." },
+          { text: "The company was founded at 2010.", correct: false, explanation: "Incorrect." },
+          { text: "The company was founded by 2010.", correct: false, explanation: "Incorrect." }
+        ],
+        audio: "The company was founded in 2010."
+      },
+      {
+        scenario: "Context: Giving a specific street address.",
+        prompt: "Choose the correct preposition: 'She lives ___ 12 Main Street.'",
+        options: [
+          { text: "She lives in 12 Main Street.", correct: false, explanation: "Incorrect. Exact street addresses take 'at'." },
+          { text: "She lives on 12 Main Street.", correct: false, explanation: "Incorrect. Street names alone take 'on', but with a house number, it's 'at'." },
+          { text: "She lives at 12 Main Street.", correct: true, explanation: "Correct! Full addresses with numbers take 'at'." },
+          { text: "She lives by 12 Main Street.", correct: false, explanation: "Incorrect." }
+        ],
+        audio: "She lives at 12 Main Street."
+      },
+      {
+        scenario: "Context: Talking about nighttime hours.",
+        prompt: "Choose the correct preposition: 'It is quiet ___ night.'",
+        options: [
+          { text: "It is quiet in night.", correct: false, explanation: "Incorrect. Night is an exceptional fixed expression taking 'at'." },
+          { text: "It is quiet on night.", correct: false, explanation: "Incorrect." },
+          { text: "It is quiet at night.", correct: true, explanation: "Correct! 'At night' is the fixed standard phrase." },
+          { text: "It is quiet by night.", correct: false, explanation: "Incorrect." }
+        ],
+        audio: "It is quiet at night."
+      }
+    ];
+
+    let currentQuestionIdx = 0;
+    let currentScore = 0;
+    let isRecording = false;
+    let recognition = null;
+
+    function renderQuestion() {
+      const current = quizData[currentQuestionIdx];
+      document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestionIdx + 1} of ${quizData.length}`;
+      document.getElementById('scenario-box').innerText = current.scenario;
+      document.getElementById('prompt-box').innerText = current.prompt;
+      document.getElementById('target-phrase-text').innerText = `"${current.audio}"`;
+
+      const grid = document.getElementById('options-grid');
+      grid.innerHTML = '';
+
+      current.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'opt-btn w-full text-left p-4 sm:p-5 rounded-xl border-2 border-slate-200 hover:border-blue-500 bg-white text-xs sm:text-base text-slate-800 font-medium transition-all focus:outline-none active:scale-[0.98] touch-manipulation leading-snug';
+        btn.innerText = opt.text;
+        btn.onclick = () => selectOption(idx);
+        grid.appendChild(btn);
+      });
+
+      document.getElementById('explanation-box').classList.add('hidden');
+      document.getElementById('btn-next').classList.add('hidden');
+      resetSpeechUI();
+    }
+
+    function selectOption(selectedIdx) {
+      const current = quizData[currentQuestionIdx];
+      const buttons = document.querySelectorAll('.opt-btn');
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        btn.classList.remove('hover:border-blue-500');
+
+        if (current.options[idx].correct) {
+          btn.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-900', 'font-bold');
+        } else if (idx === selectedIdx) {
+          btn.classList.add('bg-rose-50', 'border-rose-500', 'text-rose-900');
+        }
+      });
+
+      const isCorrect = current.options[selectedIdx].correct;
+      if (isCorrect) currentScore++;
+
+      document.getElementById('score-badge').innerText = `Score: ${currentScore} / ${quizData.length}`;
+
+      const expBox = document.getElementById('explanation-box');
+      expBox.innerHTML = `<strong>${isCorrect ? '✓ Correct!' : '✗ Incorrect.'}</strong> ${current.options[selectedIdx].explanation}`;
+      expBox.classList.remove('hidden');
+
+      const nextBtn = document.getElementById('btn-next');
+      if (currentQuestionIdx < quizData.length - 1) {
+        nextBtn.innerHTML = 'Siguiente Escenario <i class="fa-solid fa-arrow-right"></i>';
+      } else {
+        nextBtn.innerText = "View Final Results";
+      }
+      nextBtn.classList.remove('hidden');
+    }
+
+    function nextQuestion() {
+      currentQuestionIdx++;
+      if (currentQuestionIdx < quizData.length) {
+        renderQuestion();
+      } else {
+        showFinalResults();
+      }
+    }
+
+    function showFinalResults() {
+      const cardBody = document.getElementById('quiz-card-body');
+      cardBody.innerHTML = `
+        <div class="text-center py-10 space-y-5">
+          <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-4xl font-bold shadow-inner">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Lección Completada</h3>
+          <p class="text-slate-600 text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+            Has completado la evaluación de Preposiciones con un puntaje de <strong class="text-blue-600 text-lg">${currentScore} / ${quizData.length}</strong>.
+          </p>
+          <button onclick="resetQuiz()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm sm:text-base py-3.5 px-8 rounded-xl transition-all shadow-lg active:scale-95 touch-manipulation">
+            Reiniciar Lección
+          </button>
+        </div>
+      `;
+    }
+
+    function resetQuiz() {
+      currentQuestionIdx = 0;
+      currentScore = 0;
+      document.getElementById('score-badge').innerText = `Score: 0 / ${quizData.length}`;
+      location.reload();
+    }
+
+    function playCurrentAudio() {
+      speakText(quizData[currentQuestionIdx].audio);
+    }
+
+    // ================= WEB SPEECH API & RECOGNITION SYSTEM =================
+    function setupSpeechRecognition() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        document.getElementById('mic-status').innerText = "Tu navegador no soporta Reconocimiento de Voz nativo (se recomienda Chrome/Edge).";
+        document.getElementById('mic-btn').disabled = true;
+        return;
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+
+      recognition.onstart = () => {
+        isRecording = true;
+        finalTranscript = '';
+        document.getElementById('transcript-box').innerHTML = "<span class='text-cyan-400'>Escuchando... habla de forma natural.</span>";
+        
+        const micBtn = document.getElementById('mic-btn');
+        micBtn.className = "w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-rose-600 to-rose-400 text-white flex items-center justify-center shadow-xl shadow-rose-500/30 transition-all transform pulse-mic active:scale-95 touch-manipulation";
+        document.getElementById('mic-icon').className = "fa-solid fa-stop text-3xl";
+        document.getElementById('mic-status').innerText = "Grabando... Toca el recuadro de nuevo para detener y evaluar.";
+        
+        document.getElementById('feedback-box').classList.add('hidden');
+      };
+
+      // ULTIMATE ANTI-DUPLICATION ALGORITHM FOR MOBILE CHROME
+      recognition.onresult = (event) => {
+        if (event.results.length === 0) return;
+        
+        let currentInterim = '';
+        let currentFinal = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            currentFinal += event.results[i][0].transcript;
+          } else {
+            currentInterim += event.results[i][0].transcript;
+          }
+        }
+        
+        if (currentFinal) {
+          let cleanNew = currentFinal.trim();
+          let cleanOld = finalTranscript.trim();
+          
+          if (cleanOld.endsWith(cleanNew)) {
+            // Do nothing
+          } 
+          else if (cleanNew.startsWith(cleanOld) && cleanOld.length > 0) {
+            finalTranscript = cleanNew + ' ';
+          } 
+          else {
+            let oldWords = cleanOld.split(' ');
+            let newWords = cleanNew.split(' ');
+            let overlap = 0;
+            
+            for (let i = 1; i <= Math.min(oldWords.length, newWords.length); i++) {
+              if (oldWords.slice(-i).join(' ').toLowerCase() === newWords.slice(0, i).join(' ').toLowerCase()) {
+                overlap = i;
+              }
+            }
+            
+            if (overlap > 0) {
+              finalTranscript = cleanOld + ' ' + newWords.slice(overlap).join(' ') + ' ';
+            } else {
+              finalTranscript += cleanNew + ' ';
+            }
+          }
+        }
+        
+        let displayString = (finalTranscript + currentInterim).trim();
+        
+        // Aggressive identical consecutive word cleanup
+        let words = displayString.split(/\s+/);
+        let deduped = [];
+        for (let i = 0; i < words.length; i++) {
+          if (i === 0 || words[i].toLowerCase() !== words[i-1].toLowerCase()) {
+            deduped.push(words[i]);
+          }
+        }
+        displayString = deduped.join(' ');
+
+        document.getElementById('transcript-box').innerHTML = displayString ? `<span class="text-white">"${displayString}"</span>` : "<span class='text-cyan-400'>Escuchando...</span>";
+        
+        if (displayString) {
+          evaluateSpeech(displayString);
+        }
+      };
+
+      recognition.onerror = (event) => {
+        console.error("Speech Recognition Error:", event.error);
+        if(event.error === 'no-speech'){
+             document.getElementById('mic-status').innerText = "No se detectó voz. Intenta de nuevo.";
+        }
+        stopRecording();
+      };
+
+      recognition.onend = () => {
+        if (isRecording) {
+          try { recognition.start(); } catch (e) { stopRecording(); }
+        } else {
+          stopRecordingUI();
+        }
+      };
+    }
+
+    function toggleSpeechRecording() {
+      if (!recognition) return;
+      if (isRecording) {
+        stopRecording();
+      } else {
+        try { recognition.start(); } catch (e) { stopRecording(); }
+      }
+    }
+
+    function stopRecording() {
+      isRecording = false;
+      try { recognition.stop(); } catch (e) {}
+      stopRecordingUI();
+    }
+    
+    function stopRecordingUI(){
+        const micBtn = document.getElementById('mic-btn');
+        micBtn.className = "w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center shadow-lg transition-all transform active:scale-95 touch-manipulation";
+        document.getElementById('mic-icon').className = "fa-solid fa-microphone text-3xl";
+        
+        const transcript = document.getElementById('transcript-box').innerText.replace(/"/g, '');
+        if(!transcript || transcript.includes('Escuchando...')){
+            document.getElementById('mic-status').innerText = "Haz clic en el micrófono para grabar";
+        } else {
+             document.getElementById('mic-status').innerText = "Grabación evaluada con éxito. Toca para intentar de nuevo.";
+        }
+    }
+
+    function resetSpeechUI() {
+      if (isRecording) stopRecording();
+      document.getElementById('transcript-box').innerHTML = "<span class='text-slate-500'>Tu grabación transcrita aparecerá aquí en tiempo real...</span>";
+      document.getElementById('feedback-box').classList.add('hidden');
+    }
+
+    /* FUZZY MATCHING EVALUATION ALGORITHM (Medium Strictness) */
+    function evaluateSpeech(userTranscript) {
+      if (!userTranscript || userTranscript.trim() === '') return;
+      
+      const target = quizData[currentQuestionIdx].audio;
+      const cleanTarget = target.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+      const cleanSpoken = userTranscript.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+
+      const numMap = {'1':'one','2':'two','3':'three','4':'four','5':'five','6':'six','7':'seven','8':'eight','9':'nine','10':'ten','11':'eleven','12':'twelve','pm':'p.m.','am':'a.m.','first':'1st'};
+      
+      let targetWords = cleanTarget.split(/\s+/).map(w => numMap[w] || w);
+      let spokenWords = cleanSpoken.split(/\s+/).map(w => numMap[w] || w);
+
+      let matchedCount = 0;
+      
+      targetWords.forEach(tWord => {
+          let matchIndex = spokenWords.findIndex(sWord => {
+              if (sWord === tWord) return true;
+              if (Math.abs(sWord.length - tWord.length) > 2) return false;
+              
+              let m = [], i, j;
+              for(i=0; i<=sWord.length; i++) m[i] = [i];
+              for(j=0; j<=tWord.length; j++) m[0][j] = j;
+              for(i=1; i<=sWord.length; i++) {
+                  for(j=1; j<=tWord.length; j++) {
+                      m[i][j] = sWord.charAt(i-1) === tWord.charAt(j-1) ? 
+                          m[i-1][j-1] : 
+                          Math.min(m[i-1][j-1]+1, m[i][j-1]+1, m[i-1][j]+1);
+                  }
+              }
+              let dist = m[sWord.length][tWord.length];
+              
+              // Allow 1 typo for short words, 2 typos for longer words
+              return (tWord.length <= 4 && dist <= 1) || (tWord.length > 4 && dist <= 2);
+          });
+          
+          if (matchIndex !== -1) {
+              matchedCount++;
+              spokenWords.splice(matchIndex, 1);
+          }
+      });
+
+      let score = Math.round((matchedCount / targetWords.length) * 100);
+      if (cleanSpoken === cleanTarget) score = 100;
+      if (score > 100) score = 100;
+      
+      // Score flooring for motivation
+      if (cleanSpoken.includes(cleanTarget) || cleanTarget.includes(cleanSpoken)) score = Math.max(score, 80);
+      if (score < 40 && cleanSpoken.length > 5) score = 60; 
+
+      const feedbackBox = document.getElementById('feedback-box');
+      const feedbackTitle = document.getElementById('feedback-title');
+      const feedbackScore = document.getElementById('feedback-score');
+      const feedbackText = document.getElementById('feedback-text');
+
+      feedbackBox.classList.remove('hidden', 'bg-emerald-900/60', 'border-emerald-500', 'bg-amber-900/60', 'border-amber-500', 'bg-rose-900/60', 'border-rose-500');
+
+      feedbackScore.innerText = `${score}%`;
+
+      if (score >= 75) {
+        feedbackBox.classList.add('bg-emerald-900/60', 'border-emerald-500');
+        feedbackTitle.className = "text-xs sm:text-sm font-bold uppercase tracking-wide flex items-center gap-1.5 text-emerald-400";
+        feedbackText.className = "text-xs sm:text-sm text-emerald-100 font-medium";
+        feedbackText.innerHTML = "<strong>¡Excelente pronunciación!</strong> Dominas perfectamente las preposiciones en contexto.";
+        triggerConfetti();
+      } else if (score >= 45) {
+        feedbackBox.classList.add('bg-amber-900/60', 'border-amber-500');
+        feedbackTitle.className = "text-xs sm:text-sm font-bold uppercase tracking-wide flex items-center gap-1.5 text-amber-400";
+        feedbackText.className = "text-xs sm:text-sm text-amber-100 font-medium";
+        feedbackText.innerHTML = "<strong>¡Buen intento!</strong> Tu articulación es clara. Revisa la preposición exacta utilizada en la frase.";
+      } else {
+        feedbackBox.classList.add('bg-rose-900/60', 'border-rose-500');
+        feedbackTitle.className = "text-xs sm:text-sm font-bold uppercase tracking-wide flex items-center gap-1.5 text-rose-400";
+        feedbackText.className = "text-xs sm:text-sm text-rose-100 font-medium";
+        feedbackText.innerHTML = "<strong>Continúa practicando.</strong> Haz clic en el botón verde para escuchar el audio nativo de referencia.";
+      }
+    }
+  </script>
+</body>
+</html>
