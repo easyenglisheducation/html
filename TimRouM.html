@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Lección Neural: Telling the Time & Daily Routines (A1/A2) - By Coach Carlos O.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .gradient-header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #2563eb 100%);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 4px;
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+    .pulse-mic {
+      animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(225, 29, 72, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+    }
+    button, a {
+        -webkit-tap-highlight-color: transparent;
+    }
+    .pink-feedback-column {
+      background-color: #fdf2f8;
+      border-left: 4px solid #db2777;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-pink-200">
+
+  <!-- Header Banner -->
+  <header class="gradient-header text-white py-6 sm:py-8 px-4 sm:px-8 shadow-xl">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div>
+        <div class="flex flex-wrap items-center gap-2 text-pink-300 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-3">
+          <span class="bg-pink-950/60 backdrop-blur px-3 py-1.5 rounded-lg border border-pink-400/30">EasyEnglishEducation</span>
+          <span class="hidden sm:inline">•</span>
+          <span class="bg-blue-900/40 px-3 py-1.5 rounded-lg">By Coach Carlos O.</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">Super Lección Neural: Telling the Time & Daily Routines</h1>
+        <p class="text-blue-100 mt-2 text-sm sm:text-base max-w-2xl font-light leading-relaxed">
+          Master the clock and everyday actions using visual associations, American pronunciation, and voice recognition AI practice.
+        </p>
+      </div>
+      <button id="global-tts-toggle" onclick="toggleGlobalAudio()" class="p-3 sm:px-4 sm:py-2.5 rounded-xl bg-blue-900/50 hover:bg-blue-800/80 text-white border border-blue-400/30 transition-all flex items-center gap-2 text-xs sm:text-sm font-semibold active:scale-95 touch-manipulation w-full sm:w-auto justify-center" title="Audio activado/desactivado">
+        <i id="global-tts-icon" class="fa-solid fa-volume-high text-blue-300 text-lg sm:text-base"></i>
+        <span id="global-tts-status">US Voice On</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-20 shadow-sm">
+    <div class="max-w-5xl mx-auto flex flex-wrap custom-scrollbar text-xs sm:text-sm font-semibold text-slate-600">
+      <button onclick="switchTab('mod1')" id="tab-mod1" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-blue-600 text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        1: Blueprint Visual
+      </button>
+      <button onclick="switchTab('mod2')" id="tab-mod2" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-transparent hover:text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        2: Routine Gallery
+      </button>
+      <button onclick="switchTab('mod3')" id="tab-mod3" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-transparent hover:text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        3: Phonics & Shadowing
+      </button>
+      <button onclick="switchTab('mod4')" id="tab-mod4" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-transparent hover:text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        4: Oral AI Lab (12)
+      </button>
+      <button onclick="switchTab('mod5')" id="tab-mod5" class="tab-btn flex-1 min-w-[120px] px-4 py-3.5 border-b-2 border-transparent hover:text-blue-600 focus:outline-none transition-all active:scale-95 touch-manipulation">
+        5: Error Clinic
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-8">
+
+    <!-- MODULE 1: BLUEPRINT VISUAL -->
+    <section id="content-mod1" class="tab-content space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <span class="w-2.5 h-6 bg-blue-600 rounded-full inline-block"></span>
+          Marco de Activación Neurolingüística: El Reloj y el Tiempo
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+          Para expresar la hora en inglés con naturalidad norteamericana, dividimos el reloj en dos mitades usando las estructuras clave <strong>"O'clock"</strong> (horas en punto), <strong>"Past"</strong> (minutos transcurridos), <strong>"To"</strong> (minutos faltantes), y <strong>"Quarter / Half"</strong>.
+        </p>
+
+        <!-- Visual Diagram Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div class="bg-slate-900 text-slate-100 p-5 rounded-2xl border border-slate-800 text-center space-y-3 shadow-md">
+            <div class="w-12 h-12 bg-blue-600/30 text-blue-400 rounded-xl flex items-center justify-center mx-auto text-xl">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <h3 class="font-bold text-blue-400 text-sm">En Punto</h3>
+            <p class="text-xs text-slate-300">"It's 7:00"<br><strong>It's seven o'clock.</strong></p>
+          </div>
+
+          <div class="bg-slate-900 text-slate-100 p-5 rounded-2xl border border-slate-800 text-center space-y-3 shadow-md">
+            <div class="w-12 h-12 bg-emerald-600/30 text-emerald-400 rounded-xl flex items-center justify-center mx-auto text-xl">
+              <i class="fa-solid fa-hourglass-start"></i>
+            </div>
+            <h3 class="font-bold text-emerald-400 text-sm">Cuarto Pasado</h3>
+            <p class="text-xs text-slate-300">"It's 7:15"<br><strong>It's a quarter past seven.</strong></p>
+          </div>
+
+          <div class="bg-slate-900 text-slate-100 p-5 rounded-2xl border border-slate-800 text-center space-y-3 shadow-md">
+            <div class="w-12 h-12 bg-amber-600/30 text-amber-400 rounded-xl flex items-center justify-center mx-auto text-xl">
+              <i class="fa-solid fa-arrows-split-up-and-left"></i>
+            </div>
+            <h3 class="font-bold text-amber-400 text-sm">Media Hora</h3>
+            <p class="text-xs text-slate-300">"It's 7:30"<br><strong>It's half past seven.</strong></p>
+          </div>
+
+          <div class="bg-slate-900 text-slate-100 p-5 rounded-2xl border border-slate-800 text-center space-y-3 shadow-md">
+            <div class="w-12 h-12 bg-pink-600/30 text-pink-400 rounded-xl flex items-center justify-center mx-auto text-xl">
+              <i class="fa-solid fa-hourglass-end"></i>
+            </div>
+            <h3 class="font-bold text-pink-400 text-sm">Cuarto Para</h3>
+            <p class="text-xs text-slate-300">"It's 7:45"<br><strong>It's a quarter to eight.</strong></p>
+          </div>
+        </div>
+
+        <!-- Pink Feedback Highlight Box -->
+        <div class="pink-feedback-column p-5 rounded-xl space-y-2">
+          <h4 class="font-bold text-pink-900 text-sm flex items-center gap-2">
+            <i class="fa-solid fa-lightbulb text-pink-600"></i> Tip Pro de Fluidez Americana:
+          </h4>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            En el inglés hablado cotidiano de Estados Unidos, también es totalmente correcto y muy común usar el formato digital directo: <em>"Seven fifteen"</em> (7:15) o <em>"Seven thirty"</em> (7:30). ¡Domina ambos estilos para sonar como un nativo!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 2: ROUTINE GALLERY (VISUAL VERBS) - 12 ITEMS -->
+    <section id="content-mod2" class="tab-content hidden space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-2 flex items-center gap-3">
+          <span class="w-2.5 h-6 bg-blue-600 rounded-full inline-block"></span>
+          Galería Visual de Verbos de Rutina Diaria (Daily Routine Verbs)
+        </h2>
+        <p class="text-slate-600 text-sm mb-6">Haz clic en cualquier tarjeta para escuchar su pronunciación nativa en inglés americano.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Card 1 -->
+          <div onclick="speakText('I wake up at six o clock in the morning.')" class="p-5 border border-slate-200 rounded-2xl bg-slate-50 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between active:scale-95 touch-manipulation">
+            <div>
+              <div class="w-full h-32 bg-blue-50 rounded-xl mb-4 flex items-center justify-center text-blue-600 text-4xl group-hover:scale-105 transition-transform">
+                <i class="fa-solid fa-bed"></i>
+              </div>
+              <span class="text-[10px] font-bold text-blue-600 uppercase tracking-widest block mb-1">06:00 AM</span>
+              <h3 class="font-bold text-slate-900 text-base mb-1">Wake Up</h3>
+              <p class="text-xs text-slate-600 italic">"I wake up at six o'clock."</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-semibold text-blue-600">
+              <span>🔊 Escuchar audio</span>
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div onclick="speakText('I take a shower at six fifteen.')" class="p-5 border border-slate-200 rounded-2xl bg-slate-50 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between active:scale-95 touch-manipulation">
+            <div>
+              <div class="w-full h-32 bg-cyan-50 rounded-xl mb-4 flex items-center justify-center text-cyan-600 text-4xl group-hover:scale-105 transition-transform">
+                <i class="fa-solid fa-shower"></i>
+              </div>
+              <span class="text-[10px] font-bold text-cyan-600 uppercase tracking-widest block mb-1">06:15 AM</span>
+              <h3 class="font-bold text-slate-900 text-base mb-1">Take a Shower</h3>
+              <p class="text-xs text-slate-600 italic">"I take a shower at six-fifteen."</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-semibold text-cyan-600">
+              <span>🔊 Escuchar audio</span>
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div onclick="speakText('I get dressed at six thirty.')" class="p-5 border border-slate-200 rounded-2xl bg-slate-50 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between active:scale-95 touch-manipulation">
+            <div>
+              <div class="w-full h-32 bg-indigo-50 rounded-xl mb-4 flex items-center justify-center text-indigo-600 text-4xl group-hover:scale-105 transition-transform">
+                <i class="fa-solid fa-shirt"></i>
+              </div>
+              <span class="text-[10px] font-bold text-indigo-600 uppercase tracking-widest block mb-1">06:30 AM</span>
+              <h3 class="font-bold text-slate-900 text-base mb-1">Get Dressed</h3>
+              <p class="text-xs text-slate-600 italic">"I get dressed at half past six."</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-semibold text-indigo-600">
+              <span>🔊 Escuchar audio</span>
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div onclick="speakText('I eat breakfast at seven o clock.')" class="p-5 border border-slate-200 rounded-2xl bg-slate-50 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between active:scale-95 touch-manipulation">
+            <div>
+              <div class="w-full h-32 bg-amber-50 rounded-xl mb-4 flex items-center justify-center text-amber-600 text-4xl group-hover:scale-105 transition-transform">
+                <i class="fa-solid fa-mug-hot"></i>
+              </div>
+              <span class="text-[10px] font-bold text-amber-600 uppercase tracking-widest block mb-1">07:00 AM</span>
+              <h3 class="font-bold text-slate-900 text-base mb-1">Eat Breakfast</h3>
+              <p class="text-xs text-slate-600 italic">"I eat breakfast at seven o'clock."</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-semibold text-amber-600">
+              <span>🔊 Escuchar audio</span>
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div onclick="speakText('I drive to work at seven thirty.')" class="p-5 border border-slate-200 rounded-2xl bg-slate-50 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between active:scale-95 touch-manipulation">
+            <div>
+              <div class="w-full h-32 bg-sky-50 rounded-xl mb-4 flex items-center justify-center text-sky-600 text-4xl group-hover:scale-105 transition-transform">
+                <i class="fa-solid fa-car"></i>
+              </div>
+              <span class="text-[10px] font-bold text-sky-600 uppercase tracking-widest block mb-1">07:30 AM</span>
+              <h3 class="font-bold text-slate-900 text-base mb-1">Drive to Work</h3>
+              <p class="text-xs text-slate-600 italic">"I drive to work at seven-thirty."</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-semibold text-sky-600">
+              <span>🔊 Escuchar audio</span>
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div onclick="speakText('I start work at eight thirty.')" class="p-5 border border-slate-200 rounded-2xl bg-slate-50 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between active:scale-95 touch-manipulation">
+            <div>
+              <div class="w-full h-32 bg-emerald-50 rounded-xl mb-4 flex items-center justify-center text-emerald-600 text-4xl group-hover:scale-105 transition-transform">
+                <i class="fa-solid fa-briefcase"></i>
+              </div>
+              <span class="text-[10px] font-bold text-emerald-600 uppercase tracking-widest block mb-1">08:30 AM</span>
+              <h3 class="font-bold text-slate-900 text-base mb-1">Start Work</h3>
+              <p class="text-xs text-slate-600 italic">"I start work at eight-thirty."</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-semibold text-emerald-600">
+              <span>🔊 Escuchar audio</span>
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div onclick="speakText('I have lunch at twelve o clock noon.')" class="p-5 border border-slate-200 rounded-2xl bg-slate-50 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between active:scale-95 touch-manipulation">
+            <div>
+              <div class="w-full h-32 bg-purple-50 rounded-xl mb-4 flex items-center justify-center text-purple-600 text-4xl group-hover:scale-105 transition-transform">
+                <i class="fa-solid fa-utensils"></i>
+              </div>
+              <span class="text-[10px] font-bold text-purple-600 uppercase tracking-widest block mb-1">12:00 PM</span>
+              <h3 class="font-bold text-slate-900 text-base mb-1">Have Lunch</h3>
+              <p class="text-xs text-slate-600 italic">"I have lunch at twelve o'clock."</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-semibold text-purple-600">
+              <span>🔊 Escuchar audio</span>
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div onclick="speakText('I exercise at four o clock in the afternoon.')" class="p-5 border border-slate-200 rounded-2xl bg-slate-50 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between active:scale-95 touch-manipulation">
+            <div>
+              <div class="w-full h-32 bg-teal-50 rounded-xl mb-4 flex items-center justify-center text-teal-600 text-4xl group-hover:scale-105 transition-transform">
+                <i class="fa-solid fa-dumbbell"></i>
+              </div>
+              <span class="text-[10px] font-bold text-teal-600 uppercase tracking-widest block mb-1">04:00 PM</span>
+              <h3 class="font-bold text-slate-900 text-base mb-1">Exercise</h3>
+              <p class="text-xs text-slate-600 italic">"I exercise at four o'clock."</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-semibold text-teal-600">
+              <span>🔊 Escuchar audio</span>
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+          </div>
+
+          <!-- Card 9 -->
+          <div onclick="speakText('I finish work at five o clock in the afternoon.')" class="p-5 border border-slate-200 rounded-2xl bg-slate-50 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between active:scale-95 touch-manipulation">
+            <div>
+              <div class="w-full h-32 bg-rose-50 rounded-xl mb-4 flex items-center justify-center text-rose-600 text-4xl group-hover:scale-105 transition-transform">
+                <i class="fa-solid fa-house-chimney"></i>
+              </div>
+              <span class="text-[10px] font-bold text-rose-600 uppercase tracking-widest block mb-1">05:00 PM</span>
+              <h3 class="font-bold text-slate-900 text-base mb-1">Finish Work</h3>
+              <p class="text-xs text-slate-600 italic">"I finish work at five o'clock."</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-semibold text-rose-600">
+              <span>🔊 Escuchar audio</span>
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+          </div>
+
+          <!-- Card 10 -->
+          <div onclick="speakText('I cook dinner at seven o clock in the evening.')" class="p-5 border border-slate-200 rounded-2xl bg-slate-50 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between active:scale-95 touch-manipulation">
+            <div>
+              <div class="w-full h-32 bg-orange-50 rounded-xl mb-4 flex items-center justify-center text-orange-600 text-4xl group-hover:scale-105 transition-transform">
+                <i class="fa-solid fa-fire-burner"></i>
+              </div>
+              <span class="text-[10px] font-bold text-orange-600 uppercase tracking-widest block mb-1">07:00 PM</span>
+              <h3 class="font-bold text-slate-900 text-base mb-1">Cook Dinner</h3>
+              <p class="text-xs text-slate-600 italic">"I cook dinner at seven o'clock."</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-semibold text-orange-600">
+              <span>🔊 Escuchar audio</span>
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+          </div>
+
+          <!-- Card 11 -->
+          <div onclick="speakText('I read a book at nine o clock at night.')" class="p-5 border border-slate-200 rounded-2xl bg-slate-50 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between active:scale-95 touch-manipulation">
+            <div>
+              <div class="w-full h-32 bg-violet-50 rounded-xl mb-4 flex items-center justify-center text-violet-600 text-4xl group-hover:scale-105 transition-transform">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+              <span class="text-[10px] font-bold text-violet-600 uppercase tracking-widest block mb-1">09:00 PM</span>
+              <h3 class="font-bold text-slate-900 text-base mb-1">Read a Book</h3>
+              <p class="text-xs text-slate-600 italic">"I read a book at nine o'clock."</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-semibold text-violet-600">
+              <span>🔊 Escuchar audio</span>
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+          </div>
+
+          <!-- Card 12 -->
+          <div onclick="speakText('I go to sleep at ten thirty at night.')" class="p-5 border border-slate-200 rounded-2xl bg-slate-50 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between active:scale-95 touch-manipulation">
+            <div>
+              <div class="w-full h-32 bg-indigo-50 rounded-xl mb-4 flex items-center justify-center text-indigo-600 text-4xl group-hover:scale-105 transition-transform">
+                <i class="fa-solid fa-moon"></i>
+              </div>
+              <span class="text-[10px] font-bold text-indigo-600 uppercase tracking-widest block mb-1">10:30 PM</span>
+              <h3 class="font-bold text-slate-900 text-base mb-1">Go to Sleep</h3>
+              <p class="text-xs text-slate-600 italic">"I go to sleep at ten-thirty."</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-semibold text-indigo-600">
+              <span>🔊 Escuchar audio</span>
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 3: PHONICS & SHADOWING -->
+    <section id="content-mod3" class="tab-content hidden space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-3 flex items-center gap-3">
+          <span class="w-2.5 h-6 bg-blue-600 rounded-full inline-block"></span>
+          Shadowing & Phonics Lab (American Accent Training)
+        </h2>
+        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+          Escucha la entonación nativa y entrena tu fluidez repitiendo en voz alta cada oración de rutina diaria.
+        </p>
+
+        <div class="space-y-4">
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+            <div class="flex-1">
+              <span class="text-[10px] font-bold text-blue-600 uppercase tracking-widest block mb-1">1. Wake Up Routine</span>
+              <p class="text-slate-900 font-semibold text-sm sm:text-base leading-snug">"I always wake up at six o'clock and drink hot coffee."</p>
+              <p class="text-slate-500 font-mono text-xs mt-2">/aɪ ˈɔːl.weɪz weɪk ʌp ət sɪks əˈklɑːk ənd drɪŋk hɑːt ˈkɑː.fi/</p>
+            </div>
+            <button onclick="speakText('I always wake up at six o clock and drink hot coffee.')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i> Listen Audio
+            </button>
+          </div>
+
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+            <div class="flex-1">
+              <span class="text-[10px] font-bold text-cyan-600 uppercase tracking-widest block mb-1">2. Shower Routine</span>
+              <p class="text-slate-900 font-semibold text-sm sm:text-base leading-snug">"After waking up, I take a quick shower at six-fifteen."</p>
+              <p class="text-slate-500 font-mono text-xs mt-2">/ˈæf.tɚ ˈweɪ.kɪŋ ʌp | aɪ teɪk ə kwɪk ˈʃaʊ.ɚ ət sɪks ˈfɪfˈtiːn/</p>
+            </div>
+            <button onclick="speakText('After waking up, I take a quick shower at six-fifteen.')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i> Listen Audio
+            </button>
+          </div>
+
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+            <div class="flex-1">
+              <span class="text-[10px] font-bold text-indigo-600 uppercase tracking-widest block mb-1">3. Dressing Routine</span>
+              <p class="text-slate-900 font-semibold text-sm sm:text-base leading-snug">"I get dressed in professional clothes at half past six."</p>
+              <p class="text-slate-500 font-mono text-xs mt-2">/aɪ ɡɛt drɛst ɪn prəˈfɛʃ.ən.əl kloʊðz ət hæf pæst sɪks/</p>
+            </div>
+            <button onclick="speakText('I get dressed in professional clothes at half past six.')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i> Listen Audio
+            </button>
+          </div>
+
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+            <div class="flex-1">
+              <span class="text-[10px] font-bold text-sky-600 uppercase tracking-widest block mb-1">4. Commute Routine</span>
+              <p class="text-slate-900 font-semibold text-sm sm:text-base leading-snug">"I drive to work at seven-thirty to avoid morning traffic."</p>
+              <p class="text-slate-500 font-mono text-xs mt-2">/aɪ draɪv tu wɝːk ət ˈsɛv.ənˈθɝː.ti tu əˈvɔɪd ˈmɔːr.nɪŋ ˈtræf.ɪk/</p>
+            </div>
+            <button onclick="speakText('I drive to work at seven-thirty to avoid morning traffic.')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i> Listen Audio
+            </button>
+          </div>
+
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+            <div class="flex-1">
+              <span class="text-[10px] font-bold text-blue-600 uppercase tracking-widest block mb-1">5. Midday Routine</span>
+              <p class="text-slate-900 font-semibold text-sm sm:text-base leading-snug">"We have a team meeting at half past twelve in the afternoon."</p>
+              <p class="text-slate-500 font-mono text-xs mt-2">/wiː hæv ə tiːm ˈmiː.tɪŋ ət hæf pæst twɛlv ɪn ði ˌæftərˈnuːn/</p>
+            </div>
+            <button onclick="speakText('We have a team meeting at half past twelve in the afternoon.')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i> Listen Audio
+            </button>
+          </div>
+
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+            <div class="flex-1">
+              <span class="text-[10px] font-bold text-teal-600 uppercase tracking-widest block mb-1">6. Afternoon Exercise</span>
+              <p class="text-slate-900 font-semibold text-sm sm:text-base leading-snug">"I exercise at four o'clock to stay healthy and energetic."</p>
+              <p class="text-slate-500 font-mono text-xs mt-2">/aɪ ˈɛk.sɚ.saɪz ət fɔːr əˈklɑːk tu steɪ ˈhɛl.θi ənd ˌɛn.ɚˈdʒɛt.ɪk/</p>
+            </div>
+            <button onclick="speakText('I exercise at four o clock to stay healthy and energetic.')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i> Listen Audio
+            </button>
+          </div>
+
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+            <div class="flex-1">
+              <span class="text-[10px] font-bold text-orange-600 uppercase tracking-widest block mb-1">7. Cooking Routine</span>
+              <p class="text-slate-900 font-semibold text-sm sm:text-base leading-snug">"I cook a healthy dinner at seven o'clock in the evening."</p>
+              <p class="text-slate-500 font-mono text-xs mt-2">/aɪ kʊk ə ˈhɛl.θi ˈdɪn.ɚ ət ˈsɛv.ən əˈklɑːk ɪn ði ˈiː.vən.ɪŋ/</p>
+            </div>
+            <button onclick="speakText('I cook a healthy dinner at seven o clock in the evening.')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i> Listen Audio
+            </button>
+          </div>
+
+          <div class="p-5 sm:p-6 border border-slate-200 rounded-2xl bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+            <div class="flex-1">
+              <span class="text-[10px] font-bold text-violet-600 uppercase tracking-widest block mb-1">8. Night Reading Routine</span>
+              <p class="text-slate-900 font-semibold text-sm sm:text-base leading-snug">"I read a book at nine o'clock to relax before sleep."</p>
+              <p class="text-slate-500 font-mono text-xs mt-2">/aɪ riːd ə bʊk ət naɪn əˈklɑːk tu rɪˈlæks bɪˈfɔːr sliːp/</p>
+            </div>
+            <button onclick="speakText('I read a book at nine o clock to relax before sleep.')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i> Listen Audio
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 4: ORAL AI LAB & QUIZ (12 SCENARIOS) -->
+    <section id="content-mod4" class="tab-content hidden space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+        
+        <!-- Quiz Header / Status -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-200 pb-5 gap-4">
+          <div>
+            <span class="text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-blue-600 block mb-1" id="quiz-progress-text">Question 1 of 12</span>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900 leading-tight">Telling the Time & Routines Oral AI Lab</h2>
+          </div>
+          <div class="bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-bold text-xs sm:text-sm border border-blue-200 w-full sm:w-auto text-center" id="score-badge">
+            Score: 0 / 12
+          </div>
+        </div>
+
+        <!-- Quiz Container Body -->
+        <div id="quiz-card-body" class="space-y-6">
+          <div id="scenario-box" class="bg-slate-100 border-l-4 border-blue-600 p-4 sm:p-5 rounded-r-xl text-xs sm:text-sm text-slate-700 leading-relaxed font-medium"></div>
+          <p id="prompt-box" class="text-slate-900 font-extrabold text-base sm:text-lg leading-snug px-2"></p>
+
+          <!-- Options Grid -->
+          <div id="options-grid" class="flex flex-col gap-3"></div>
+
+          <!-- Explanation Panel -->
+          <div id="explanation-box" class="hidden p-5 rounded-xl bg-blue-50 border border-blue-200 text-blue-900 text-xs sm:text-sm leading-relaxed shadow-inner"></div>
+
+          <!-- SPEECH PRACTICE & VOICE RECORDING SYSTEM PANEL -->
+          <div id="speech-practice-panel" class="bg-slate-900 text-slate-100 rounded-2xl p-5 sm:p-8 border border-slate-800 shadow-2xl space-y-6 mt-8 relative overflow-hidden">
+             <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-blue-900/20 blur-3xl pointer-events-none"></div>
+
+            <div class="flex justify-between items-start border-b border-slate-800 pb-4 relative z-10 gap-4">
+              <div class="flex-1">
+                <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest block mb-1.5">Entrenamiento de Habla Neural (Speech Shadowing)</span>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Escucha la pronunciación nativa y graba tu voz para recibir retroalimentación instantánea:</p>
+              </div>
+              <button onclick="playCurrentAudio()" class="p-3 bg-slate-800 hover:bg-slate-700 text-cyan-400 rounded-xl border border-slate-700 transition active:scale-95 touch-manipulation shadow-md shrink-0" title="Escuchar audio nativo">
+                <i class="fa-solid fa-volume-high text-lg"></i>
+              </button>
+            </div>
+
+            <!-- Target Sentence Display -->
+            <div class="bg-slate-950/80 p-5 rounded-xl border border-slate-800 relative z-10 shadow-inner">
+              <span class="text-[10px] font-bold text-slate-500 uppercase block mb-2 tracking-wider">Frase Objetivo (Target Phrase):</span>
+              <p id="target-phrase-text" class="text-sm sm:text-base font-bold text-cyan-300 italic leading-snug">"Loading target audio..."</p>
+            </div>
+
+            <!-- Mic Controls -->
+            <div class="flex flex-col items-center justify-center py-6 border-t border-b border-slate-800/80 gap-5 relative z-10">
+              <button id="mic-btn" onclick="toggleSpeechRecording()" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center shadow-xl shadow-rose-500/20 transition-all transform active:scale-95 touch-manipulation">
+                <i class="fa-solid fa-microphone text-3xl sm:text-4xl" id="mic-icon"></i>
+              </button>
+              <p class="text-xs sm:text-sm font-semibold text-slate-400 text-center px-4" id="mic-status">Toca el micrófono para grabar tu voz</p>
+            </div>
+
+            <!-- Live Transcript Box -->
+            <div class="space-y-2 relative z-10">
+              <label class="block text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider">Transcripción en Tiempo Real:</label>
+              <div id="transcript-box" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 sm:p-5 min-h-[80px] text-xs sm:text-sm text-slate-300 italic font-mono flex items-center leading-relaxed">
+                Tu grabación transcrita aparecerá aquí en tiempo real...
+              </div>
+            </div>
+
+            <!-- AI Feedback Box -->
+            <div id="feedback-box" class="hidden rounded-xl p-5 sm:p-6 border transition-all space-y-3 shadow-lg relative z-10">
+              <div class="flex items-center justify-between border-b border-slate-700/50 pb-3">
+                <span class="text-xs sm:text-sm font-bold uppercase tracking-wide flex items-center gap-2" id="feedback-title">
+                  <i class="fa-solid fa-chart-pie"></i> Resultado de Pronunciación
+                </span>
+                <span class="text-2xl sm:text-3xl font-extrabold" id="feedback-score">0%</span>
+              </div>
+              <p class="text-xs sm:text-sm font-medium leading-relaxed pt-1" id="feedback-text"></p>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-slate-100">
+            <button onclick="playCurrentAudio()" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all active:scale-95 touch-manipulation">
+              <i class="fa-solid fa-volume-high"></i>
+              <span>Escuchar Audio Nativo</span>
+            </button>
+            <button id="btn-next" onclick="nextQuestion()" class="hidden w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-blue-600/30 active:scale-95 touch-manipulation flex items-center justify-center gap-2">
+              Siguiente Escenario <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MODULE 5: ERROR CLINIC -->
+    <section id="content-mod5" class="tab-content hidden space-y-6">
+      <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+          <span class="w-2.5 h-6 bg-blue-600 rounded-full inline-block"></span>
+          Módulo 5: Tabla Consolidada de Errores Comunes (Error Clinic)
+        </h2>
+
+        <div class="overflow-x-auto rounded-xl border border-slate-200">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse min-w-[600px]">
+            <thead>
+              <tr class="bg-slate-100 border-b border-slate-300 text-slate-700 font-semibold uppercase tracking-wider">
+                <th class="p-4">Error Frecuente (A1/A2)</th>
+                <th class="p-4">Forma Correcta</th>
+                <th class="p-4">Razón Pedagógica</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-4 text-rose-600 font-mono">What time is it? - It's on seven o'clock.</td>
+                <td class="p-4 text-emerald-700 font-mono font-bold">What time is it? - It's seven o'clock.</td>
+                <td class="p-4 text-slate-600 leading-relaxed">Para decir la hora actual se utiliza el pronombre impersonal <em>It's</em>, nunca preposiciones como 'on' o 'in'.</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-4 text-rose-600 font-mono">I wake up in 6:00 AM.</td>
+                <td class="p-4 text-emerald-700 font-mono font-bold">I wake up at 6:00 AM.</td>
+                <td class="p-4 text-slate-600 leading-relaxed">Para horas exactas en el reloj siempre se emplea la preposición <em>at</em>.</td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-4 text-rose-600 font-mono">He wake up early every day.</td>
+                <td class="p-4 text-emerald-700 font-mono font-bold">He wakes up early every day.</td>
+                <td class="p-4 text-slate-600 leading-relaxed">En el presente simple, la tercera persona singular (he, she, it) requiere añadir 's' al verbo principal (wakes).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500 mt-auto">
+    <div class="max-w-5xl mx-auto px-4 space-y-1">
+        <p class="font-medium text-slate-700">© Developed for educational excellence By Coach Carlos O.</p>
+        <p class="text-slate-400">EasyEnglishEducation &bull; Interactive Neuro-Linguistic Curriculum</p>
+    </div>
+  </footer>
+
+  <!-- MESSAGE TOAST -->
+  <div id="toast" class="fixed bottom-6 right-6 left-6 sm:left-auto transform translate-y-24 opacity-0 transition-all duration-300 z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border pointer-events-none bg-slate-900/95 text-slate-100 border-slate-700">
+      <i id="toast-icon" class="fa-solid fa-circle-info text-xl shrink-0 text-blue-400"></i>
+      <span id="toast-msg">Mensaje</span>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    let globalAudioEnabled = true;
+    let ttsInitialized = false;
+
+    function initializeAudioContext() {
+        if (!ttsInitialized && 'speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance('');
+            utterance.volume = 0;
+            window.speechSynthesis.speak(utterance);
+            ttsInitialized = true;
+        }
+    }
+    window.addEventListener('click', initializeAudioContext, { once: true });
+    window.addEventListener('touchstart', initializeAudioContext, { once: true });
+
+    function toggleGlobalAudio() {
+        globalAudioEnabled = !globalAudioEnabled;
+        const icon = document.getElementById('global-tts-icon');
+        const status = document.getElementById('global-tts-status');
+
+        if (globalAudioEnabled) {
+            icon.className = 'fa-solid fa-volume-high text-blue-300 text-lg sm:text-base';
+            status.innerText = 'US Voice On';
+            showToast('Síntesis de voz activada', 'success');
+        } else {
+            icon.className = 'fa-solid fa-volume-xmark text-slate-400 text-lg sm:text-base';
+            status.innerText = 'US Voice Off';
+            showToast('Síntesis de voz desactivada', 'info');
+        }
+    }
+
+    function showToast(message, type = 'info') {
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toast-msg');
+        const toastIcon = document.getElementById('toast-icon');
+
+        toastMsg.innerText = message;
+
+        if (type === 'success') {
+            toast.className = 'fixed bottom-6 right-6 left-6 sm:left-auto z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border bg-emerald-900/95 text-emerald-100 border-emerald-500 transition-all duration-300 opacity-100 translate-y-0';
+            toastIcon.className = 'fa-solid fa-circle-check text-emerald-400 text-xl shrink-0';
+        } else if (type === 'error') {
+            toast.className = 'fixed bottom-6 right-6 left-6 sm:left-auto z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border bg-rose-900/95 text-rose-100 border-rose-500 transition-all duration-300 opacity-100 translate-y-0';
+            toastIcon.className = 'fa-solid fa-triangle-exclamation text-rose-400 text-xl shrink-0';
+        } else {
+            toast.className = 'fixed bottom-6 right-6 left-6 sm:left-auto z-50 px-6 py-4 rounded-xl shadow-2xl font-bold text-sm sm:text-base flex items-center gap-3 border bg-slate-900/95 text-slate-100 border-slate-600 transition-all duration-300 opacity-100 translate-y-0';
+            toastIcon.className = 'fa-solid fa-circle-info text-blue-400 text-xl shrink-0';
+        }
+
+        setTimeout(() => {
+            toast.className = toast.className.replace('opacity-100 translate-y-0', 'opacity-0 translate-y-24 pointer-events-none');
+        }, 3500);
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('border-blue-600', 'text-blue-600');
+        btn.classList.add('border-transparent', 'hover:text-blue-600');
+      });
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('hidden');
+      });
+
+      document.getElementById(`tab-${tabId}`).classList.add('border-blue-600', 'text-blue-600');
+      document.getElementById(`tab-${tabId}`).classList.remove('border-transparent');
+      document.getElementById(`content-${tabId}`).classList.remove('hidden');
+    }
+
+    function speakText(text) {
+      if (!('speechSynthesis' in window) || !globalAudioEnabled) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.9;
+      const voices = window.speechSynthesis.getVoices();
+      const usVoice = voices.find(v => v.lang === 'en-US' || v.lang.includes('en_US'));
+      if (usVoice) utterance.voice = usVoice;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // 12 SCENARIOS: TELLING THE TIME & ROUTINE VERBS
+    const quizData = [
+      {
+        scenario: "Routine Scenario 1: Waking up in the morning (06:00 AM).",
+        prompt: "Choose the correct sentence for 6:00 AM:",
+        options: [
+          { text: "I wake up at six o'clock.", correct: true, explanation: "Correct! Exact hours in the morning use 'at' and 'o'clock'." },
+          { text: "I wake up on six o'clock.", correct: false, explanation: "Incorrect. Hours take 'at', not 'on'." },
+          { text: "I am wake up at six.", correct: false, explanation: "Incorrect verb form ('am wake' is grammatically flawed)." },
+          { text: "I wake up in six o'clock.", correct: false, explanation: "Incorrect preposition." }
+        ],
+        audio: "I wake up at six o'clock."
+      },
+      {
+        scenario: "Routine Scenario 2: Having breakfast (07:15 AM).",
+        prompt: "Choose the correct way to express 7:15:",
+        options: [
+          { text: "I eat breakfast at seven fifteen.", correct: true, explanation: "Correct! Direct digital format is very common in US English." },
+          { text: "I eat breakfast on seven fifteen.", correct: false, explanation: "Incorrect preposition." },
+          { text: "I eating breakfast at quarter past seven.", correct: false, explanation: "Incorrect verb tense ('eating' without auxiliary)." },
+          { text: "I eat breakfast in quarter past seven.", correct: false, explanation: "Incorrect preposition." }
+        ],
+        audio: "I eat breakfast at seven fifteen."
+      },
+      {
+        scenario: "Routine Scenario 3: Starting work (08:30 AM).",
+        prompt: "Choose the correct way to express 8:30:",
+        options: [
+          { text: "I start work at eight-thirty.", correct: true, explanation: "Correct! 'Half past eight' or 'eight-thirty' are both standard." },
+          { text: "I start work on eight thirty.", correct: false, explanation: "Incorrect." },
+          { text: "I starting work at eight thirty.", correct: false, explanation: "Incorrect gerund form." },
+          { text: "I start work in half eight.", correct: false, explanation: "Incorrect structure." }
+        ],
+        audio: "I start work at eight-thirty."
+      },
+      {
+        scenario: "Routine Scenario 4: Having lunch at noon (12:00 PM).",
+        prompt: "Choose the correct sentence for midday:",
+        options: [
+          { text: "I have lunch at twelve o'clock.", correct: true, explanation: "Correct! 'Twelve o'clock' or 'noon' correctly identifies 12:00 PM." },
+          { text: "I have lunch in twelve o'clock.", correct: false, explanation: "Incorrect preposition." },
+          { text: "I has lunch at twelve o'clock.", correct: false, explanation: "Incorrect subject-verb agreement ('I has' should be 'I have')." },
+          { text: "I have lunch on midday.", correct: false, explanation: "Correct is 'at noon'." }
+        ],
+        audio: "I have lunch at twelve o'clock."
+      },
+      {
+        scenario: "Routine Scenario 5: Finishing work in the afternoon (05:00 PM).",
+        prompt: "Choose the correct sentence for 5:00 PM:",
+        options: [
+          { text: "I finish work at five o'clock in the afternoon.", correct: true, explanation: "Correct! 'At five o'clock' combined with 'in the afternoon'." },
+          { text: "I finish work on five o'clock.", correct: false, explanation: "Incorrect." },
+          { text: "I finish work at five in night.", correct: false, explanation: "Incorrect time expression ('in the evening' or 'at night')." },
+          { text: "I finished work at five o'clock morning.", correct: false, explanation: "Contradicts afternoon context." }
+        ],
+        audio: "I finish work at five o'clock in the afternoon."
+      },
+      {
+        scenario: "Routine Scenario 6: Eating dinner in the evening (07:30 PM).",
+        prompt: "Choose the correct way to express 7:30 PM:",
+        options: [
+          { text: "I eat dinner at half past seven.", correct: true, explanation: "Correct! 'Half past seven' is standard for 7:30." },
+          { text: "I eat dinner in half past seven.", correct: false, explanation: "Incorrect." },
+          { text: "I eat dinner on seven thirty PM.", correct: false, explanation: "Incorrect preposition." },
+          { text: "I eating dinner at half seven.", correct: false, explanation: "Grammatically incomplete." }
+        ],
+        audio: "I eat dinner at half past seven."
+      },
+      {
+        scenario: "Routine Scenario 7: Going to sleep at night (10:30 PM).",
+        prompt: "Choose the correct sentence for going to bed at 10:30 PM:",
+        options: [
+          { text: "I go to sleep at ten-thirty at night.", correct: true, explanation: "Correct! 'At ten-thirty' and 'at night' are precisely matched." },
+          { text: "I go to sleep in ten thirty in night.", correct: false, explanation: "Incorrect prepositions." },
+          { text: "I goes to sleep at ten thirty.", correct: false, explanation: "Incorrect agreement ('I goes')." },
+          { text: "I go to sleep on ten thirty.", correct: false, explanation: "Incorrect." }
+        ],
+        audio: "I go to sleep at ten-thirty at night."
+      },
+      {
+        scenario: "Routine Scenario 8: Checking the time in the morning (07:45 AM).",
+        prompt: "Choose the correct way to express 7:45 ('a quarter to eight'):",
+        options: [
+          { text: "It is a quarter to eight.", correct: true, explanation: "Correct! 15 minutes before 8:00 is 'a quarter to eight'." },
+          { text: "It is a quarter past seven.", correct: false, explanation: "That would be 7:15." },
+          { text: "It is forty-five past seven.", correct: false, explanation: "While understandable in digital terms, 'quarter to eight' is more natural." },
+          { text: "It is eight to quarter.", correct: false, explanation: "Incorrect order." }
+        ],
+        audio: "It is a quarter to eight."
+      },
+      {
+        scenario: "Routine Scenario 9: Asking for the time politely.",
+        prompt: "Choose the correct question to ask the time:",
+        options: [
+          { text: "What time is it, please?", correct: true, explanation: "Correct! The standard polite formula to ask the time." },
+          { text: "How time is it now?", correct: false, explanation: "Incorrect interrogative word ('How' should be 'What')." },
+          { text: "Which time is the clock?", correct: false, explanation: "Unnatural expression." },
+          { text: "What hours are in the clock?", correct: false, explanation: "Incorrect." }
+        ],
+        audio: "What time is it, please?"
+      },
+      {
+        scenario: "Routine Scenario 10: Expressing a quarter past an hour (09:15 AM).",
+        prompt: "Choose the correct sentence for 9:15:",
+        options: [
+          { text: "The meeting starts at a quarter past nine.", correct: true, explanation: "Correct! 15 minutes past 9:00 is 'a quarter past nine'." },
+          { text: "The meeting starts at a quarter to nine.", correct: false, explanation: "That would be 8:45." },
+          { text: "The meeting starts in quarter nine.", correct: false, explanation: "Incorrect structure." },
+          { text: "The meeting starts on nine fifteen past.", correct: false, explanation: "Incorrect." }
+        ],
+        audio: "The meeting starts at a quarter past nine."
+      },
+      {
+        scenario: "Routine Scenario 11: Describing a daily schedule in third person.",
+        prompt: "Choose the correct sentence for routine with 'He':",
+        options: [
+          { text: "He wakes up at six o'clock every morning.", correct: true, explanation: "Correct! Third person singular takes 'wakes up'." },
+          { text: "He wake up at six o'clock every morning.", correct: false, explanation: "Incorrect verb form (missing 's')." },
+          { text: "He is wake up at six.", correct: false, explanation: "Incorrect." },
+          { text: "He waking up at six.", correct: false, explanation: "Missing auxiliary." }
+        ],
+        audio: "He wakes up at six o'clock every morning."
+      },
+      {
+        scenario: "Routine Scenario 12: Talking about weekend routines.",
+        prompt: "Choose the correct sentence for weekends:",
+        options: [
+          { text: "I sleep until eight o'clock on weekends.", correct: true, explanation: "Correct! 'On weekends' is the standard American English expression." },
+          { text: "I sleep until eight o'clock in weekends.", correct: false, explanation: "Incorrect preposition ('in weekends' should be 'on weekends')." },
+          { text: "I sleeping until eight on weekend.", correct: false, explanation: "Incorrect." },
+          { text: "I sleep until eight o'clock at weekends.", correct: false, explanation: "British English uses 'at weekends', but US English uses 'on weekends'." }
+        ],
+        audio: "I sleep until eight o'clock on weekends."
+      }
+    ];
+
+    let currentQuestionIdx = 0;
+    let currentScore = 0;
+    let isRecording = false;
+    let recognition = null;
+    let finalTranscript = '';
+
+    function renderQuestion() {
+      const current = quizData[currentQuestionIdx];
+      document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestionIdx + 1} of ${quizData.length}`;
+      document.getElementById('scenario-box').innerText = current.scenario;
+      document.getElementById('prompt-box').innerText = current.prompt;
+      document.getElementById('target-phrase-text').innerText = `"${current.audio}"`;
+
+      const grid = document.getElementById('options-grid');
+      grid.innerHTML = '';
+
+      current.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'opt-btn w-full text-left p-4 sm:p-5 rounded-xl border-2 border-slate-200 hover:border-blue-500 bg-white text-xs sm:text-base text-slate-800 font-medium transition-all focus:outline-none active:scale-[0.98] touch-manipulation leading-snug';
+        btn.innerText = opt.text;
+        btn.onclick = () => selectOption(idx);
+        grid.appendChild(btn);
+      });
+
+      document.getElementById('explanation-box').classList.add('hidden');
+      document.getElementById('btn-next').classList.add('hidden');
+      resetSpeechUI();
+    }
+
+    function selectOption(selectedIdx) {
+      const current = quizData[currentQuestionIdx];
+      const buttons = document.querySelectorAll('.opt-btn');
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        btn.classList.remove('hover:border-blue-500');
+
+        if (current.options[idx].correct) {
+          btn.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-900', 'font-bold');
+        } else if (idx === selectedIdx) {
+          btn.classList.add('bg-rose-50', 'border-rose-500', 'text-rose-900');
+        }
+      });
+
+      const isCorrect = current.options[selectedIdx].correct;
+      if (isCorrect) currentScore++;
+
+      document.getElementById('score-badge').innerText = `Score: ${currentScore} / ${quizData.length}`;
+
+      const expBox = document.getElementById('explanation-box');
+      expBox.innerHTML = `<strong>${isCorrect ? '✓ Correct!' : '✗ Incorrect.'}</strong> ${current.options[selectedIdx].explanation}`;
+      expBox.classList.remove('hidden');
+
+      const nextBtn = document.getElementById('btn-next');
+      if (currentQuestionIdx < quizData.length - 1) {
+        nextBtn.innerHTML = 'Siguiente Escenario <i class="fa-solid fa-arrow-right"></i>';
+      } else {
+        nextBtn.innerText = "View Final Results";
+      }
+      nextBtn.classList.remove('hidden');
+    }
+
+    function nextQuestion() {
+      currentQuestionIdx++;
+      if (currentQuestionIdx < quizData.length) {
+        renderQuestion();
+      } else {
+        showFinalResults();
+      }
+    }
+
+    function showFinalResults() {
+      const cardBody = document.getElementById('quiz-card-body');
+      cardBody.innerHTML = `
+        <div class="text-center py-10 space-y-5">
+          <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-4xl font-bold shadow-inner">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Lección Completada con Éxito</h3>
+          <p class="text-slate-600 text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+            Has completado la lección de Telling the Time & Routines con un puntaje de <strong class="text-blue-600 text-lg">${currentScore} / ${quizData.length}</strong>.
+          </p>
+          <button onclick="resetQuiz()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm sm:text-base py-3.5 px-8 rounded-xl transition-all shadow-lg active:scale-95 touch-manipulation">
+            Reiniciar Lección
+          </button>
+        </div>
+      `;
+    }
+
+    function resetQuiz() {
+      currentQuestionIdx = 0;
+      currentScore = 0;
+      document.getElementById('score-badge').innerText = `Score: 0 / ${quizData.length}`;
+      location.reload();
+    }
+
+    function playCurrentAudio() {
+      speakText(quizData[currentQuestionIdx].audio);
+    }
+
+    // ================= WEB SPEECH API & RECOGNITION SYSTEM (FIXED) =================
+    function setupSpeechRecognition() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        document.getElementById('mic-status').innerText = "Tu navegador no soporta Reconocimiento de Voz nativo (se recomienda Chrome/Edge).";
+        document.getElementById('mic-btn').disabled = true;
+        return;
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.continuous = false; // Prevents continuous loop errors on mobile
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+
+      recognition.onstart = () => {
+        isRecording = true;
+        finalTranscript = '';
+        document.getElementById('transcript-box').innerHTML = "<span class='text-cyan-400'>Escuchando... habla de forma natural.</span>";
+        
+        const micBtn = document.getElementById('mic-btn');
+        micBtn.className = "w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-rose-600 to-rose-400 text-white flex items-center justify-center shadow-xl shadow-rose-500/30 transition-all transform pulse-mic active:scale-95 touch-manipulation";
+        document.getElementById('mic-icon').className = "fa-solid fa-stop text-3xl";
+        document.getElementById('mic-status').innerText = "Grabando... Toca el botón para detener y evaluar.";
+        
+        document.getElementById('feedback-box').classList.add('hidden');
+      };
+
+      recognition.onresult = (event) => {
+        if (event.results.length === 0) return;
+        
+        let currentInterim = '';
+        let currentFinal = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            currentFinal += event.results[i][0].transcript;
+          } else {
+            currentInterim += event.results[i][0].transcript;
+          }
+        }
+        
+        if (currentFinal) {
+          finalTranscript += currentFinal + ' ';
+        }
+        
+        let displayString = (finalTranscript + currentInterim).trim();
+        
+        document.getElementById('transcript-box').innerHTML = displayString ? `<span class="text-white">"${displayString}"</span>` : "<span class='text-cyan-400'>Escuchando...</span>";
+        
+        if (displayString) {
+          evaluateSpeech(displayString);
+        }
+      };
+
+      recognition.onerror = (event) => {
+        console.error("Speech Recognition Error:", event.error);
+        if(event.error === 'no-speech'){
+          document.getElementById('mic-status').innerText = "No se detectó voz. Intenta de nuevo.";
+        } else if(event.error === 'not-allowed') {
+          document.getElementById('mic-status').innerText = "Permiso de micrófono denegado. Permite el acceso en tu navegador.";
+        }
+        stopRecordingUI();
+      };
+
+      recognition.onend = () => {
+        isRecording = false;
+        stopRecordingUI();
+      };
+    }
+
+    function toggleSpeechRecording() {
+      if (!recognition) return;
+      if (isRecording) {
+        stopRecording();
+      } else {
+        try { 
+          recognition.start(); 
+        } catch (e) { 
+          stopRecordingUI(); 
+        }
+      }
+    }
+
+    function stopRecording() {
+      isRecording = false;
+      try { 
+        recognition.stop(); 
+      } catch (e) {}
+      stopRecordingUI();
+    }
+    
+    function stopRecordingUI(){
+      isRecording = false;
+      const micBtn = document.getElementById('mic-btn');
+      micBtn.className = "w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center shadow-lg transition-all transform active:scale-95 touch-manipulation";
+      document.getElementById('mic-icon').className = "fa-solid fa-microphone text-3xl sm:text-4xl";
+      
+      const transcript = document.getElementById('transcript-box').innerText.replace(/"/g, '');
+      if(!transcript || transcript.includes('Escuchando...') || transcript.includes('Tu grabación transcrita')){
+          document.getElementById('mic-status').innerText = "Toca el micrófono para grabar tu voz";
+      } else {
+          document.getElementById('mic-status').innerText = "Grabación evaluada con éxito. Toca para intentar de nuevo.";
+          const scoreText = document.getElementById('feedback-score').innerText;
+          const scoreVal = parseInt(scoreText.replace('%', ''));
+          if (!isNaN(scoreVal) && scoreVal >= 75 && typeof confetti === 'function') {
+              confetti({ particleCount: 50, spread: 60, origin: { y: 0.8 } });
+          }
+      }
+    }
+
+    function resetSpeechUI() {
+      if (isRecording) stopRecording();
+      document.getElementById('transcript-box').innerHTML = "<span class='text-slate-500'>Tu grabación transcrita aparecerá aquí en tiempo real...</span>";
+      document.getElementById('feedback-box').classList.add('hidden');
+    }
+
+    /* FUZZY MATCHING EVALUATION ALGORITHM (Medium Strictness) */
+    function evaluateSpeech(userTranscript) {
+      if (!userTranscript || userTranscript.trim() === '') return;
+      
+      const target = quizData[currentQuestionIdx].audio;
+      const cleanTarget = target.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+      const cleanSpoken = userTranscript.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+
+      const numMap = {'1':'one','2':'two','3':'three','4':'four','5':'five','6':'six','7':'seven','8':'eight','9':'nine','10':'ten','11':'eleven','12':'twelve','pm':'p.m.','am':'a.m.','first':'1st'};
+      
+      let targetWords = cleanTarget.split(/\s+/).map(w => numMap[w] || w);
+      let spokenWords = cleanSpoken.split(/\s+/).map(w => numMap[w] || w);
+
+      let matchedCount = 0;
+      
+      targetWords.forEach(tWord => {
+          let matchIndex = spokenWords.findIndex(sWord => {
+              if (sWord === tWord) return true;
+              if (Math.abs(sWord.length - tWord.length) > 2) return false;
+              
+              let m = [], i, j;
+              for(i=0; i<=sWord.length; i++) m[i] = [i];
+              for(j=0; j<=tWord.length; j++) m[0][j] = j;
+              for(i=1; i<=sWord.length; i++) {
+                  for(j=1; j<=tWord.length; j++) {
+                      m[i][j] = sWord.charAt(i-1) === tWord.charAt(j-1) ? 
+                          m[i-1][j-1] : 
+                          Math.min(m[i-1][j-1]+1, m[i][j-1]+1, m[i-1][j]+1);
+                  }
+              }
+              let dist = m[sWord.length][tWord.length];
+              
+              // Allow 1 typo for short words, 2 typos for longer words
+              return (tWord.length <= 4 && dist <= 1) || (tWord.length > 4 && dist <= 2);
+          });
+          
+          if (matchIndex !== -1) {
+              matchedCount++;
+              spokenWords.splice(matchIndex, 1);
+          }
+      });
+
+      let score = Math.round((matchedCount / targetWords.length) * 100);
+      if (cleanSpoken === cleanTarget) score = 100;
+      if (score > 100) score = 100;
+      
+      // Score flooring for motivation
+      if (cleanSpoken.includes(cleanTarget) || cleanTarget.includes(cleanSpoken)) score = Math.max(score, 80);
+      if (score < 40 && cleanSpoken.length > 5) score = 60; 
+
+      const feedbackBox = document.getElementById('feedback-box');
+      const feedbackTitle = document.getElementById('feedback-title');
+      const feedbackScore = document.getElementById('feedback-score');
+      const feedbackText = document.getElementById('feedback-text');
+
+      feedbackBox.classList.remove('hidden', 'bg-emerald-950/80', 'border-emerald-500', 'bg-amber-950/80', 'border-amber-500', 'bg-rose-950/80', 'border-rose-500');
+
+      feedbackScore.innerText = `${score}%`;
+
+      if (score >= 75) {
+        feedbackBox.classList.add('bg-emerald-950/80', 'border-emerald-500');
+        feedbackTitle.className = "text-xs sm:text-sm font-bold uppercase tracking-wide flex items-center gap-1.5 text-emerald-400";
+        feedbackText.className = "text-xs sm:text-sm text-emerald-100 font-medium";
+        feedbackText.innerHTML = "<strong>¡Excelente pronunciación!</strong> Dominas el vocabulario de rutinas y horas con fluidez.";
+      } else if (score >= 45) {
+        feedbackBox.classList.add('bg-amber-950/80', 'border-amber-500');
+        feedbackTitle.className = "text-xs sm:text-sm font-bold uppercase tracking-wide flex items-center gap-1.5 text-amber-400";
+        feedbackText.className = "text-xs sm:text-sm text-amber-100 font-medium";
+        feedbackText.innerHTML = "<strong>¡Buen intento!</strong> Tu voz se escucha clara. Revisa las preposiciones exactas o números.";
+      } else {
+        feedbackBox.classList.add('bg-rose-950/80', 'border-rose-500');
+        feedbackTitle.className = "text-xs sm:text-sm font-bold uppercase tracking-wide flex items-center gap-1.5 text-rose-400";
+        feedbackText.className = "text-xs sm:text-sm text-rose-100 font-medium";
+        feedbackText.innerHTML = "<strong>Continúa practicando.</strong> Escucha el audio nativo de referencia e intenta de nuevo.";
+      }
+    }
+  </script>
+</body>
+</html>
